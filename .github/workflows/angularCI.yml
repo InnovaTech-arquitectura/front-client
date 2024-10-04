@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -32,12 +31,12 @@ jobs:
 
     - name: Build
       run: npm run build
-      
+
   merge:
     needs: build  # Solo si pasa el trabajo 'build'
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'development'
-    
+    if: success() && github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'development'
+
     steps:
     - name: Merge pull request
       run: |
@@ -46,3 +45,17 @@ jobs:
           -H "Content-Type: application/json" \
           -d '{"commit_title": "Automated merge from CI", "merge_method": "merge"}' \
           "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/merge"
+
+  reject:
+    needs: build  # Depende de 'build', solo si falla
+    runs-on: ubuntu-latest
+    if: failure() && github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'development'
+    
+    steps:
+    - name: Close pull request on failure
+      run: |
+        curl -s -X PATCH \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"state": "closed"}' \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}"
