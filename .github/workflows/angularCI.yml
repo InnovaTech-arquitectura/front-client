@@ -1,0 +1,48 @@
+name: ANGULAR CI
+
+on:
+  push:
+    branches: [ "main", "development" ]
+  pull_request:
+    branches: [ "main", "development" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+
+    - run: npm ci
+
+    - name: Run tests
+      run: npm run test:ci
+
+    - name: Build
+      run: npm run build
+      
+  merge:
+    needs: build  # Solo si pasa el trabajo 'build'
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'development'
+    
+    steps:
+    - name: Merge pull request
+      run: |
+        curl -s -X PUT \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"commit_title": "Automated merge from CI", "merge_method": "merge"}' \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/merge"
