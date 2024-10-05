@@ -29,4 +29,11 @@ export class InicioSesionComponent {
       }
     );
   }  
+  goToForgotPassword() {
+    this.router.navigate(['recuperar-password/recuperar']).catch(err => {
+      console.error('Navigation error:', err);
+    });
+  }
+ 
+  
 }

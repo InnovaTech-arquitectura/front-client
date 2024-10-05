@@ -1,1 +1,16 @@
-<p>recuperar works!</p>
+<div class="password-recovery-container">
+    <img src="assets/madein-logo.png" alt="Made In Logo" class="logo">
+
+    <div class="password-recovery-card">
+        <h1>Recover Password</h1>
+        <p>Enter the email address associated with your Made In account.</p>
+
+        <form>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <div class="addBtn-container">
+                <a [routerLink]="'/recuperar-password/verificacion'">Continue</a>
+            </div>
+        </form>
+    </div>
+</div>

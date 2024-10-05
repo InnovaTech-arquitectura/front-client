@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./recuperar.component.css']
 })
 export class RecuperarComponent {
-
+  // Add any necessary logic or methods here
 }

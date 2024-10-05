@@ -65,7 +65,18 @@
     color: #666;
     text-decoration: none;
   }
-  
+  .forgot-password-link {
+    font-weight: bold; /* Make the text bold */
+    text-decoration: underline; /* Underline the text */
+    color: #007bff; /* Change the color to a nice blue */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.forgot-password-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
   h2{
     text-align: center;
     margin-bottom: 20px;

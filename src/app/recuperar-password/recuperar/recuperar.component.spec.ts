@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { RecuperarComponent } from './recuperar.component';
 
 describe('RecuperarComponent', () => {
@@ -8,7 +9,9 @@ describe('RecuperarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RecuperarComponent]
+      declarations: [RecuperarComponent],
+      imports: [RouterModule.forRoot([])],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
     fixture = TestBed.createComponent(RecuperarComponent);
     component = fixture.componentInstance;
