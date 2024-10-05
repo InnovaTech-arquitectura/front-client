@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,18 +9,20 @@ import { trigger, transition, style, animate } from '@angular/animations';
   animations: [
     trigger('bannerAnimation', [
       transition(':enter', [
-        style({ opacity: 0 }), // Start from the right
-        animate('500ms ease-out', style({ opacity: 1, transform: 'translateX(100)' })) // Slide in to the original position
+        style({ opacity: 0 }), // Initial state
+        animate('300ms', style({ opacity: 1 })) // Animation to the final state
       ]),
       transition(':leave', [
-        style({ opacity: 1 }),
-        animate('500ms ease-out', style({ opacity: 0, transform: 'translateX(-100%)' })) // Slide out to the left
+        animate('300ms', style({ opacity: 0 })) // Animation for leaving
       ])
     ])
   ]
 })
+
 export class LandingPageComponent {
   isLoggedIn = false;
+
+  constructor(private router: Router) {}
 
   categories = [
     { name: 'Moda', description: 'Los productos de ropa son prendas diseñadas para vestir y expresar estilo personal. Incluyen una variedad de artículos, como camisetas, pantalones, vestidos y accesorios, que combinan funcionalidad y estética, reflejando tendencias culturales y de moda.', image: 'assets/moda.png' },
@@ -68,7 +71,11 @@ export class LandingPageComponent {
 
   login() {
     console.log('Login');
+    this.router.navigate(['/inicio-sesion']).catch(err => {
+      console.error('Navigation error:', err);
+    });
   }
+  
 
   logout() {
     console.log('Logout');
