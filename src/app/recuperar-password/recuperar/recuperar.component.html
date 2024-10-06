@@ -8,10 +8,10 @@
         <form (ngSubmit)="onSubmit()">
             <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email" required>
             <div class="addBtn-container">
-                <button type="submit">Continue</button> <!-- Cambia el enlace por un botón -->
+                <button type="submit" class="submit-button">Continue</button>
             </div>
         </form>
 
-        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> <!-- Mostrar mensaje de error -->
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </div>
 </div>
