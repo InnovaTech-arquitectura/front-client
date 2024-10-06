@@ -24,4 +24,24 @@ export class AuthService {
       })
     );
   }
+
+  // Método para registro de usuario
+  register(name: string, documentNumber: string, email: string, password: string, userType: string): Observable<string> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = JSON.stringify({
+      name,
+      documentNumber,
+      email,
+      password,
+      userType
+    });
+
+    // Llama a la API de registro con los datos
+    return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud:', error);
+        return throwError(error);
+      })
+    );
+  }
 }
