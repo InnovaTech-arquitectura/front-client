@@ -43,10 +43,9 @@ span {
 }
 
 .opciones li {
-    margin-top: 10px;
     list-style: none;
     height: 24px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     display: flex;
 }
 

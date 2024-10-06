@@ -10,8 +10,11 @@ export class HeaderComponent {
   constructor(private router: Router) {}
 
   logout() {
+    // Elimina el token del almacenamiento local
     localStorage.removeItem('token');
+    // Redirige al usuario a la página de inicio de sesión
     this.router.navigate(['/login']);
+    localStorage.clear();
   }
 
   profile() {
