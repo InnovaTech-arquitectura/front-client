@@ -6,60 +6,53 @@
     <div class="opciones">
         <ul>
             <li>
-                <a class="elementos" [routerLink]="'/dashboard'" id="linkDashboard">
+                <a class="elementos" [routerLink]="'/dashboard'" id="linkDashboard" aria-label="Dashboard">
                     <i class="bx bxs-dashboard"></i>
                     <span class="nav-item">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/emprendimientos'" id="linkEmprendimientos">
+                <a class="elementos" [routerLink]="'/inventario'" id="linkInventario" aria-label="Inventario">
                     <i class="bx bxs-store-alt"></i>
-                    <span class="nav-item">Emprendimientos</span>
+                    <span class="nav-item">Inventario</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/planes'" id="linkPlanes">
+                <a class="elementos" [routerLink]="'/pedidos'" id="linkPedidos" aria-label="Pedidos">
                     <i class="bx bx-news"></i>
-                    <span class="nav-item">Planes</span>
+                    <span class="nav-item">Pedidos</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/finanzas'" id="linkFinanzas">
+                <a class="elementos" [routerLink]="'/ventas'" id="linkVentas" aria-label="Ventas">
                     <i class='bx bx-dollar'></i>
-                    <span class="nav-item">Finanzas</span>
+                    <span class="nav-item">Ventas</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/bazares'" id="linkBazares">
+                <a class="elementos" [routerLink]="'/bazares'" id="linkBazares" aria-label="Bazares">
                     <i class='bx bxs-shopping-bags'></i>
                     <span class="nav-item">Bazares</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/publicidad'" id="linkPublicidad">
+                <a class="elementos" [routerLink]="'/capacitaciones'" id="linkCapacitaciones" aria-label="Potencia tu Marca">
                     <i class='bx bxl-instagram'></i>
-                    <span class="nav-item">Publicidad</span>
+                    <span class="nav-item">Potencia tu Marca</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/perfiles'" id="linkPerfiles">
+                <a class="elementos" [routerLink]="'/plan'" id="linkPlan" aria-label="Mejora tu Plan">
                     <i class='bx bx-user'></i>
-                    <span class="nav-item">Perfiles</span>
+                    <span class="nav-item">Mejora tu Plan</span>
                 </a>
             </li>
             <li>
-                <a class="elementos" [routerLink]="'/capacitaciones'" id="linkCapacitaciones">
-                    <i class='bx bxs-videos' ></i>
-                    <span class="nav-item">Capacitaciones</span>
-                </a>
-            </li>
-            <li>
-                <a class="elementos" id="linkSoporte">
-                    <i class='bx bx-support' ></i>
+                <a class="elementos" [routerLink]="'/soporte'" id="linkSoporte" aria-label="Soporte">
+                    <i class='bx bxs-help-circle'></i>
                     <span class="nav-item">Soporte</span>
                 </a>
             </li>
         </ul>
     </div>
-
 </body>

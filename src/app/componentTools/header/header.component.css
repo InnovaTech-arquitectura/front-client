@@ -29,6 +29,35 @@ body {
     margin-right: 20px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+}
+.btnProfile {
+    height: 32px;
+    width: 50px;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btnProfile:hover {
+    box-shadow: 0 3.2px 12.8px black;
+    transition: all 0.2s ease;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .btnLogout {
     height: 32px;
     width: 160px;
