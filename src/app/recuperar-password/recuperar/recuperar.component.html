@@ -5,12 +5,13 @@
         <h1>Recover Password</h1>
         <p>Enter the email address associated with your Made In account.</p>
 
-        <form>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-
+        <form (ngSubmit)="onSubmit()">
+            <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email" required>
             <div class="addBtn-container">
-                <a [routerLink]="'/recuperar-password/verificacion'">Continue</a>
+                <button type="submit">Continue</button> <!-- Cambia el enlace por un botón -->
             </div>
         </form>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> <!-- Mostrar mensaje de error -->
     </div>
 </div>
