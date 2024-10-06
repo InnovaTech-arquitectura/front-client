@@ -12,6 +12,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { BarChartComponent } from './componentTools/bar-chart/bar-chart.component';
 import { LineChartComponent } from './componentTools/line-chart/line-chart.component';
 import { PieChartComponent } from './componentTools/pie-chart/pie-chart.component';
+import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
+import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PieChartComponent } from './componentTools/pie-chart/pie-chart.componen
     RegistroComponent,
     BarChartComponent,
     LineChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    VerBazaresComponent,
+    DetallesBazarComponent
   ],
   imports: [
     BrowserModule,
