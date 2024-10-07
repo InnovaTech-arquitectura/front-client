@@ -12,6 +12,7 @@ import { BuyServicesComponent } from './shopping/buy-services/buy-services.compo
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
+import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'servicios/:id', component: InfoServiceComponent },
   { path: 'reservas', component: ListReservationComponent},
   { path: 'datos', component: PersonalInformationComponent},
+  { path: 'planes', component: RedeemPlanComponent},
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 

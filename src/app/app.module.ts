@@ -23,6 +23,7 @@ import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-
 import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
+import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PersonalInformationComponent } from './profile/personal-information/per
     SidebarClientComponent,
     HeaderClientComponent,
     ListReservationComponent,
-    PersonalInformationComponent
+    PersonalInformationComponent,
+    RedeemPlanComponent
   ],
   imports: [
     BrowserModule,
