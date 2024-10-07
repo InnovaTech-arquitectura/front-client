@@ -21,7 +21,7 @@ FROM nginx:alpine
 RUN mkdir -p /var/run
 
 # Copiar archivos generados al contenedor de Nginx
-COPY --from=build /usr/src/app/dist/front-admin /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/front-client /usr/share/nginx/html
 
 # Copiar la configuración de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
