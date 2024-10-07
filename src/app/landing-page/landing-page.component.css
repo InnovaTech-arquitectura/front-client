@@ -14,6 +14,23 @@
 .logo img {
     height: 50px; /* Adjust based on your logo size */
 }
+.button-group {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+}
+
+.button-group button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    padding: 10px 20px; /* Optional: Adds padding for a better click area */
+}
+
+.button-group button:hover {
+    color: #666; /* Optional hover effect */
+}
 
 /* Common button style */
 .button {
