@@ -11,11 +11,31 @@ import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/
 import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
 
+import { VerProductosServiciosComponent } from './inventario/ver-productos-servicios/ver-productos-servicios.component';
+import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
+import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
+import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
+import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
+
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'bazares', component: VerBazaresComponent },
   { path: 'bazares/:id', component: DetallesBazarComponent },
+
+  { path: 'inventario', component: VerProductosServiciosComponent },
+  { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
+  { path: 'inventario/editarProducto', component: EditarProductoComponent },
+  { path: 'inventario/infoProducto', component: InfoProductoComponent},
+  { path: 'inventario/infoSupplier', component: InfoSupplierComponent},
+
+  { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
+  { path: 'inventario/editarServicio', component: EditarServicioComponent },
+  { path: 'inventario/infoServicio', component: InfoServicioComponent},
+  
   { path: 'bazares-cliente', component: VerBazaresClienteComponent},
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent},
   { path: 'pagos', component: PagosComponent },

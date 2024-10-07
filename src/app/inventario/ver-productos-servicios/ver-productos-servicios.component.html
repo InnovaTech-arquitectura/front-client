@@ -1,0 +1,126 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+  <app-sidebar class="sidebar"></app-sidebar>
+
+  <section class="contenido">
+    
+    <div class="titulo">
+      <h1>Inventario</h1>
+    </div>
+
+    <div class="products-container">
+        <div class="container-title">
+            <h2> Productos</h2> 
+            <a class="links add" [routerLink]="'/inventario/nuevoProducto'">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+        </div>
+        <div class="table-container">
+          <table id="myTable" class="tablita">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre Producto</th>
+                <th>Unidades (En Stock)</th>
+                <th>Valor</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Air Jordan 1 Mid</td>
+                <td>30</td>
+                <td>140</td>
+                <td>
+                  <a class="links delete"	>
+                    <i class="bx bx-trash"></i>
+                  </a>
+                  <a class="links edit" [routerLink]="'/inventario/editarProducto'">
+                    <i class="bx bx-edit"></i>
+                  </a>
+                  <a class="links informa" [routerLink]="'/inventario/infoProducto'"  >
+                    <i class="bx bx-info-circle"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Air Jordan 1 High</td>
+                <td>16</td>
+                <td>200</td>
+                <td>
+                    <a class="links delete" 	>
+                      <i class="bx bx-trash"></i>
+                    </a>
+                    <a class="links edit"  [routerLink]="'/inventario/editarProducto'"	>
+                      <i class="bx bx-edit"></i>
+                    </a>
+                    <a class="links informa" [routerLink]="'/inventario/infoProducto'"	>
+                      <i class="bx bx-info-circle"></i>
+                    </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+    <div class="services-container">
+        <div class="container-title">
+            <h2> Servicios </h2> 
+            <a class="links add" [routerLink]="'/inventario/nuevoServicio'">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+        </div>
+        <div class="table-container">
+          <table id="myTable" class="tablita">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre Servicio</th>
+                <th>Valor</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Tutorías de matemáticas </td>
+                <td>80</td>
+                <td>
+                  <a class="links delete" 	>
+                    <i class="bx bx-trash"></i>
+                  </a>
+                  <a class="links edit"  [routerLink]="'/inventario/editarServicio'"	>
+                    <i class="bx bx-edit"></i>
+                  </a>
+                  <a class="links informa" [routerLink]="'/inventario/infoServicio'"	>
+                    <i class="bx bx-info-circle"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Tutorías de fisica</td>
+                <td>90</td>
+                <td>
+                    <a class="links delete" 	>
+                      <i class="bx bx-trash"></i>
+                    </a>
+                    <a class="links edit" [routerLink]="'/inventario/editarServicio'"	>
+                      <i class="bx bx-edit"></i>
+                    </a>
+                    <a class="links informa" [routerLink]="'/inventario/infoServicio'"	>
+                      <i class="bx bx-info-circle"></i>
+                    </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    
+  </section>
+</body>

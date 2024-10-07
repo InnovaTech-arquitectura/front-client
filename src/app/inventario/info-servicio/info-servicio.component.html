@@ -1,0 +1,41 @@
+<p>info-producto works!</p>
+<app-header class="headerPage"></app-header>
+
+<body>
+	<app-sidebar class="sidebar"></app-sidebar>
+
+	<section class="contenido">
+		<div class="titulo">
+			<h1>Información del Servicio</h1>
+		</div>
+
+		<div class="info-product">
+			<div class="info-product-container">
+				<div class="image-placeholder">
+					<img src="https://via.placeholder.com/300x300" alt="Image Placeholder" />
+				</div>
+				<div class="product-info">
+					<div class="info-group">
+						<strong>Nombre:</strong>
+						<p>Tutoría de Matemáticas</p>
+					</div>
+					<div class="info-group">
+						<strong>Precio:</strong>
+						<p>$80</p>
+					</div>
+                    <div class="info-group">
+                        <strong>Descripción:</strong>
+                        <p>
+                            Mejora tus habilidades en matemáticas con nuestras tutorías personalizadas. Desde aritmética hasta cálculo avanzado, ofrecemos apoyo adaptado a tu nivel para que entiendas y domines los conceptos. ¡Aprende a tu ritmo y alcanza tus metas académicas!
+                        </p>
+                    </div>
+                        <a [routerLink]="['/inventario']">
+                            <button class="btn-back">Volver</button>
+                        </a>
+				</div>
+			</div>
+		</div>
+
+		
+	</section>
+</body>

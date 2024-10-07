@@ -1,0 +1,89 @@
+<p>info-producto works!</p>
+<app-header class="headerPage"></app-header>
+
+<body>
+	<app-sidebar class="sidebar"></app-sidebar>
+
+	<section class="contenido">
+		<div class="titulo">
+			<h1>Información del Producto</h1>
+		</div>
+
+		<div class="info-product">
+			<div class="info-product-container">
+				<div class="image-placeholder">
+					<img src="https://via.placeholder.com/300x300" alt="Image Placeholder" />
+				</div>
+				<div class="product-info">
+					<div class="info-group">
+						<strong>Nombre:</strong>
+						<p>Air Jordan 1 Mid</p>
+					</div>
+					<div class="info-group">
+						<strong>Precio:</strong>
+						<p>$140</p>
+					</div>
+					<div class="info-group">
+						<strong>Stock Disponible:</strong>
+						<p>30 unidades</p>
+					</div>
+
+                    <div class="info-group">
+                        <strong>Descripción:</strong>
+                        <p>
+                            Inspirada en las AJ1 originales, esta edición de perfil medio mantiene el look icné que más
+                            te gusta, y los colores elegidos y la piel impecable aportan una identidad distintiva.
+                        </p>
+                    </div>
+				</div>
+			</div>
+
+            <div class="form-buttons">
+                <a [routerLink]="'/inventario'">
+                    <button class="btn-back">Volver</button>
+                </a>
+            </div>
+		</div>
+
+		<div class="table-container">
+			<table id="myTable" class="tablita">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre Proveedor</th>
+						<th>Contacto</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Sebastian Vettel</td>
+						<td>5555555555</td>
+						<td>
+							<a class="links delete">
+								<i class="bx bx-trash"></i>
+							</a>
+							<a class="links informa" [routerLink]="'/inventario/infoSupplier'">
+								<i class="bx bx-info-circle"></i>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Fernando Alonso</td>
+						<td>3333333333</td>
+						<td>
+							<a class="links delete">
+								<i class="bx bx-trash"></i>
+							</a>
+							<a class="links informa" [routerLink]="'/inventario/infoSupplier'">
+								<i class="bx bx-info-circle"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>

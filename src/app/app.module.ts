@@ -14,6 +14,16 @@ import { LineChartComponent } from './componentTools/line-chart/line-chart.compo
 import { PieChartComponent } from './componentTools/pie-chart/pie-chart.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
+
+import { VerProductosServiciosComponent } from './inventario/ver-productos-servicios/ver-productos-servicios.component';
+import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
+import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
+import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
+import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
+
 import { PagosComponent } from './pagos/pagos.component';
 import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
@@ -34,13 +44,24 @@ import { HeaderClientComponent } from './componentTools/header-client/header-cli
     PieChartComponent,
     VerBazaresComponent,
     DetallesBazarComponent,
+    
+    VerProductosServiciosComponent,
+    NuevoProductoComponent,
+    EditarProductoComponent,
+    InfoProductoComponent,
+    InfoSupplierComponent,
+    DetallesBazarComponent,
+    NuevoServicioComponent,
+    EditarServicioComponent,
+    InfoServicioComponent,
+
     PagosComponent,
     VerBazaresClienteComponent,
     DetallesBazarClienteComponent,
     BuyServicesComponent,
     InfoServiceComponent,
     SidebarClientComponent,
-    HeaderClientComponent
+    HeaderClientComponent,
   ],
   imports: [
     BrowserModule,
