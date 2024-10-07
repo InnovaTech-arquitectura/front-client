@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarClientComponent } from './sidebar-client.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { PersonalInformationComponent } from './personal-information.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('SidebarClientComponent', () => {
-  let component: SidebarClientComponent;
-  let fixture: ComponentFixture<SidebarClientComponent>;
+describe('PersonalInformationComponent', () => {
+  let component: PersonalInformationComponent;
+  let fixture: ComponentFixture<PersonalInformationComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarClientComponent],
+      declarations: [PersonalInformationComponent],
       imports: [RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
-    fixture = TestBed.createComponent(SidebarClientComponent);
+    fixture = TestBed.createComponent(PersonalInformationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

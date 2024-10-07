@@ -21,6 +21,9 @@ import { BuyServicesComponent } from './shopping/buy-services/buy-services.compo
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
 import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-client.component';
 import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
+import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
+import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
+import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { HeaderClientComponent } from './componentTools/header-client/header-cli
     BuyServicesComponent,
     InfoServiceComponent,
     SidebarClientComponent,
-    HeaderClientComponent
+    HeaderClientComponent,
+    ListReservationComponent,
+    PersonalInformationComponent,
+    RedeemPlanComponent
   ],
   imports: [
     BrowserModule,
