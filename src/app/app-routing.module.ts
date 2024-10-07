@@ -10,6 +10,7 @@ import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-ba
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
 import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
+import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'pagos', component: PagosComponent },
   { path: 'servicios', component: BuyServicesComponent },
   { path: 'servicios/:id', component: InfoServiceComponent },
+  { path: 'reservas', component: ListReservationComponent},
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 

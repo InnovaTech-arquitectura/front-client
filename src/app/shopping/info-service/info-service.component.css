@@ -24,11 +24,10 @@ body {
 	position: fixed;
 	top: 100px;
 	left: 0;
-	width: 280px;
 }
 
 .contenido {
-	margin-left: 280px;
+	margin-left: 224px;
 	padding: 20px;
 }
 
