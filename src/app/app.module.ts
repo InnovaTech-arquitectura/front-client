@@ -28,6 +28,14 @@ import { VerificacionComponent } from './recuperar-password/verificacion/verific
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
 import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
+import { ListCoursesComponent } from './course/list-courses/list-courses.component';
+import { InfoCourseComponent } from './course/info-course/info-course.component';
+import { ListSalesComponent } from './sales/list-sales/list-sales.component';
+import { CreateSaleComponent } from './sales/create-sale/create-sale.component';
+import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
+import { ListOrdersClientComponent } from './orders/list-orders-client/list-orders-client.component';
+import { InfoOrderClientComponent } from './orders/info-order-client/info-order-client.component';
+import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +62,15 @@ import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
     VerificacionComponent,
     ListReservationComponent,
     PersonalInformationComponent,
-    RedeemPlanComponent
+    RedeemPlanComponent,
+    ListCoursesComponent,
+    InfoCourseComponent,
+    ListSalesComponent,
+    CreateSaleComponent,
+    ListOrdersComponent,
+    ListOrdersClientComponent,
+    InfoOrderClientComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

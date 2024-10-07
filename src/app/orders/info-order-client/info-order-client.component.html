@@ -1,0 +1,56 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+    <app-sidebar-client class="sidebar"></app-sidebar-client>
+
+    <section class="contenido">
+    
+        <div class="pedido-container">
+            <!-- Lista de Productos -->
+            <div class="productos-list">
+                <div class="producto-item" *ngFor="let producto of productos">
+                    <div class="producto-image">
+                        <i class='bx bxs-package' ></i>
+                    </div>
+                    <div class="producto-info">
+                        <h3>{{ producto.nombre }}</h3>
+                        <p>Descripción: {{ producto.descripcion }}</p>
+                    </div>
+                    <div class="producto-precio">
+                        $ {{ producto.precio }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalles del Pedido -->
+            <div class="pedido-detalle">
+                <h2>Pedido #######{{ pedido.id }}</h2>
+                <p><strong>Emprendimiento:</strong> {{ pedido.emprendimiento }}</p>
+                <p><strong>Precio:</strong> ${{ pedido.precio }}</p>
+                <p><strong>Estado del pedido:</strong> {{ pedido.estado }}</p>
+
+                <!-- Información de Envío -->
+                <div class="envio-info">
+                    <h3>Información de envío</h3>
+                    <div class="input-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" value="{{ pedido.direccion }}" readonly>
+                        <i class="bx bx-lock"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="departamento">Departamento</label>
+                        <input type="text" id="departamento" value="{{ pedido.departamento }}" readonly>
+                        <i class="bx bx-lock"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" value="{{ pedido.ciudad }}" readonly>
+                        <i class="bx bx-lock"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

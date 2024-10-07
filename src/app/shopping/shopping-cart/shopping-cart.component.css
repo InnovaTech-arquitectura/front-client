@@ -1,0 +1,158 @@
+:root {
+    --navy-blue: #19647e;
+    --light-blue: #87bcde;
+    --light-red: #e15554;
+    --dark-gray: #91918f;
+    --light-gray: #d9d9d9;
+    --light-yellow: #ffca3a;
+  }
+  
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 100px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .headerPage {
+	z-index: 10;
+	width: 100%;
+	position: fixed;
+	top: 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 100px;
+        left: 0;
+    }
+  
+  .contenido {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-left: 224px;
+}
+  
+  .pedido-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .productos-list {
+    width: 60%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .producto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .producto-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .producto-info h3 {
+    margin: 0;
+  }
+  
+  .producto-acciones {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .producto-precio {
+    font-weight: bold;
+  }
+  
+  .cantidad-controles {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cantidad-controles button {
+    padding: 5px;
+  }
+  
+  .envio-detalle {
+    width: 35%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .resumen-pago {
+    margin-top: 20px;
+  }
+  
+  .resumen-pago h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .resumen-pago p {
+    margin: 5px 0;
+  }
+  
+  .resumen-pago h4 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .resumen-pago button {
+    margin-top: 25px;
+    width: 350px;
+    background-color: black;;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    outline: 0;
+    border: 0;
+    
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+
+
+.resumen-pago button:hover {
+    background-color: rgb(120, 120, 120);
+    color: #ffffff;
+}
+

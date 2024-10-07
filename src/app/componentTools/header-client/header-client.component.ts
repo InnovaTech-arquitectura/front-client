@@ -23,4 +23,8 @@ export class HeaderClientComponent {
   profile() {
     this.router.navigate(['/datos']);
   }
+
+  cart() {
+    this.router.navigate(['/carrito']);
+  }
 }
