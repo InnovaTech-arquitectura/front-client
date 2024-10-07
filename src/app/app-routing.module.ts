@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component'; // Adjust path if needed
-
 
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -15,9 +12,6 @@ import { BuyServicesComponent } from './shopping/buy-services/buy-services.compo
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent }, // Default route
-  { path: 'inicio-sesion', component: InicioSesionComponent }, // Route for login
-
   { path: 'login', component: InicioSesionComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'bazares', component: VerBazaresComponent },
