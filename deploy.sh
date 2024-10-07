@@ -7,7 +7,7 @@ cd /home/estudiante/Desktop || exit 1
 
 # Clonar el repositorio (si ya existe, lo eliminamos primero)
 if [ -d "front-client" ]; then
-    echo "Eliminando el directorio existente de front-admin..."
+    echo "Eliminando el directorio existente de front-client..."
     rm -rf front-client
 fi
 
