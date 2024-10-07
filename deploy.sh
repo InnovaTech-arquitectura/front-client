@@ -32,7 +32,7 @@ else
 fi
 
 # Ejecutar docker-compose con el argumento de entorno
-docker-compose up --build -d
+docker compose up --build -d
 
 echo "Reiniciando Nginx en el contenedor..."
 docker exec front-client-container nginx -s reload
