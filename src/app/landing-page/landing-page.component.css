@@ -1,0 +1,313 @@
+.landing-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: white;
+}
+
+.logo img {
+    height: 50px; /* Adjust based on your logo size */
+}
+
+/* Common button style */
+.button {
+    padding: 10px 20px; /* Default padding */
+    font-size: 16px; /* Default font size */
+    cursor: pointer; /* Change cursor to pointer */
+    border: none; /* Remove border */
+    border-radius: 15px; /* Increased rounded corners */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.button-group button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    color: #666; /* Optional hover effect */
+}
+
+.auth-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px; /* Add horizontal space between buttons */
+}
+
+/* Specific button styles */
+.auth-buttons button:first-child {
+    background-color: #333; /* Dark background for the first button */
+    color: white; /* White text */
+    border-radius: 15px; /* Increased rounded corners */
+}
+
+.auth-buttons button:last-child {
+    background-color: #ddd; /* Light background for the second button */
+    color: black; /* Black text */
+    border-radius: 15px; /* Increased rounded corners */
+}
+
+/* Hover effects for all buttons */
+.button:hover {
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Specific hover effects for auth buttons */
+.auth-buttons button:first-child:hover {
+    background-color: #444; /* Darker shade on hover */
+}
+
+.auth-buttons button:last-child:hover {
+    background-color: #ccc; /* Darker shade on hover */
+}
+
+
+.banner {
+    position: relative; /* Ensure relative positioning for children */
+    margin: 20px auto;
+    max-height: 1900px;
+    max-width: 900px; /* Keep the same width for the banner */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.banner-container {
+    position: relative; /* Keep relative positioning for absolute children */
+    height: 300px; /* Set a fixed height for the banners */
+}
+
+.banner-container img {
+    position: absolute; /* Position absolutely to allow overlap */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+}
+
+.banner-container img.active {
+    opacity: 1; /* Show the active image */
+}
+
+.arrow {
+    position: absolute; /* Position arrows absolutely */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for arrow height */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Ensure arrows are above the banners */
+}
+
+.arrow.left {
+    left: 10px; /* Position left arrow */
+}
+
+.arrow.right {
+    right: 10px; /* Position right arrow */
+}
+
+.categories h2 {
+    font-size: 32px; /* Make the "Buy" title bigger */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center text in the categories section */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
+
+.category {
+    width: 300px; /* Set to your desired width */
+    margin: 5px; /* Reduce margin for closer containers */
+    text-align: left;
+    border: 1px solid #ccc; /* Outline color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Space inside the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    background-color: #fff; /* Background color */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+.category h4 {
+    font-size: 20px; /* Increased font size for small titles */
+    margin: 10px 0; /* Space above and below the small title */
+}
+
+.category-description {
+    font-size: 16px; /* Increased font size for descriptions */
+    margin-top: 10px; /* Space above the description */
+}
+
+.category a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Make the link cover the entire category */
+    height: 100%; /* Ensure full height for hover effect */
+}
+
+.category:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.category-container {
+    display: flex;
+    justify-content: center; /* Center the containers */
+    flex-wrap: wrap; /* Allow wrapping */
+    margin: 8px 0; /* Keep a small vertical margin */
+}
+
+.category img {
+    width: 100%; /* Make images responsive to the category width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100px; /* Set a maximum height for images */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+}
+
+.sell-section h2 {
+    font-size: 28px; /* Make the "Sell with Us" title bigger */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
+
+.sell-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    gap: 20px; /* Space between items */
+}
+
+.sell-image,
+.sell-text {
+    border: 2px solid #ccc; /* Add border to each division */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 10px; /* Space inside the borders */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items horizontally */
+    justify-content: center; /* Center align items vertically */
+}
+
+.sell-image img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 150px; /* Set a maximum height for images */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+    display: block; /* Ensure there is no space below the image */
+    margin: 0 auto; /* Center the image */
+}
+
+.sell-text {
+    text-align: left; /* Align text to the left */
+}
+
+.call-to-action h3 {
+    font-size: 24px; /* Make the "Ready to Ignite Your Business Journey?" title bigger */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
+
+.call-to-action {
+    border-radius: 15px; /* Rounded corners for the call-to-action */
+    padding: 20px; /* Space inside the box */
+    background-color: #f0f0f0; /* Light background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-top: 20px; /* Space above */
+}
+
+.testimonials h3 {
+    font-size: 24px; /* Make the "Hear from Our Successful Sellers" title bigger */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
+
+.testimonials {
+    border-radius: 15px; /* Rounded corners for testimonials */
+    padding: 20px; /* Space inside the box */
+    background-color: #f0f0f0; /* Light background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-top: 20px; /* Space above */
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f8f8;
+}
+
+.footer-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out the sections */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.footer-section {
+    flex: 1; /* Allow sections to grow equally */
+    margin: 10px; /* Space between sections */
+    min-width: 200px; /* Minimum width for each section */
+}
+
+/* Join button specific styles */
+.join-button {
+    background-color: #28a745; /* Bright green background */
+    color: white; /* White text for contrast */
+    padding: 12px 24px; /* Increased padding for a larger button */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 15px; /* Increased rounded corners */
+}
+
+/* Hover effect for the join button */
+.join-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Focus effect */
+.join-button:focus {
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 200, 83, 0.5); /* Add focus ring */
+}
+
+.footer-section h3 {
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.footer-content ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.footer-content li {
+    margin: 5px 0; /* Optional: Add some space between list items */
+}
+
+.footer-section.social-media {
+    text-align: center; /* Center the social media links */
+}
+
+.footer-section.social-media img {
+    width: 30px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 5px; /* Space between icons */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.footer-section.social-media img:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+.footer-section.social-media a {
+    display: inline-block; /* Allow spacing between icons */
+    margin: 5px; /* Space between icons */
+}
+
+.footer-bottom {
+    text-align: center; /* Center the copyright notice */
+    margin-top: 10px; /* Space above the copyright */
+} 

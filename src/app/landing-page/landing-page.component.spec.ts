@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LandingPageComponent } from './landing-page.component';
 
 describe('LandingPageComponent', () => {
@@ -10,12 +9,13 @@ describe('LandingPageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LandingPageComponent]
     });
-    fixture = TestBed.createComponent(LandingPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
+  // Aquí asegúrate de tener al menos una prueba
   it('should create', () => {
+    fixture = TestBed.createComponent(LandingPageComponent);
+    component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
+ 

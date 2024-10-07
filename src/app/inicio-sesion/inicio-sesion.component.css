@@ -21,10 +21,10 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrar verticalmente */
+    justify-content: center;
     align-items: center;
     padding: 20px;
-}
+  }
   
   form {
     display: flex;
@@ -39,7 +39,7 @@
   form label {
     margin: 10px 0 5px;
   }
-  
+   
   form input {
     padding: 10px;
     margin-bottom: 15px;
@@ -65,7 +65,18 @@
     color: #666;
     text-decoration: none;
   }
-  
+  .forgot-password-link {
+    font-weight: bold; /* Make the text bold */
+    text-decoration: underline; /* Underline the text */
+    color: #007bff; /* Change the color to a nice blue */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.forgot-password-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
   h2{
     text-align: center;
     margin-bottom: 20px;
@@ -85,64 +96,3 @@
     color: #333; 
     cursor: pointer; 
   }
-
-  button {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button[disabled] {
-    cursor: not-allowed;
-  }
-  
-  .spinner {
-    border: 3px solid rgba(255, 255, 255, 0.3); /* Color del borde de fondo */
-    border-top: 3px solid #fff; /* Color del borde del spinner */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  /* Aumentar el espacio entre el texto de registro y el enlace */
-  .registrationLinks {
-    display: flex;
-    flex-direction: row; /* Cambiar a columna para alinear verticalmente */
-    justify-content: left; /* Centrar el contenido */
-    align-items: left; /* Centrar horizontalmente */
-    width: 80%; /* Cambia esto a 100% para igualar al contenedor del formulario */
-    margin-top: 15px;
-}
-.registrationLinks {
-    display: flex;
-    flex-direction: row; /* Cambiar a columna para alinear verticalmente */
-    justify-content: left; /* Centrar el contenido */
-    align-items: left; /* Centrar horizontalmente */
-    width: 80%; /* Cambia esto a 100% para igualar al contenedor del formulario */
-    margin-top: 15px;
-}
-
-
-/* Estilo adicional para el hover */
-.registrationLinks a:hover {
-    color: #333; /* Cambia el color al pasar el ratón */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-}
-
-.registerHere {
-    text-align: left;
-    font-weight: bold;
-    color: black;
-    text-decoration: underline;
-    margin-left: 15px;
-}
-
-
