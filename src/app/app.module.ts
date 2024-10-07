@@ -17,6 +17,10 @@ import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.
 import { PagosComponent } from './pagos/pagos.component';
 import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
+import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
+import { InfoServiceComponent } from './shopping/info-service/info-service.component';
+import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-client.component';
+import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/
     DetallesBazarComponent,
     PagosComponent,
     VerBazaresClienteComponent,
-    DetallesBazarClienteComponent
+    DetallesBazarClienteComponent,
+    BuyServicesComponent,
+    InfoServiceComponent,
+    SidebarClientComponent,
+    HeaderClientComponent
   ],
   imports: [
     BrowserModule,
