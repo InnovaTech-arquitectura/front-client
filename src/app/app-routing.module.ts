@@ -19,6 +19,7 @@ import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.
 import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
+import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
@@ -41,6 +42,9 @@ const routes: Routes = [
   { path: 'pagos', component: PagosComponent },
   { path: 'servicios', component: BuyServicesComponent },
   { path: 'servicios/:id', component: InfoServiceComponent },
+
+  { path: 'dashboard', component: EntrepreneurshipStatsComponent },
+
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 

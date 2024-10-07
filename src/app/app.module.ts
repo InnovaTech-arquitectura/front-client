@@ -32,6 +32,8 @@ import { InfoServiceComponent } from './shopping/info-service/info-service.compo
 import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-client.component';
 import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
 
+import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +64,8 @@ import { HeaderClientComponent } from './componentTools/header-client/header-cli
     InfoServiceComponent,
     SidebarClientComponent,
     HeaderClientComponent,
+    
+    EntrepreneurshipStatsComponent,
   ],
   imports: [
     BrowserModule,
