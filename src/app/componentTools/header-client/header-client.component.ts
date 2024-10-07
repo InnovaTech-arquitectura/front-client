@@ -21,6 +21,6 @@ export class HeaderClientComponent {
   }
 
   profile() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/datos']);
   }
 }

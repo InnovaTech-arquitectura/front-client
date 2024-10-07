@@ -25,6 +25,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CrearComponent } from './recuperar-password/crear/crear.component';
 import { RecuperarComponent } from './recuperar-password/recuperar/recuperar.component';
 import { VerificacionComponent } from './recuperar-password/verificacion/verificacion.component';
+import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
+import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
+import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { VerificacionComponent } from './recuperar-password/verificacion/verific
     CrearComponent,
     RecuperarComponent,
     VerificacionComponent
+    ListReservationComponent,
+    PersonalInformationComponent,
+    RedeemPlanComponent
   ],
   imports: [
     BrowserModule,
