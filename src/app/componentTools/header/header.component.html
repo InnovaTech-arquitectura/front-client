@@ -1,0 +1,12 @@
+<body>
+    <img src="../../../assets/images/logo.PNG" alt="Logo" class="logoHeader" />
+    <div class="header-right">
+        <button class="btnProfile" (click)="profile()">
+            <a [routerLink]="'/account'" >
+
+                <i class="bx bx-user"></i> 
+            </a>
+        </button>
+        <button class="btnLogout" (click)="logout()">Cerrar sesión</button>
+    </div>
+</body>
