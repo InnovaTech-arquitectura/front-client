@@ -25,8 +25,10 @@ echo "Construyendo la aplicación Angular..."
 # Establecer la variable de entorno para el build
 if [[ $1 == "production" ]]; then
     export ENVIRONMENT=production
+    export SERVER_NAME=10.43.100.206
 else
     export ENVIRONMENT=testing
+    export SERVER_NAME=10.43.101.180
 fi
 
 # Ejecutar docker-compose con el argumento de entorno
