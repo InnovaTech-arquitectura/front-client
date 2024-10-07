@@ -3,12 +3,14 @@ import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent {
+
   email: string = '';
   password: string = '';
   isLoading: boolean = false; // Estado de carga
@@ -39,4 +41,5 @@ export class InicioSesionComponent {
       }
     );
   }
+
 }
