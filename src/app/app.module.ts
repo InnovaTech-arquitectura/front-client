@@ -34,6 +34,8 @@ import { HeaderClientComponent } from './componentTools/header-client/header-cli
 
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 
+import { AccountInfoComponent } from './account/account-info/account-info.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +68,8 @@ import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-sta
     HeaderClientComponent,
     
     EntrepreneurshipStatsComponent,
+    
+    AccountInfoComponent,
   ],
   imports: [
     BrowserModule,

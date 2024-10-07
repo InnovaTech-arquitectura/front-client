@@ -20,6 +20,7 @@ import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servic
 import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
+import { AccountInfoComponent } from './account/account-info/account-info.component';
 
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
@@ -44,6 +45,8 @@ const routes: Routes = [
   { path: 'servicios/:id', component: InfoServiceComponent },
 
   { path: 'dashboard', component: EntrepreneurshipStatsComponent },
+
+  { path: 'account', component: AccountInfoComponent },
 
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
