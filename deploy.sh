@@ -6,7 +6,7 @@ echo "Iniciando proceso de despliegue..."
 cd /home/estudiante/Desktop || exit 1
 
 # Clonar el repositorio (si ya existe, lo eliminamos primero)
-if [ -d "front-admin" ]; then
+if [ -d "front-client" ]; then
     echo "Eliminando el directorio existente de front-admin..."
     rm -rf front-client
 fi
