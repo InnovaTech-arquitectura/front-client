@@ -11,6 +11,7 @@ import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/
 import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
 import { InfoServiceComponent } from './shopping/info-service/info-service.component';
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
+import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
 
 const routes: Routes = [
   { path: 'login', component: InicioSesionComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'servicios', component: BuyServicesComponent },
   { path: 'servicios/:id', component: InfoServiceComponent },
   { path: 'reservas', component: ListReservationComponent},
+  { path: 'datos', component: PersonalInformationComponent},
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 
