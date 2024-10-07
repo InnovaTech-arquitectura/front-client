@@ -14,6 +14,13 @@ import { LineChartComponent } from './componentTools/line-chart/line-chart.compo
 import { PieChartComponent } from './componentTools/pie-chart/pie-chart.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
+import { PagosComponent } from './pagos/pagos.component';
+import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
+import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
+import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
+import { InfoServiceComponent } from './shopping/info-service/info-service.component';
+import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-client.component';
+import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,14 @@ import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.
     LineChartComponent,
     PieChartComponent,
     VerBazaresComponent,
-    DetallesBazarComponent
+    DetallesBazarComponent,
+    PagosComponent,
+    VerBazaresClienteComponent,
+    DetallesBazarClienteComponent,
+    BuyServicesComponent,
+    InfoServiceComponent,
+    SidebarClientComponent,
+    HeaderClientComponent
   ],
   imports: [
     BrowserModule,

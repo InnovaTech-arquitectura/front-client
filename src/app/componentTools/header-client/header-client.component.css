@@ -58,6 +58,23 @@ body {
     gap: 10px;
 }
 
+.btnMarket {
+    height: 32px;
+    width: 160px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.btnMarket:hover {
+    box-shadow: 0 3.2px 12.8px black;
+    transition: all 0.2s ease;
+}
+
 .btnLogout {
     height: 32px;
     width: 160px;
