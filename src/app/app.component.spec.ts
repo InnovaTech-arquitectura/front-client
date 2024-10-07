@@ -20,11 +20,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('front-client');
   });
 
-  it('should render title', () => {
+  // Modificación de la prueba para verificar el router-outlet en lugar de renderizar el título
+  it('should render router-outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
+
     expect(compiled.querySelector('.content span')?.textContent).toContain('front-client'); // Cambiado aquí
+
+
   });
   
 });

@@ -1,0 +1,73 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+  <app-sidebar class="sidebar"></app-sidebar>
+
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Pagos</h1>
+    </div>
+
+    <div class="container">
+      <!-- Contenedor de métodos de pago -->
+      <div class="payment-container">
+        <h2>Métodos de pago</h2>
+        <div class="payment-methods">
+          <img src="assets/images/paypal.png" alt="PayPal">
+          <img src="assets/images/mastercard.png" alt="Mastercard">
+          <img src="assets/images/visa.png" alt="Visa">
+          <img src="assets/images/tarjeta.png" alt="Maestro">
+          <img src="assets/images/pago-de-apple.png" alt="Apple Pay">
+          <img src="assets/images/pago-de-google.png" alt="Google Pay">
+          <img src="assets/images/pago-de-amazon.png" alt="Amazon Pay">
+        </div>
+
+        <div class="payment-form">
+          <div class="inputText">
+            <label for="card-name" >Nombre en la tarjeta</label>
+            <input type="text" id="card-name" value="Value" />
+          </div>
+          <div class="inputText">
+            <label for="card-number" >Número de la tarjeta</label>
+            <input type="text" id="card-number" value="Value" />
+          </div>
+          <div class="inputText">
+            <div>
+              <label for="expiry-date" >Fecha de vencimiento</label>
+              <input type="text" id="expiry-date" value="Value" />
+            </div>
+            <div class="inputText">
+              <label for="security-code" class="inputText">Código de seguridad</label>
+              <input type="text" id="security-code" value="Value" />
+            </div>
+          </div>
+
+          <div class="save-info">
+            <input type="checkbox" id="save-info" checked>
+            <label for="save-info">Guardar información para futuras compras</label>
+          </div>
+        </div>
+      </div>
+      <div class="summary-container">
+        <h2>Resumen de pago</h2>
+        <div class="summary">
+          <p>Productos</p>
+          <p>120$</p>
+        </div>
+        <div class="summary">
+          <p>Servicios</p>
+          <p>10$</p>
+        </div>
+        <div class="summary">
+          <p>Domicilio</p>
+          <p>10$</p>
+        </div>
+        <div class="total">
+          <p>Total</p>
+          <p>140$</p>
+        </div>
+        <button class="confirm-button">Confirmar pedido</button>
+      </div>
+    </div>
+  </section>
+</body>
