@@ -1,0 +1,19 @@
+<div class="password-recovery-container"> 
+  <img src="assets/madein-logo.png" alt="Made In Logo" class="logo">
+
+  <div class="password-recovery-card">
+      <h1>Verification Required</h1>
+      <p>To continue, complete this verification step. We have sent a code to the email provided in the previous step. Please enter the code below.</p>
+
+      <form (ngSubmit)="onSubmit()">
+          <input type="code" [(ngModel)]="code" id="code" name="code" placeholder="Enter your code" required> <!-- Asegúrate de que el tipo sea "code" -->
+
+          <div class="addBtn-container">
+              <button type="submit" class="submit-button">Continue</button> <!-- Cambiar el enlace por un botón -->
+          </div>
+      </form>
+
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  </div> 
+</div>

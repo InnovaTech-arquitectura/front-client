@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { CrearComponent } from './recuperar-password/crear/crear.component';
+import { RecuperarComponent } from './recuperar-password/recuperar/recuperar.component';
+import { VerificacionComponent } from './recuperar-password/verificacion/verificacion.component';
 import { RegistroComponent } from './registro/registro.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
@@ -15,6 +18,11 @@ import { PersonalInformationComponent } from './profile/personal-information/per
 import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
 const routes: Routes = [
+  { path: '', component: LandingPageComponent },
+  { path: 'inicio-sesion', component: InicioSesionComponent },
+  { path: 'recuperar-password/recuperar', component: RecuperarComponent },
+  { path: 'recuperar-password/crear', component: CrearComponent },
+  { path: 'recuperar-password/verificacion', component: VerificacionComponent },
   { path: 'login', component: InicioSesionComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'bazares', component: VerBazaresComponent },
