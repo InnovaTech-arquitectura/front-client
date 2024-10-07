@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -30,12 +29,6 @@ export class InicioSesionComponent {
       error => {
         console.error('Error al iniciar sesión:', error);
         this.isLoading = false; // Ocultar el spinner
-        Swal.fire({
-          icon: 'error',
-          title: 'Error de autenticación',
-          text: 'No pudimos iniciar sesión. Por favor, verifica tus credenciales.',
-          confirmButtonText: 'Cerrar'
-        });
       }
     );
   }
