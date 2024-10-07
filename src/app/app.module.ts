@@ -51,7 +51,7 @@ import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
     LandingPageComponent,
     CrearComponent,
     RecuperarComponent,
-    VerificacionComponent
+    VerificacionComponent,
     ListReservationComponent,
     PersonalInformationComponent,
     RedeemPlanComponent
