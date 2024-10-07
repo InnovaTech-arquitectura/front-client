@@ -15,7 +15,7 @@ export class AuthService {
   login(email: string, password: string): Observable<string> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = JSON.stringify({ email, password });
-  
+   
     // Cambia el responseType a 'text'
     return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
       catchError(error => {
