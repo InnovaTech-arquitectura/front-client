@@ -1,0 +1,83 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+    <app-sidebar-client class="sidebar"></app-sidebar-client>
+
+    <section class="contenido">
+        <div class="titulo">
+            <h1>Pedidos</h1>
+        </div>
+        <!-- Tabla de Pedidos -->
+        <div class="table-container">
+            <table id="myTable" class="tablita">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Precio</th>
+                        <th>Emprendimiento</th>
+                        <th>Estado del pedido</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>####01</td>
+                        <td>#####</td>
+                        <td>ABCD</td>
+                        <td>Aceptado</td>
+                        <td>
+                            <a class="links info" [routerLink]="['/pedidos-cliente/info/', 1]" [attr.id]="'info-' + 1">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>####02</td>
+                        <td>#####</td>
+                        <td>ABCD</td>
+                        <td>En camino</td>
+                        <td>
+                            <a class="links info" [routerLink]="['/pedidos-cliente/info/', 1]" [attr.id]="'info-' + 1">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>####03</td>
+                        <td>#####</td>
+                        <td>ABCD</td>
+                        <td>Entregado</td>
+                        <td>
+                            <a class="links info" [routerLink]="['/pedidos-cliente/info/', 1]" [attr.id]="'info-' + 1">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>####04</td>
+                        <td>#####</td>
+                        <td>ABCD</td>
+                        <td>#####</td>
+                        <td>
+                            <a class="links info" [routerLink]="['/pedidos-cliente/info/', 1]" [attr.id]="'info-' + 1">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>####05</td>
+                        <td>#####</td>
+                        <td>ABCD</td>
+                        <td>#####</td>
+                        <td>
+                            <a class="links info" [routerLink]="['/pedidos-cliente/info/', 1]" [attr.id]="'info-' + 1">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</body>

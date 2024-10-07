@@ -16,6 +16,14 @@ import { InfoServiceComponent } from './shopping/info-service/info-service.compo
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
 import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
+import { ListCoursesComponent } from './course/list-courses/list-courses.component';
+import { InfoCourseComponent } from './course/info-course/info-course.component';
+import { ListSalesComponent } from './sales/list-sales/list-sales.component';
+import { CreateSaleComponent } from './sales/create-sale/create-sale.component';
+import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
+import { ListOrdersClientComponent } from './orders/list-orders-client/list-orders-client.component';
+import { InfoOrderClientComponent } from './orders/info-order-client/info-order-client.component';
+import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 
 import { VerProductosServiciosComponent } from './inventario/ver-productos-servicios/ver-productos-servicios.component';
 import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
@@ -57,8 +65,21 @@ const routes: Routes = [
   { path: 'reservas', component: ListReservationComponent},
   { path: 'datos', component: PersonalInformationComponent},
   { path: 'planes', component: RedeemPlanComponent},
+
+  { path: 'capacitaciones', component: ListCoursesComponent},
+  { path: 'capacitaciones/info/:id', component: InfoCourseComponent },
+  { path: 'ventas', component: ListSalesComponent },
+  { path: 'ventas/crear', component: CreateSaleComponent },
+  { path: 'pedidos', component: ListOrdersComponent },
+  { path: 'pedidos-cliente', component: ListOrdersClientComponent },
+  { path: 'pedidos-cliente/info/:id', component: InfoOrderClientComponent },
+  { path: 'carrito', component: ShoppingCartComponent },
+
+
+
   { path: 'dashboard', component: EntrepreneurshipStatsComponent },
   { path: 'account', component: AccountInfoComponent },
+
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 
