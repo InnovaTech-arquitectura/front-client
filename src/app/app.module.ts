@@ -1,12 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { CrearComponent } from './recuperar-password/crear/crear.component';
-import { RecuperarComponent } from './recuperar-password/recuperar/recuperar.component';
-import { VerificacionComponent } from './recuperar-password/verificacion/verificacion.component';
-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,14 +22,9 @@ import { InfoServiceComponent } from './shopping/info-service/info-service.compo
 import { SidebarClientComponent } from './componentTools/sidebar-client/sidebar-client.component';
 import { HeaderClientComponent } from './componentTools/header-client/header-client.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
-    CrearComponent,
-    RecuperarComponent,
-    VerificacionComponent,
     InicioSesionComponent,
     HeaderComponent,
     SidebarComponent,
@@ -55,12 +43,9 @@ import { HeaderClientComponent } from './componentTools/header-client/header-cli
     HeaderClientComponent
   ],
   imports: [
-        BrowserAnimationsModule,
-
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-
     HttpClientModule
   ],
   providers: [],
