@@ -14,6 +14,16 @@ import { LineChartComponent } from './componentTools/line-chart/line-chart.compo
 import { PieChartComponent } from './componentTools/pie-chart/pie-chart.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
+
+import { VerProductosServiciosComponent } from './inventario/ver-productos-servicios/ver-productos-servicios.component';
+import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
+import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
+import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
+import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
+
 import { PagosComponent } from './pagos/pagos.component';
 import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
@@ -37,6 +47,10 @@ import { ListOrdersClientComponent } from './orders/list-orders-client/list-orde
 import { InfoOrderClientComponent } from './orders/info-order-client/info-order-client.component';
 import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 
+import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
+
+import { AccountInfoComponent } from './account/account-info/account-info.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +63,17 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
     PieChartComponent,
     VerBazaresComponent,
     DetallesBazarComponent,
+    
+    VerProductosServiciosComponent,
+    NuevoProductoComponent,
+    EditarProductoComponent,
+    InfoProductoComponent,
+    InfoSupplierComponent,
+    DetallesBazarComponent,
+    NuevoServicioComponent,
+    EditarServicioComponent,
+    InfoServicioComponent,
+
     PagosComponent,
     VerBazaresClienteComponent,
     DetallesBazarClienteComponent,
@@ -63,6 +88,7 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
     ListReservationComponent,
     PersonalInformationComponent,
     RedeemPlanComponent,
+
     ListCoursesComponent,
     InfoCourseComponent,
     ListSalesComponent,
@@ -71,6 +97,10 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
     ListOrdersClientComponent,
     InfoOrderClientComponent,
     ShoppingCartComponent
+
+    EntrepreneurshipStatsComponent,
+    AccountInfoComponent
+
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HeaderComponent } from './header.component';
+import { InfoSupplierComponent } from './info-supplier.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('InfoSupplierComponent', () => {
+  let component: InfoSupplierComponent;
+  let fixture: ComponentFixture<InfoSupplierComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [InfoSupplierComponent],
       imports: [RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(InfoSupplierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
