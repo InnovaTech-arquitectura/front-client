@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HeaderComponent } from './header.component';
+import { EntrepreneurshipStatsComponent } from './entrepreneurship-stats.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('EntrepreneurshipStatsComponent', () => {
+  let component: EntrepreneurshipStatsComponent;
+  let fixture: ComponentFixture<EntrepreneurshipStatsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [EntrepreneurshipStatsComponent],
       imports: [RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(EntrepreneurshipStatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

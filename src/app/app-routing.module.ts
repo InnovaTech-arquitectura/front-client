@@ -17,6 +17,17 @@ import { ListReservationComponent } from './shopping/list-reservation/list-reser
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
 import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
 
+import { VerProductosServiciosComponent } from './inventario/ver-productos-servicios/ver-productos-servicios.component';
+import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
+import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
+import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
+import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
+import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
+import { AccountInfoComponent } from './account/account-info/account-info.component';
+
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'inicio-sesion', component: InicioSesionComponent },
@@ -27,6 +38,17 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'bazares', component: VerBazaresComponent },
   { path: 'bazares/:id', component: DetallesBazarComponent },
+
+  { path: 'inventario', component: VerProductosServiciosComponent },
+  { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
+  { path: 'inventario/editarProducto', component: EditarProductoComponent },
+  { path: 'inventario/infoProducto', component: InfoProductoComponent},
+  { path: 'inventario/infoSupplier', component: InfoSupplierComponent},
+
+  { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
+  { path: 'inventario/editarServicio', component: EditarServicioComponent },
+  { path: 'inventario/infoServicio', component: InfoServicioComponent},
+  
   { path: 'bazares-cliente', component: VerBazaresClienteComponent},
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent},
   { path: 'pagos', component: PagosComponent },
@@ -35,6 +57,8 @@ const routes: Routes = [
   { path: 'reservas', component: ListReservationComponent},
   { path: 'datos', component: PersonalInformationComponent},
   { path: 'planes', component: RedeemPlanComponent},
+  { path: 'dashboard', component: EntrepreneurshipStatsComponent },
+  { path: 'account', component: AccountInfoComponent },
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 

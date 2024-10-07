@@ -1,0 +1,65 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+	<app-sidebar class="sidebar"></app-sidebar>
+
+	<section class="contenido">
+		<div class="titulo">
+			<h1>Datos de la cuenta</h1>
+		</div>
+
+		<div class="container">
+			<!-- Info. Titular de la cuenta -->
+			<div class="column">
+				<h3>Info. Titular de la cuenta</h3>
+				<div class="form-group">
+					<label for="nombre-titular">Nombre</label>
+					<input id="nombre-titular" type="text" placeholder="Value" />
+				</div>
+				<div class="form-group">
+					<label for="documento-titular">Número de documento</label>
+					<input id="documento-titular" type="text" placeholder="Value" />
+				</div>
+				<div class="form-group">
+					<label for="correo-titular">Correo</label>
+					<input id="correo-titular" type="email" placeholder="Value" />
+				</div>
+				<button class="save-btn">Guardar cambios</button>
+			</div>
+
+			<!-- Info. del Emprendimiento -->
+			<div class="column">
+				<h3>Info. del Emprendimiento</h3>
+				<div class="form-group">
+					<label for="nombre-emprendimiento">Nombre</label>
+					<input id="nombre-emprendimiento" type="text" placeholder="Value" />
+				</div>
+				<div class="form-group">
+					<label for="logo-emprendimiento">Logo</label>
+					<input id="logo-emprendimiento" type="text" placeholder="Value" />
+				</div>
+				<div class="form-group">
+					<label for="descripcion-emprendimiento">Descripción</label>
+					<textarea
+						id="descripcion-emprendimiento"
+						placeholder="Es importante para el Marketplace"
+					></textarea>
+				</div>
+				<button class="save-btn">Guardar cambios</button>
+			</div>
+
+			<!-- Previsualización -->
+			<div class="column preview">
+				<div class="logo-placeholder">
+					<img src="https://via.placeholder.com/150" alt="Logo del emprendimiento" />
+				</div>
+				<h4>Nombre: Cool Kicks Store</h4>
+				<h5>Descripción</h5>
+				<!-- Aquí se agrega la palabra "Descripción" como título -->
+				<p>
+					zapatos Jordan y sneakers similares. Cada par está diseñado para fusionar moda, comodidad y durabilidad, permitiéndote destacar con un look moderno y audaz. Ya sea que busques el clásico estilo deportivo o modelos más innovadores, aquí encontrarás opciones únicas que se adaptan a tus gustos y te permiten expresar tu personalidad con cada paso.
+				</p>
+			</div>
+		</div>
+	</section>
+</body>
