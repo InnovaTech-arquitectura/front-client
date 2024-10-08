@@ -63,7 +63,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     PieChartComponent,
     VerBazaresComponent,
     DetallesBazarComponent,
-    
     VerProductosServiciosComponent,
     NuevoProductoComponent,
     EditarProductoComponent,
@@ -73,7 +72,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     NuevoServicioComponent,
     EditarServicioComponent,
     InfoServicioComponent,
-
     PagosComponent,
     VerBazaresClienteComponent,
     DetallesBazarClienteComponent,
@@ -88,7 +86,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     ListReservationComponent,
     PersonalInformationComponent,
     RedeemPlanComponent,
-
     ListCoursesComponent,
     InfoCourseComponent,
     ListSalesComponent,
@@ -96,8 +93,7 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     ListOrdersComponent,
     ListOrdersClientComponent,
     InfoOrderClientComponent,
-    ShoppingCartComponent
-
+    ShoppingCartComponent,
     EntrepreneurshipStatsComponent,
     AccountInfoComponent
 
