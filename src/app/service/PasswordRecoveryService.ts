@@ -13,7 +13,7 @@ export class PasswordRecoveryService {
   requestPasswordRecovery(email: string): Observable<any> {
     return this.http.post<{ message: string }>(`${this.apiUrl}/request-password-recovery`, { Email: email });
   }
- 
+
   requestVerificationCode(code: string): Observable<any> {
     return this.http.post<{ message: string }>(`${this.apiUrl}/verify-code`, { Code: code });
   }
