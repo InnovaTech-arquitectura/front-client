@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../service/auth.service'; // Ajusta la ruta según la ubicación real
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -8,32 +6,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent {
-  email: string = ''; // Propiedad para el email
-  password: string = ''; // Propiedad para la contraseña
+  email: string = '';
+  password: string = '';
+  isLoading: boolean = false; // Initialize isLoading to false
+  constructor() {}
 
-  constructor(
-    private authService: AuthService, // Inyectar AuthService
-    private router: Router // Inyectar Router
-  ) {}
- 
   onSubmit() {
-    this.authService.login(this.email, this.password).subscribe(
-      response => {
-        console.log('Inicio de sesión exitoso:', response);
-        // Almacena el token directamente
-        localStorage.setItem('token', response);
-        this.router.navigate(['/publicidad']); // Redirigir a /publicidad
-      },
-      error => {
-        console.error('Error al iniciar sesión:', error);
-      }
-    );
-  }  
-  goToForgotPassword() {
-    this.router.navigate(['recuperar-password/recuperar']).catch(err => {
-      console.error('Navigation error:', err);
-    });
+    this.isLoading = true;
+    // Simulate a login process. Replace this with your actual login logic.
+    setTimeout(() => {
+      this.isLoading = false;
+      // Add your logic for successful or failed login here.
+      console.log('Login process completed.');
+    }, 2000); // Simulate a delay of 2 seconds
   }
- 
-  
 }
