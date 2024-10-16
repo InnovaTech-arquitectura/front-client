@@ -1,25 +1,25 @@
 <div class="landing-page">
 
-    <!-- Header with logo and buttons -->
+    <!-- Encabezado con logo y botones -->
     <header class="header">
-      <div class="button-group">
-        <button (click)="navigateTo('featured')">  Featured</button>
-        <button (click)="navigateTo('buy')">  Buy</button>
-        <button (click)="navigateTo('sell')">  Sell</button>
-      </div>
-  
-      <div class="logo">
-        <img src="assets/madein-logo.png" alt="Made In Logo"> <!-- Your logo here -->
-      </div>
-  
-      <div class="auth-buttons">
-        <button *ngIf="!isLoggedIn" (click)="login()">Log In</button>
-        <button *ngIf="!isLoggedIn" (click)="createAccount()">Create Your Account</button>
-        <button *ngIf="isLoggedIn" (click)="logout()">Log Out</button>
-    </div>    
+        <div class="button-group">
+            <button (click)="navigateTo('featured')">Destacadas</button>
+            <button (click)="navigateTo('buy')">Comprar</button>
+            <button (click)="navigateTo('sell')">Vender</button>
+        </div>
+
+        <div class="logo">
+            <img src="assets/madein-logo.png" alt="Logo Made In"> <!-- Tu logo aquí -->
+        </div>
+
+        <div class="auth-buttons">
+            <button *ngIf="!isLoggedIn" (click)="login()">Iniciar Sesión</button>
+            <button *ngIf="!isLoggedIn" (click)="createAccount()">Crear tu Cuenta</button>
+            <button *ngIf="isLoggedIn" (click)="logout()">Cerrar Sesión</button>
+        </div>    
     </header>
-  
-    <!-- Banner with navigation arrows -->
+
+    <!-- Banner con flechas de navegación -->
     <section class="banner">
         <button class="arrow left" (click)="previousBanner()">&#10094;</button>
         
@@ -36,126 +36,122 @@
         <button class="arrow right" (click)="nextBanner()">&#10095;</button>
     </section>
     
-<!-- Categories Section -->
-<div class="categories">
-    <h2>Buy</h2>
-    <div class="category-container">
-        <div class="category">
-            <a href="#clothing-section">
-                <img src="assets/moda.png" alt="Clothing Image">
-                <h4>Clothing</h4> <!-- Small title for Clothing -->
-                <div class="category-description">
-                    Explore our latest trends and stylish outfits, from casual wear to formal attire. Our diverse range ensures that you can find something that fits your style and occasion perfectly.
-                </div>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#technology-section">
-                <img src="assets/tecnologia.png" alt="Technology Image">
-                <h4>Technology</h4> <!-- Small title for Technology -->
-                <div class="category-description">
-                    Discover cutting-edge gadgets and devices designed to make your life easier and more enjoyable. From the latest smartphones to innovative smart home solutions, we have everything you need to stay ahead in the tech world.
-                </div>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#food-section">
-                <img src="assets/comida.png" alt="Food Image">
-                <h4>Food</h4> <!-- Small title for Food -->
-                <div class="category-description">
-                    Savor delicious recipes and culinary delights from around the globe. Whether you're a cooking enthusiast or simply looking for quick meal ideas, our extensive collection will inspire your next culinary adventure.
-                </div>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#services-section">
-                <img src="assets/servicios.png" alt="Services Image">
-                <h4>Services</h4> <!-- Small title for Services -->
-                <div class="category-description">
-                    Find the best services to meet your needs, from home maintenance to professional consulting. Our network of skilled providers is here to help you tackle any project, big or small, with quality and efficiency.
-                </div>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#other-section">
-                <img src="assets/other.png" alt="Other Image">
-                <h4>Other</h4> <!-- Small title for Other -->
-                <div class="category-description">
-                    Explore a variety of unique and interesting products that don't fit into our main categories. Whether it's a novelty item or an essential tool, there's always something new to discover.
-                </div>
-            </a>
+    <!-- Sección de Categorías -->
+    <div class="categories">
+        <h2>Comprar</h2>
+        <div class="category-container">
+            <div class="category">
+                <a href="#clothing-section">
+                    <img src="assets/moda.png" alt="Imagen de Ropa">
+                    <h4>Moda</h4> <!-- Título pequeño para Moda -->
+                    <div class="category-description">
+                        Explora nuestras últimas tendencias y atuendos elegantes, desde ropa casual hasta vestimenta formal. Nuestra variada gama asegura que puedas encontrar algo que se ajuste perfectamente a tu estilo y ocasión.
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#technology-section">
+                    <img src="assets/tecnologia.png" alt="Imagen de Tecnología">
+                    <h4>Tecnología</h4> <!-- Título pequeño para Tecnología -->
+                    <div class="category-description">
+                        Descubre gadgets y dispositivos de última generación diseñados para hacer tu vida más fácil y entretenida. Desde los últimos smartphones hasta soluciones innovadoras para el hogar, tenemos todo lo que necesitas para estar al día en el mundo de la tecnología.
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#food-section">
+                    <img src="assets/comida.png" alt="Imagen de Comida">
+                    <h4>Comida</h4> <!-- Título pequeño para Comida -->
+                    <div class="category-description">
+                        Disfruta de recetas deliciosas y delicias culinarias de todo el mundo. Ya seas un entusiasta de la cocina o simplemente busques ideas rápidas para tus comidas, nuestra extensa colección te inspirará en tu próxima aventura culinaria.
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#services-section">
+                    <img src="assets/servicios.png" alt="Imagen de Servicios">
+                    <h4>Servicios</h4> <!-- Título pequeño para Servicios -->
+                    <div class="category-description">
+                        Encuentra los mejores servicios para satisfacer tus necesidades, desde el mantenimiento del hogar hasta la consultoría profesional. Nuestra red de proveedores calificados está aquí para ayudarte con cualquier proyecto, grande o pequeño, con calidad y eficiencia.
+                    </div>
+                </a>
+            </div>
+            <div class="category">
+                <a href="#other-section">
+                    <img src="assets/other.png" alt="Imagen de Otros">
+                    <h4>Otros</h4> <!-- Título pequeño para Otros -->
+                    <div class="category-description">
+                        Explora una variedad de productos únicos e interesantes que no encajan en nuestras categorías principales. Ya sea un artículo novedoso o una herramienta esencial, siempre hay algo nuevo por descubrir.
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
-
-    
-    
-    
-    <!-- Sell Section -->
+    <!-- Sección para Vender -->
     <section class="sell-section">
-        <h2>Sell with Us</h2>
-        <p>Unlock Your Business Potential with "Made In"</p>
+        <h2>Vende con Nosotros</h2>
+        <p>Desbloquea el Potencial de tu Negocio con "Made In"</p>
         
         <div class="sell-grid">
-          <div class="sell-image">
-            <img src="assets/sell-image.png" alt="Sell Top Image" />
-          </div>
-          <div class="sell-text">
-            <h3>Step Into the Future of E-Commerce</h3>
-            <h4>Where Dreams Meet Reality!</h4>
-            <p>At "Made In," we believe every entrepreneur has a unique story to tell. Join our vibrant community of innovators and let your products shine in the spotlight! Our platform is designed to empower you to reach a diverse audience eager for new experiences. The journey to transforming your ideas into thriving businesses starts here!</p>
-          </div>
-          <div class="sell-text">
-            <h3>Empower Your Brand</h3>
-            <h4>The Sky's the Limit!</h4>
-            <p>Imagine scaling your business without limits! With our user-friendly interface, robust marketing tools, and dedicated support, "Made In" enables you to navigate the eCommerce landscape effortlessly. Our resources are at your fingertips, so you can focus on what you do best—creating amazing products that captivate your customers.</p>
-          </div>
-          <div class="sell-image">
-            <img src="assets/sell-image2.png" alt="Sell Bottom Image" />
-          </div>
+            <div class="sell-image">
+                <img src="assets/sell-image.png" alt="Imagen Superior de Vender" />
+            </div>
+            <div class="sell-text">
+                <h3>Adéntrate en el Futuro del Comercio Electrónico</h3>
+                <h4>¡Donde los Sueños se Encuentran con la Realidad!</h4>
+                <p>En "Made In", creemos que cada emprendedor tiene una historia única que contar. Únete a nuestra vibrante comunidad de innovadores y deja que tus productos brillen en el escenario principal. Nuestra plataforma está diseñada para empoderarte y llegar a un público diverso, ansioso de nuevas experiencias. ¡El viaje para transformar tus ideas en negocios exitosos comienza aquí!</p>
+            </div>
+            <div class="sell-text">
+                <h3>Potencia tu Marca</h3>
+                <h4>¡El Cielo es el Límite!</h4>
+                <p>Imagina escalar tu negocio sin límites. Con nuestra interfaz fácil de usar, herramientas de marketing robustas y soporte dedicado, "Made In" te permite navegar el panorama del comercio electrónico sin esfuerzo. Nuestros recursos están a tu alcance, para que puedas enfocarte en lo que mejor sabes hacer: crear productos increíbles que cautiven a tus clientes.</p>
+            </div>
+            <div class="sell-image">
+                <img src="assets/sell-image2.png" alt="Imagen Inferior de Vender" />
+            </div>
         </div>
         <div class="call-to-action">
-            <h3>Ready to Ignite Your Business Journey?</h3>
-            <p>Don’t just be a seller; be a pioneer in your industry! Join "Made In" and access a wealth of opportunities to expand your market presence. Our community is waiting to embrace your unique offerings. Together, we can build a brighter future for your brand!</p>
-            <button class="join-button">Join Us Today</button>
+            <h3>¿Listo para Encender tu Viaje Empresarial?</h3>
+            <p>¡No solo seas un vendedor, sé un pionero en tu industria! Únete a "Made In" y accede a un mundo de oportunidades para expandir tu presencia en el mercado. Nuestra comunidad está esperando para recibir tus ofertas únicas. ¡Juntos, podemos construir un futuro más brillante para tu marca!</p>
+            <button class="join-button">Únete Hoy</button>
         </div>
         <div class="testimonials">
-            <h3>Hear from Our Successful Sellers</h3>
-            <p>“Joining 'Made In' transformed my business! The support I received was incredible, and my sales have skyrocketed!” - <strong>Maria, Handmade Crafts</strong></p>
-            <p>“I never imagined I could reach so many customers. 'Made In' has truly changed my life!” - <strong>James, Tech Gadgets</strong></p>
-            <p>“With 'Made In,' I found a platform that truly understands me and my vision. My brand has never been stronger!” - <strong>Sophia, Eco-Friendly Products</strong></p>
+            <h3>Escucha a Nuestros Vendedores Exitosos</h3>
+            <p>“¡Unirme a 'Made In' transformó mi negocio! El apoyo que recibí fue increíble, ¡y mis ventas se dispararon!” - <strong>María, Artesanías</strong></p>
+            <p>“Nunca imaginé que podría llegar a tantos clientes. ¡'Made In' realmente cambió mi vida!” - <strong>James, Gadgets Tecnológicos</strong></p>
+            <p>“Con 'Made In', encontré una plataforma que realmente entiende mi visión. ¡Mi marca nunca ha sido más fuerte!” - <strong>Sofía, Productos Ecológicos</strong></p>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section help">
-                <h3>We Can Help You</h3>
+                <h3>Podemos Ayudarte</h3>
                 <ul>
-                    <li>MadeIn and COVID-19</li>
-                    <li>Your Account</li>
-                    <li>Your Orders</li>
-                    <li>Shipping Fees and Policies</li>
-                    <li>Returns and Replacements</li>
-                    <li>Manage Content and Devices</li>
-                    <li>Help</li>
+                    <li>MadeIn y COVID-19</li>
+                    <li>Tu Cuenta</li>
+                    <li>Tus Pedidos</li>
+                    <li>Tarifas y Políticas de Envío</li>
+                    <li>Devoluciones y Reemplazos</li>
+                    <li>Gestionar Contenido y Dispositivos</li>
+                    <li>Ayuda</li>
                 </ul>
             </div>
             <div class="footer-section about">
-                <h3>Get to Know Us</h3>
+                <h3>Conócenos</h3>
                 <ul>
-                    <li>Work at MadeIn</li>
+                    <li>Trabaja en MadeIn</li>
                     <li>Blog</li>
-                    <li>About MadeIn</li>
-                    <li>Investor Relations</li>
-                    <li>MadeIn Devices</li>
-                    <li>MadeIn Science</li>
+                    <li>Acerca de MadeIn</li>
+                    <li>Relaciones con Inversores</li>
+                    <li>Dispositivos MadeIn</li>
+                    <li>Ciencia MadeIn</li>
                 </ul>
             </div>
             <div class="footer-section social-media">
-                <h3>Social Media</h3>
+                <h3>Redes Sociales</h3>
                 <a href="https://www.facebook.com" target="_blank">
                     <img src="assets/facebook.png" alt="Facebook" />
                 </a>
@@ -169,16 +165,6 @@
                     <img src="assets/LinkedIn.png" alt="LinkedIn" />
                 </a>
             </div>
-            
-            <div class="footer-section contact">
-                <h3>Contact</h3>
-                <p>infoAmadein.com</p>
-                <p>+123 456 7890</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2024 Made In. All rights reserved.
         </div>
     </footer>
-
-</div> 
+</div>
