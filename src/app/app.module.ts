@@ -50,6 +50,9 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 
 import { AccountInfoComponent } from './account/account-info/account-info.component';
+import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
+import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
+import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +98,10 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     InfoOrderClientComponent,
     ShoppingCartComponent,
     EntrepreneurshipStatsComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    MisPreguntasComponent,
+    CrearPreguntasComponent,
+    VerPreguntaComponent
 
   ],
   imports: [

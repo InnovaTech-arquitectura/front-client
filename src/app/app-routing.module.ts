@@ -35,6 +35,9 @@ import { EditarServicioComponent } from './inventario/editar-servicio/editar-ser
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 import { AccountInfoComponent } from './account/account-info/account-info.component';
+import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
+import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
+import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -74,7 +77,9 @@ const routes: Routes = [
   { path: 'pedidos-cliente', component: ListOrdersClientComponent },
   { path: 'pedidos-cliente/info/:id', component: InfoOrderClientComponent },
   { path: 'carrito', component: ShoppingCartComponent },
-
+  { path: 'soporte/crear-pregunta', component: CrearPreguntasComponent },
+  { path: 'soporte/ver-pregunta/:id', component: VerPreguntaComponent },
+  {path: 'soporte', component: MisPreguntasComponent},
 
 
   { path: 'dashboard', component: EntrepreneurshipStatsComponent },
