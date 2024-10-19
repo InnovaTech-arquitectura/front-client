@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
-    baseApiUrl: 'http://10.43.101.180:8090', // Cambia esto a la URL base en el entorno de testing
+    usuarioSoporteUrl: 'http://10.43.101.212', // URL específica para usuarioSoporte
+    funcionalidadesUrl: 'http://10.43.100.194', // URL específica para funcionalidades
   };
   
