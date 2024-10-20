@@ -23,5 +23,5 @@ describe('InfoOrderClientComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+ 
 });
