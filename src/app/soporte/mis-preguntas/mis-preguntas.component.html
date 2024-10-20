@@ -1,88 +1,59 @@
 <app-header class="headerPage"></app-header>
 
 <body>
-	<app-sidebar class="sidebar"></app-sidebar>
+  <app-sidebar class="sidebar"></app-sidebar>
 
-	<section class="contenido">
-		<div class="titulo">
-			<h1>Soporte Mis Preguntas</h1>
-		</div>
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Soporte Mis Preguntas</h1>
+    </div>
 
-		<div class="table-container">
-			<table id="myTable" class="tablita">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Emprendimiento</th>
-						<th>Pregunta</th>
-						<th>Estado</th>
-						<th>Info.</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>01</td>
-						<td>Nike_col</td>
-						<td>¿Cómo puedo suscribirme a un plan?</td>
-						<td>Pendiente</td>
-						<td>
-							<div class="opciones">
-								<!-- Modificar routerLink para redirigir a ver-pregunta con el ID -->
-								<a class="links message" [routerLink]="['/soporte/ver-pregunta', '01']">
-									<i class="bx bxs-message"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>02</td>
-						<td>Adidas_col</td>
-						<td>¿Cómo puedo gestionar las finanzas de mi emprendimiento?</td>
-						<td>Respuesta</td>
-						<td>
-							<div class="opciones">
-								<a class="links message" [routerLink]="['/soporte/ver-pregunta', '02']">
-									<i class="bx bxs-message"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>03</td>
-						<td>Emprendimiento_x</td>
-						<td>¿Puedo suscribirme a la cantidad de bazares que desee?</td>
-						<td>Pendiente</td>
-						<td>
-							<div class="opciones">
-								<a class="links message" [routerLink]="['/soporte/ver-pregunta', '03']">
-									<i class="bx bxs-message"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>04</td>
-						<td>Emprendimiento_y</td>
-						<td>¿Para qué puedo utilizar la publicidad en Made-in?</td>
-						<td>Pendiente</td>
-						<td>
-							<div class="opciones">
-								<a class="links message" [routerLink]="['/soporte/ver-pregunta', '04']">
-									<i class="bx bxs-message"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+    <div class="table-container">
+      <table id="myTable" class="tablita">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Emprendimiento</th>
+            <th>Pregunta</th>
+            <th>Estado</th>
+            <th>Info.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pregunta of preguntas">
+            <td>{{ pregunta.id }}</td>
+            <td>{{ pregunta.business }}</td>
+            <td>{{ pregunta.question }}</td>
+            <td>{{ pregunta.answer ? 'Respuesta' : 'Pendiente' }}</td>
+            <td>
+              <div class="opciones">
+                <a class="links message" [routerLink]="['/soporte/ver-pregunta', pregunta.id]">
+                  <i class="bx bxs-message"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-		<!-- Botón para redirigir a crear una nueva pregunta -->
-		<div class="addBtn-container">
-			<a [routerLink]="'/soporte/crear-pregunta'" class="add-button">
-				<i class='bx bx-plus-circle'></i>
-				Crear Nueva Pregunta
-			</a>
-		</div>
-	</section>
+    <div class="pagination-container">
+      <button (click)="previousPage()" [disabled]="currentPage === 0" class="btn-pagination">
+        <i class='bx bx-chevron-left'></i>
+        Anterior
+      </button>
+      
+      <button (click)="nextPage()" [disabled]="!hasMoreQuestions" class="btn-pagination">
+        Siguiente
+		<i class='bx bx-chevron-right'></i>
+      </button>
+    </div>
+
+    <div class="addBtn-container">
+      <a [routerLink]="'/soporte/crear-pregunta'" class="add-button">
+        <i class='bx bx-plus-circle'></i>
+        Crear Nueva Pregunta
+      </a>
+    </div>
+  </section>
 </body>
