@@ -28,4 +28,4 @@ export class InfoOrderClientComponent implements OnInit {
       // Aquí puedes cargar la lista de productos, si es necesario
     });
   }
-}
+} 

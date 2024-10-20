@@ -23,4 +23,4 @@ describe('ListOrdersClientComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-});
+}); 

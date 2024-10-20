@@ -1,6 +1,6 @@
 <app-header-client class="headerPage"></app-header-client>
-
-<app-sidebar-client class="sidebar"></app-sidebar-client>
+<body>
+    <app-sidebar-client class="sidebar"></app-sidebar-client>
 
 <section class="contenido">
     <div class="titulo">
@@ -27,10 +27,11 @@
                     <td>
                         <a class="links info" [routerLink]="['/pedidos-cliente/info/', pedido.id]" [attr.id]="'info-' + pedido.id">
                             <i class='bx bx-info-circle'></i>
-                        </a>
+                        </a> 
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </section>
+</body>
