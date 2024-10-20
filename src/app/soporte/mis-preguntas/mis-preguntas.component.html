@@ -13,7 +13,6 @@
         <thead>
           <tr>
             <th>Id</th>
-            <th>Emprendimiento</th>
             <th>Pregunta</th>
             <th>Estado</th>
             <th>Info.</th>
@@ -22,7 +21,6 @@
         <tbody>
           <tr *ngFor="let pregunta of preguntas">
             <td>{{ pregunta.id }}</td>
-            <td>{{ pregunta.business }}</td>
             <td>{{ pregunta.question }}</td>
             <td>{{ pregunta.answer ? 'Respuesta' : 'Pendiente' }}</td>
             <td>
