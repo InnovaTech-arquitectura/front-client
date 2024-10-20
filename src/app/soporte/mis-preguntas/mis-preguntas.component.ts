@@ -21,12 +21,14 @@ export class MisPreguntasComponent implements OnInit {
 
   getPreguntas(): void {
     this.supportService.getAllQuestions(this.currentPage, this.pageSize).subscribe(data => {
+      this.preguntas = data; // Asigna la respuesta a la lista de preguntas
+
+      // Verifica si hay más preguntas
       if (data.length < this.pageSize) {
         this.hasMoreQuestions = false; // No hay más preguntas
       } else {
         this.hasMoreQuestions = true; // Hay más preguntas
       }
-      this.preguntas = data; // Asigna la respuesta a la lista de preguntas
     });
   }
 
