@@ -1,26 +1,25 @@
 <app-header class="headerPage"></app-header>
 
 <body>
-	<app-sidebar class="sidebar"></app-sidebar>
-	<div class="support-container">
-		<h1 class="title">Soporte</h1>
-		<h1 class="subtitle">Crear Pregunta</h1>
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="support-container">
+    <h1 class="title">Soporte</h1>
+    <h1 class="subtitle">Crear Pregunta</h1>
 
-		<div class="support-card">
-			<!-- Sección para que el usuario escriba la pregunta -->
-			<div class="question-section">
-				<label for="pregunta"><strong>Escriba su pregunta:</strong></label>
-				<input
-					id="pregunta"
-					name="pregunta"
-					type="text"
-					[(ngModel)]="pregunta"
-					placeholder="Escriba aquí su pregunta"
-					style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; margin-bottom: 20px;"
-				/>
+    <div class="support-card">
+      <div class="question-section">
+        <label for="pregunta"><strong>Escriba su pregunta:</strong></label>
+        <input
+          id="pregunta"
+          name="pregunta"
+          type="text"
+          [(ngModel)]="pregunta"
+          placeholder="Escriba aquí su pregunta"
+          style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; margin-bottom: 20px;"
+        />
 
-				<button type="submit" (click)="enviarPregunta()">Enviar pregunta</button>
-			</div>
-		</div>
-	</div>
+        <button type="submit" (click)="enviarPregunta()">Enviar pregunta</button>
+      </div>
+    </div>
+  </div>
 </body>
