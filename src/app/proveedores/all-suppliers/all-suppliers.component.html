@@ -1,0 +1,39 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+	<app-sidebar class="sidebar"></app-sidebar>
+
+	<section class="contenido">
+		<div class="titulo">
+			<h1>Proveedores</h1>
+		</div>
+		
+		<div class="table-container">
+			<table id="myTable" class="tablita">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre Proveedor</th>
+						<th>Contacto</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let supply of supplierList">
+						<td> {{supply.id}} </td>
+						<td> {{supply.name}} </td>
+						<td> {{supply.contact_number}} </td>
+						<td>
+							<a class="links delete">
+								<i class="bx bx-trash"></i>
+							</a>
+							<a class="links informa" [routerLink]="['/supplier/', supply.id]">
+								<i class="bx bx-info-circle"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
