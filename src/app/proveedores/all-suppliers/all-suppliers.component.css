@@ -47,74 +47,71 @@ body {
 }
 
 .info-product {
-    width: 80%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  
-  .info-product h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .info-product-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  
-  .image-placeholder {
-    width: 45%;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-  }
-  
-  .image-placeholder img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  .product-info {
-    width: 50%;
-    text-align: left;
-  }
-  
-  .info-group {
-    margin-bottom: 15px;
-  }
-  
-  .info-group strong {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .description-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .description-group p {
-    width: 100%;
-  }
-
-
-  .table-container {
-	width: 100%;
-	overflow: scroll;
-    display: flex;
-    justify-content: center;
-    
+	width: 80%;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	text-align: center;
 }
 
+.info-product h1 {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.info-product-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+
+.image-placeholder {
+	width: 45%;
+	background-color: #f0f0f0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+}
+
+.image-placeholder img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.product-info {
+	width: 50%;
+	text-align: left;
+}
+
+.info-group {
+	margin-bottom: 15px;
+}
+
+.info-group strong {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.description-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.description-group p {
+	width: 100%;
+}
+
+.table-container {
+	width: 100%;
+	overflow: scroll;
+	display: flex;
+	justify-content: center;
+}
 
 .table-container::-webkit-scrollbar {
 	display: none;
@@ -126,7 +123,7 @@ table.tablita {
 	overflow-y: scroll;
 	border-collapse: separate;
 	border-spacing: 0px;
-    margin-top: 25px;
+	margin-top: 25px;
 }
 
 .tablita th,
@@ -137,20 +134,19 @@ table.tablita {
 }
 
 .tablita th {
-	position: sticky; 
+	position: sticky;
 	top: 0;
 	background-color: black;
 	color: white;
 }
 
 .tablita td {
-    height: 100px;
+	height: 100px;
 }
 
 .tablita tr:nth-child(even) {
 	background-color: #eeeeee;
 }
-  
 
 .links {
 	font-size: 1em;
@@ -176,24 +172,42 @@ table.tablita {
 }
 
 .add:hover {
-    color: #87bcde;
-    text-shadow: 0 4px 16px #87bcde;
-    transition: all 0.2s ease;
+	color: #87bcde;
+	text-shadow: 0 4px 16px #87bcde;
+	transition: all 0.2s ease;
 }
 
 .add {
-    font-size: 1.5em;
-    color: black;
+	font-size: 1.5em;
+	color: black;
 }
 
-.btn-back {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    /* alinerar a la derecha  */
-    float: right;
-  }
+.addBtn-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	padding-top: 15px;
+	height: 63px;
+}
+
+.addBtn-container a {
+	width: 300px;
+	background-color: #d9d9d9;
+	padding: 10px 20px;
+	color: black;
+	outline: 0;
+	border: 0;
+	border-radius: 10px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.addBtn-container a:hover {
+	background-color: black;
+	color: #d9d9d9;
+}
+
+.addBtn-container i {
+	font-size: 1.5em;
+}

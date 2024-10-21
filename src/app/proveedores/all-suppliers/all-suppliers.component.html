@@ -24,16 +24,23 @@
 						<td> {{supply.name}} </td>
 						<td> {{supply.contact_number}} </td>
 						<td>
-							<a class="links delete">
-								<i class="bx bx-trash"></i>
-							</a>
 							<a class="links informa" [routerLink]="['/supplier/', supply.id]">
 								<i class="bx bx-info-circle"></i>
+							</a>
+							<a class="links delete" (click)="delete(supply.id)">
+								<i class="bx bx-trash"></i>
 							</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+		</div>
+
+		<div class="addBtn-container">
+			<a [routerLink]="'/supplier/add'" id="addSupplier">
+				<i class='bx bx-user-plus'></i>
+				Agregar proveedor
+			</a>
 		</div>
 	</section>
 </body>

@@ -39,6 +39,7 @@ import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-pregunt
 import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
 import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
 import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
+import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -56,7 +57,8 @@ const routes: Routes = [
   { path: 'inventario/editarProducto', component: EditarProductoComponent },
   { path: 'inventario/infoProducto', component: InfoProductoComponent},
 
-  {path: 'supplier', component: AllSuppliersComponent},
+  { path: 'supplier', component: AllSuppliersComponent},
+  { path: 'supplier/add', component: AddSupplierComponent},
   { path: 'supplier/:id', component: InfoSupplierComponent},
 
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },

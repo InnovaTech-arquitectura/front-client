@@ -1,7 +1,8 @@
 export interface supplier {
-    id: number;
+    id?: number;
     name: string;
     description: string;
     contact_number: string;
+    products: any[];
   }
   
