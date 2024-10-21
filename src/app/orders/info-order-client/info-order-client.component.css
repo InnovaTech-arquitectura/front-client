@@ -1,0 +1,137 @@
+:root {
+    --navy-blue: #19647e;
+    --light-blue: #87bcde;
+    --light-red: #e15554;
+    --dark-gray: #91918f;
+    --light-gray: #d9d9d9;
+    --light-yellow: #ffca3a;
+}
+
+body {
+    min-height: 89vh;
+    margin-top: 100px;
+    width: 100%;
+}
+.headerPage {
+	z-index: 10;
+	width: 100%;
+	position: fixed;
+	top: 0;
+}
+
+.sidebar {
+	position: fixed;
+	top: 100px;
+	left: 0;
+}
+
+.contenido {
+    margin-left: 224px;
+	padding: 20px;
+}
+
+.pedido-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 100%; /* Usa el ancho completo */
+    max-width: 1200px; /* Limita el ancho máximo */
+}
+
+.productos-list {
+    width: 60%; /* Ancho de la lista de productos */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera */
+}
+
+.producto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.producto-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.producto-info h3 {
+    margin: 0;
+}
+
+.producto-precio {
+    font-weight: bold;
+}
+
+.pedido-detalle {
+    width: 35%; /* Ancho de los detalles del pedido */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera */
+}
+
+.pedido-detalle h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.envio-info h3 {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: calc(100% - 30px); /* Resta el espacio del icono de candado */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-right: 10px; /* Añade espacio entre el input y el icono */
+}
+
+.bx-lock {
+    font-size: 1.2em;
+    color: #999;
+}
+
+.productos-list, .pedido-detalle {
+    margin-bottom: 30px; /* Añade margen inferior para separación */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenido {
+        flex-direction: column; /* Cambia la disposición a columna */
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .pedido-container {
+        flex-direction: column; /* Los contenedores se apilan verticalmente */
+        width: 100%; /* Usa todo el ancho en pantallas pequeñas */
+    }
+
+    .productos-list, .pedido-detalle {
+        width: 100%; /* Ambos bloques ocupan el 100% del ancho */
+        margin-bottom: 20px; /* Añade separación entre bloques */
+    }
+}

@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
-    baseApiUrl: 'http://10.43.100.206:8090', // Cambia esto a la URL base en producción
+    usuarioSoporteUrl: 'http://10.43.101.125', // URL específica para usuarioSoporte
+    funcionalidadesUrl: 'http://10.43.100.211', // URL específica para funcionalidades
 };
   

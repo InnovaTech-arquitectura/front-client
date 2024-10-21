@@ -38,10 +38,21 @@ import { VerificacionComponent } from './recuperar-password/verificacion/verific
 import { ListReservationComponent } from './shopping/list-reservation/list-reservation.component';
 import { PersonalInformationComponent } from './profile/personal-information/personal-information.component';
 import { RedeemPlanComponent } from './plans/redeem-plan/redeem-plan.component';
+import { ListCoursesComponent } from './course/list-courses/list-courses.component';
+import { InfoCourseComponent } from './course/info-course/info-course.component';
+import { ListSalesComponent } from './sales/list-sales/list-sales.component';
+import { CreateSaleComponent } from './sales/create-sale/create-sale.component';
+import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
+import { ListOrdersClientComponent } from './orders/list-orders-client/list-orders-client.component';
+import { InfoOrderClientComponent } from './orders/info-order-client/info-order-client.component';
+import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.component';
 
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 
 import { AccountInfoComponent } from './account/account-info/account-info.component';
+import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
+import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
+import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +66,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     PieChartComponent,
     VerBazaresComponent,
     DetallesBazarComponent,
-    
     VerProductosServiciosComponent,
     NuevoProductoComponent,
     EditarProductoComponent,
@@ -65,7 +75,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     NuevoServicioComponent,
     EditarServicioComponent,
     InfoServicioComponent,
-
     PagosComponent,
     VerBazaresClienteComponent,
     DetallesBazarClienteComponent,
@@ -80,8 +89,20 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     ListReservationComponent,
     PersonalInformationComponent,
     RedeemPlanComponent,
+    ListCoursesComponent,
+    InfoCourseComponent,
+    ListSalesComponent,
+    CreateSaleComponent,
+    ListOrdersComponent,
+    ListOrdersClientComponent,
+    InfoOrderClientComponent,
+    ShoppingCartComponent,
     EntrepreneurshipStatsComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    MisPreguntasComponent,
+    CrearPreguntasComponent,
+    VerPreguntaComponent
+
   ],
   imports: [
     BrowserModule,

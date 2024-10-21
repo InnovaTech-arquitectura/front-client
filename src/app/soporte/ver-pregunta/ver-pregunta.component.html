@@ -1,0 +1,30 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="support-container">
+    <h1 class="title">Soporte</h1>
+    <h1 class="subtitle">Ver Pregunta</h1>
+
+    <div class="support-card">
+      <div class="question-section">
+        <p><strong>Pregunta:</strong></p>
+        <blockquote>
+          {{ pregunta || 'No hay pregunta disponible.' }}
+        </blockquote>
+      </div>
+
+      <div class="answer-section">
+        <label for="respuesta"><strong>Respuesta:</strong></label>
+        <textarea
+          id="respuesta"
+          name="respuesta"
+          rows="6"
+          [ngModel]="respuesta || 'Esperando respuesta...'"
+          readonly
+          style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; resize: none;"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</body>
