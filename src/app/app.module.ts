@@ -53,6 +53,8 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
 import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
 import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
 import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,9 @@ import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.compon
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
