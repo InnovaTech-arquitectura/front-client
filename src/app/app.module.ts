@@ -53,8 +53,13 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
 import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
 import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
 import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
+
 
 @NgModule({
   declarations: [
@@ -112,7 +117,9 @@ import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.co
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
