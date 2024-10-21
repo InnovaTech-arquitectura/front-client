@@ -23,6 +23,10 @@ body {
     justify-content: space-between;
 }
 
+i {
+    color: black;
+}
+
 .logoHeader {
     width: 184px;
     margin-left: 20px;

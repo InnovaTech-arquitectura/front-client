@@ -33,7 +33,7 @@ export class SupplierService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
-    return this.http.delete(this.apiUrl + '/delete/' + id, { headers, responseType: 'text' });
+    return this.http.delete(this.apiUrl + '/' + id, { headers, responseType: 'text' });
   }
   
   getSupplierById(id: number): Observable<any> {
