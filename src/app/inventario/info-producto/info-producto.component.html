@@ -55,28 +55,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Sebastian Vettel</td>
-						<td>5555555555</td>
+					<tr *ngFor="let supply of supplierList">
+						<td> {{supply.id}} </td>
+						<td> {{supply.name}} </td>
+						<td> {{supply.contact_number}} </td>
 						<td>
 							<a class="links delete">
 								<i class="bx bx-trash"></i>
 							</a>
-							<a class="links informa" [routerLink]="'/inventario/infoSupplier'">
-								<i class="bx bx-info-circle"></i>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Fernando Alonso</td>
-						<td>3333333333</td>
-						<td>
-							<a class="links delete">
-								<i class="bx bx-trash"></i>
-							</a>
-							<a class="links informa" [routerLink]="'/inventario/infoSupplier'">
+							<a class="links informa" [routerLink]="['/inventario/supplier/', supply.id]">
 								<i class="bx bx-info-circle"></i>
 							</a>
 						</td>
