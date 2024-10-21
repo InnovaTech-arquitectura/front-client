@@ -38,7 +38,7 @@ export class AddSupplierComponent {
     this.supplierService.addSupplier(this.sendSupply).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigate(['/supplier']);
+        this.router.navigate(['/proveedores']);
       },
       error => {
         console.error(error);

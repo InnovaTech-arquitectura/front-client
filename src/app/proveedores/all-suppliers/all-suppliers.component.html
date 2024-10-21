@@ -24,7 +24,7 @@
 						<td> {{supply.name}} </td>
 						<td> {{supply.contact_number}} </td>
 						<td>
-							<a class="links informa" [routerLink]="['/supplier/', supply.id]">
+							<a class="links informa" [routerLink]="['/proveedores/', supply.id]">
 								<i class="bx bx-info-circle"></i>
 							</a>
 							<a class="links delete" (click)="delete(supply.id)">
@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="addBtn-container">
-			<a [routerLink]="'/supplier/add'" id="addSupplier">
+			<a [routerLink]="'/proveedores/add'" id="addSupplier">
 				<i class='bx bx-user-plus'></i>
 				Agregar proveedor
 			</a>

@@ -57,9 +57,9 @@ const routes: Routes = [
   { path: 'inventario/editarProducto', component: EditarProductoComponent },
   { path: 'inventario/infoProducto', component: InfoProductoComponent},
 
-  { path: 'supplier', component: AllSuppliersComponent},
-  { path: 'supplier/add', component: AddSupplierComponent},
-  { path: 'supplier/:id', component: InfoSupplierComponent},
+  { path: 'proveedores', component: AllSuppliersComponent},
+  { path: 'proveedores/add', component: AddSupplierComponent},
+  { path: 'proveedores/:id', component: InfoSupplierComponent},
 
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
   { path: 'inventario/editarServicio', component: EditarServicioComponent },

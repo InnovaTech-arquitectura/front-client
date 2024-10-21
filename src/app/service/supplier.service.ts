@@ -35,4 +35,18 @@ export class SupplierService {
     
     return this.http.delete(this.apiUrl + '/delete/' + id, { headers, responseType: 'text' });
   }
+  
+  getSupplierById(id: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
+  }
+
+  editSupplier(id: number, supplier: supplier): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+    return this.http.put(`${this.apiUrl}/${id}`, supplier, { headers, responseType: 'text' });
+  }
 }
