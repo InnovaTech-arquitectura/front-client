@@ -2,11 +2,22 @@
 
 <body>
   <app-sidebar class="sidebar"></app-sidebar>
-
   <section class="contenido">
-    <div class="titulo">
-      <h1>Bazares</h1>
-    </div>
+
+    <div class="titulo-paginacion">
+      <div class="titulo">
+        <h1>Bazares</h1>
+      </div>
+      <div class="paginacion">
+				<mat-paginator
+					[length]="length"
+					[pageSize]="pageSize"
+					(page)="handlePageEvent($event)"
+					[hidePageSize]="true"
+				>
+				</mat-paginator>
+			</div>
+		</div>
 
     <div class="table-container">
       <table id="myTable" class="tablita">
@@ -22,30 +33,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Bazar de Emprendedores</td>
-            <td>01/11/2024</td>
-            <td>05/11/2024</td>
-            <td>Presencial</td>
-            <td>10</td>
+          <tr *ngFor="let bazar of bazares">
+            <td>{{ bazar.id }}</td>
+            <td>{{ bazar.nombre }}</td>
+            <td>{{ bazar.fechaInicio }}</td>
+            <td>{{ bazar.fechaFin }}</td>
+            <td>{{ bazar.modalidad }}</td>
+            <td>{{ bazar.localesDisponibles }}</td>
             <td>
-              <a class="links informa" [routerLink]="'/bazares/1'"	>
+              <a class="links informa" [routerLink]="'/bazares/' + bazar.id">
                 <i class="bx bx-info-circle"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Bazar Virtual de Moda</td>
-            <td>15/12/2024</td>
-            <td>20/12/2024</td>
-            <td>Virtual</td>
-            <td>20</td>
-            <td>
-              <a class="links informa">
-                <i class="bx bx-info-circle" [routerLink]="'/bazares/1'"></i>
-              </a>
+              </a>              
             </td>
           </tr>
         </tbody>

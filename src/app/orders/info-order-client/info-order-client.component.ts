@@ -1,54 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PedidoService } from '../../service/pedido.service'; // Asegúrate de importar correctamente el servicio
+import { Pedido } from '../../pedido.model'; // Asegúrate de importar el modelo
 
 @Component({
   selector: 'app-info-order-client',
   templateUrl: './info-order-client.component.html',
   styleUrls: ['./info-order-client.component.css']
 })
-export class InfoOrderClientComponent {
-  pedido = {
-    id: 33,
-    emprendimiento: 'ABCDEFG',
-    precio: 333,
-    estado: 'En camino',
-    direccion: 'Cra. 33 # 33-33',
-    departamento: 'Cundinamarca',
-    ciudad: 'Bogotá'
-  };
+export class InfoOrderClientComponent implements OnInit {
+  pedido!: Pedido; // Usar el modelo de Pedido
+  productos = []; // Define tu lista de productos aquí, o la puedes obtener del backend
 
-  // Lista de productos del pedido
-  productos = [
-    {
-      nombre: 'Producto 1',
-      descripcion: 'Descripción del producto 1',
-      precio: '##.##'
-    },
-    {
-      nombre: 'Producto 2',
-      descripcion: 'Descripción del producto 2',
-      precio: '##.##'
-    },
-    {
-      nombre: 'Producto 3',
-      descripcion: 'Descripción del producto 3',
-      precio: '##.##'
-    },
-    {
-      nombre: 'Producto 4',
-      descripcion: 'Descripción del producto 4',
-      precio: '##.##'
-    },
-    {
-      nombre: 'Producto 5',
-      descripcion: 'Descripción del producto 5',
-      precio: '##.##'
-    }
-  ];
-
-  constructor() { }
+  constructor(
+    private pedidoService: PedidoService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-   
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadPedido(id);
   }
 
-}
+  loadPedido(id: number): void {
+    this.pedidoService.getPedidoById(id).subscribe((data: Pedido) => {
+      this.pedido = data;
+      // Aquí puedes cargar la lista de productos, si es necesario
+    });
+  }
+} 

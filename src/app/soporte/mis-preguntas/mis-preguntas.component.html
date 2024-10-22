@@ -1,0 +1,57 @@
+<app-header class="headerPage"></app-header>
+
+<body>
+  <app-sidebar class="sidebar"></app-sidebar>
+
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Soporte Mis Preguntas</h1>
+    </div>
+
+    <div class="table-container">
+      <table id="myTable" class="tablita">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Pregunta</th>
+            <th>Estado</th>
+            <th>Info.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pregunta of preguntas">
+            <td>{{ pregunta.id }}</td>
+            <td>{{ pregunta.question }}</td>
+            <td>{{ pregunta.answer ? 'Respuesta' : 'Pendiente' }}</td>
+            <td>
+              <div class="opciones">
+                <a class="links message" [routerLink]="['/soporte/ver-pregunta', pregunta.id]">
+                  <i class="bx bxs-message"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination-container">
+      <button (click)="previousPage()" [disabled]="currentPage === 0" class="btn-pagination">
+        <i class='bx bx-chevron-left'></i>
+        Anterior
+      </button>
+      
+      <button (click)="nextPage()" [disabled]="!hasMoreQuestions" class="btn-pagination">
+        Siguiente
+		<i class='bx bx-chevron-right'></i>
+      </button>
+    </div>
+
+    <div class="addBtn-container">
+      <a [routerLink]="'/soporte/crear-pregunta'" class="add-button">
+        <i class='bx bx-plus-circle'></i>
+        Crear Nueva Pregunta
+      </a>
+    </div>
+  </section>
+</body>

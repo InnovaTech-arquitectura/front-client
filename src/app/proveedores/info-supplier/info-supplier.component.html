@@ -3,9 +3,7 @@
 <body>
   <app-sidebar class="sidebar"></app-sidebar>
 
-  
   <section class="contenido">
-    
     <div class="titulo">
       <h1>Información del Proveedor</h1>
     </div>
@@ -17,9 +15,9 @@
         <div class="datos-usuario">
           <img src="https://icons.veryicon.com/png/o/miscellaneous/ionicons-2/person-30.png" alt="User Icon" class="user-icon" />
           <div class="info-usuario">
-            <p><strong>Nombre:</strong> Fernando Alonso</p>
-            <p><strong>Contacto:</strong> 3333333333</p>
-            <p><strong>Descripción:</strong> Es el proveedor principal de las referencias Jordan y Nike.</p>
+            <p><strong>Nombre:</strong> {{supplier?.name}}</p>
+            <p><strong>Contacto:</strong> {{supplier?.contact_number}}</p>
+            <p><strong>Descripción:</strong> {{supplier?.description}}</p>
           </div>
         </div>
       </div>
@@ -29,25 +27,18 @@
         <h2>Editar datos:</h2>
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" value="Fernando Alonso" />
+          <input type="text" id="nombre" [(ngModel)]="editedSupplier.name" />
         </div>
         <div class="form-group">
           <label for="contacto">Contacto</label>
-          <input type="text" id="contacto" value="3333333333" />
+          <input type="text" id="contacto" [(ngModel)]="editedSupplier.contact_number" />
         </div>
         <div class="form-group">
           <label for="descripcion">Descripción</label>
-          <textarea id="descripcion" rows="3">Es el proveedor principal de las referencias Jordan y Nike.</textarea>
+          <textarea id="descripcion" [(ngModel)]="editedSupplier.description"></textarea>
         </div>
-        <a  [routerLink]="'/inventario/infoProducto'">
-          <button class="btn-guardar">Guardar cambios</button>
-        </a>
+        <button class="btn-guardar" (click)="saveChanges()">Guardar cambios</button>
       </div>
     </div>
-
-    <!-- Botón Volver -->
-     <a  [routerLink]="'/inventario/infoProducto'">
-       <button class="btn-volver">Volver</button>
-     </a>
   </section>
 </body>

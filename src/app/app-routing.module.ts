@@ -29,12 +29,17 @@ import { VerProductosServiciosComponent } from './inventario/ver-productos-servi
 import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
 import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
-import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { InfoSupplierComponent } from './proveedores/info-supplier/info-supplier.component';
 import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 import { AccountInfoComponent } from './account/account-info/account-info.component';
+import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
+import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
+import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
+import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
+import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -51,7 +56,10 @@ const routes: Routes = [
   { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
   { path: 'inventario/editarProducto', component: EditarProductoComponent },
   { path: 'inventario/infoProducto', component: InfoProductoComponent},
-  { path: 'inventario/infoSupplier', component: InfoSupplierComponent},
+
+  { path: 'proveedores', component: AllSuppliersComponent},
+  { path: 'proveedores/add', component: AddSupplierComponent},
+  { path: 'proveedores/:id', component: InfoSupplierComponent},
 
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
   { path: 'inventario/editarServicio', component: EditarServicioComponent },
@@ -74,7 +82,9 @@ const routes: Routes = [
   { path: 'pedidos-cliente', component: ListOrdersClientComponent },
   { path: 'pedidos-cliente/info/:id', component: InfoOrderClientComponent },
   { path: 'carrito', component: ShoppingCartComponent },
-
+  { path: 'soporte/crear-pregunta', component: CrearPreguntasComponent },
+  { path: 'soporte/ver-pregunta/:id', component: VerPreguntaComponent },
+  {path: 'soporte', component: MisPreguntasComponent},
 
 
   { path: 'dashboard', component: EntrepreneurshipStatsComponent },

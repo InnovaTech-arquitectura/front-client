@@ -19,7 +19,7 @@ import { VerProductosServiciosComponent } from './inventario/ver-productos-servi
 import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
 import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
-import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { InfoSupplierComponent } from './proveedores/info-supplier/info-supplier.component';
 import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
@@ -50,6 +50,16 @@ import { ShoppingCartComponent } from './shopping/shopping-cart/shopping-cart.co
 import { EntrepreneurshipStatsComponent } from './dashboard/entrepreneurship-stats/entrepreneurship-stats.component';
 
 import { AccountInfoComponent } from './account/account-info/account-info.component';
+import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
+import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
+import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
+import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +73,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     PieChartComponent,
     VerBazaresComponent,
     DetallesBazarComponent,
-    
     VerProductosServiciosComponent,
     NuevoProductoComponent,
     EditarProductoComponent,
@@ -73,7 +82,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     NuevoServicioComponent,
     EditarServicioComponent,
     InfoServicioComponent,
-
     PagosComponent,
     VerBazaresClienteComponent,
     DetallesBazarClienteComponent,
@@ -88,7 +96,6 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     ListReservationComponent,
     PersonalInformationComponent,
     RedeemPlanComponent,
-
     ListCoursesComponent,
     InfoCourseComponent,
     ListSalesComponent,
@@ -96,17 +103,23 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
     ListOrdersComponent,
     ListOrdersClientComponent,
     InfoOrderClientComponent,
-    ShoppingCartComponent
-
+    ShoppingCartComponent,
     EntrepreneurshipStatsComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    MisPreguntasComponent,
+    CrearPreguntasComponent,
+    VerPreguntaComponent,
+    AllSuppliersComponent,
+    AddSupplierComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
