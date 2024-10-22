@@ -7,6 +7,10 @@
 		<div class="titulo">
 			<h1>Servicios</h1>
 		</div>
+		
+		<div class="linkSeccion">
+			<a class="link" routerLink="/productos">Ver productos</a>
+		</div>
 
 		<div class="products">
 			<div *ngFor="let item of serviceList" class="card" (click)="info(item.id)">
@@ -16,7 +20,6 @@
 				<span class="title">{{ item.name }}</span>
 				<span class="price">${{ item.price }}</span>
 			  </div>
-			  
 		</div>
 	</section>
 </body>

@@ -109,3 +109,21 @@ body {
 	width: 100%;
 	object-fit: cover;
 }
+
+.linkSeccion {
+	width: 100%;
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+}
+
+.link {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: black;
+}
+
+.link:hover {
+	text-shadow: 0 3.2px 12.8px black;
+    transition: all 0.2s ease;
+}
