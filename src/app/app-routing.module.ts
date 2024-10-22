@@ -40,6 +40,8 @@ import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.compon
 import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
 import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
+import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
+import { InfoProductComponent } from './shopping/info-product/info-product.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -70,6 +72,8 @@ const routes: Routes = [
   { path: 'pagos', component: PagosComponent },
   { path: 'servicios', component: BuyServicesComponent },
   { path: 'servicios/:id', component: InfoServiceComponent },
+  { path: 'productos', component: BuyProductsComponent },
+  { path: 'productos/:id', component: InfoProductComponent },
   { path: 'reservas', component: ListReservationComponent},
   { path: 'datos', component: PersonalInformationComponent},
   { path: 'planes', component: RedeemPlanComponent},

@@ -55,6 +55,8 @@ import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-pregunt
 import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
 import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
+import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
+import { InfoProductComponent } from './shopping/info-product/info-product.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +107,9 @@ import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.co
     CrearPreguntasComponent,
     VerPreguntaComponent,
     AllSuppliersComponent,
-    AddSupplierComponent
+    AddSupplierComponent,
+    BuyProductsComponent,
+    InfoProductComponent
 
   ],
   imports: [
