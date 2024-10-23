@@ -4,28 +4,28 @@ import { shopItem } from 'src/app/model/shopItem';
 import { EcommerceService } from 'src/app/service/ecommerce.service';
 
 @Component({
-  selector: 'app-buy-services',
-  templateUrl: './buy-services.component.html',
-  styleUrls: ['./buy-services.component.css']
+  selector: 'app-buy-products',
+  templateUrl: './buy-products.component.html',
+  styleUrls: ['./buy-products.component.css']
 })
-export class BuyServicesComponent implements OnInit {
+export class BuyProductsComponent implements OnInit {
   constructor(
     private router: Router,
     private ecommerceService: EcommerceService
   ) {}
 
-  serviceList: shopItem[];
+  productsList: shopItem[];
 
   ngOnInit() {
-    this.ecommerceService.findServices().subscribe(
+    this.ecommerceService.findProducts().subscribe(
       (data) => {
-        this.serviceList = data;
+        this.productsList = data;
         console.log(data);
       }
     );
   }
 
   info(id: number) {
-    this.router.navigate(['/servicios/' + id]);
+    this.router.navigate(['/productos/' + id]);
   }
 }

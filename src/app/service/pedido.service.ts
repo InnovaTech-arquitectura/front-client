@@ -9,7 +9,9 @@ import { Producto } from '../model/producto';
   providedIn: 'root'
 })
 export class PedidoService {
+
   private apiUrl = environment.funcionalidadesUrl + ':8090/order';
+
 
 
   constructor(private http: HttpClient) {}

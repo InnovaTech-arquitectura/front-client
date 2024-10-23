@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EventsService {
-  private apiUrl = `${environment.funcionalidadesUrl}:8080/bazares`;
+  private apiUrl = environment.baseApiUrl + '/bazares';
 
   constructor(private http: HttpClient) {}
 
