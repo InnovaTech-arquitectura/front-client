@@ -32,13 +32,18 @@ else
 fi
 
 # Ejecutar docker-compose con el argumento de entorno
+echo "Iniciando el contenedor con la nueva imagen..."
 docker compose up --build -d
 
-# Detener el Nginx en el contenedor antes de reiniciar
-echo "Deteniendo Nginx en el contenedor..."
-docker exec front-client-container nginx -s quit
+# Esperar unos segundos para asegurarse de que el contenedor esté activo
+sleep 5
 
-echo "Reiniciando Nginx en el contenedor..."
-docker exec front-client-container nginx
+# Reiniciar el contenedor de Nginx
+echo "Reiniciando el contenedor de Nginx..."
+docker restart front-client-container
+
+# Verificar el estado de los contenedores
+echo "Comprobando estado de los contenedores..."
+docker ps
 
 echo "Despliegue completado."
