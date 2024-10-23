@@ -72,7 +72,7 @@ table.tablita {
 }
 
 .tablita th {
-	position: sticky; /* Fija el encabezado en su posición */
+	position: sticky;
 	top: 0;
 	background-color: black;
 	color: white;
