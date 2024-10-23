@@ -1,0 +1,36 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+    <app-sidebar class="sidebar"></app-sidebar>
+
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Capacitaciones Disponibles</h1>
+    </div>
+
+    <div class="table-container">
+      <table id="myTable" class="tablita">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Contenido - Titulo</th>
+            <th>Fecha</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td>{{ course.id }}</td>
+            <td>{{ course.title }}</td>
+            <td>{{ course.date }}</td>
+            <td>
+              <a class="links info" [routerLink]="['/capacitaciones/info/', course.id]">
+                <i class='bx bx-info-circle'></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>

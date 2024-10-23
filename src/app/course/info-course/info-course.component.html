@@ -1,0 +1,50 @@
+<app-header class="headerPage"></app-header>
+<body>
+    <app-sidebar class="sidebar"></app-sidebar>
+
+    <div class="container">
+        <h1 class="title">Info. Capacitación</h1>
+    
+        <div class="content" *ngIf="course">
+            <div class="info-section">
+                <h2>{{ course.title }}</h2>
+    
+                <div class="details">
+                    <p><strong>Fecha: </strong>{{ course.date }}</p>
+                    <p><strong>Modalidad: </strong>{{ course.modality }}</p>
+                </div>
+    
+                <div class="description">
+                    <p><strong>Descripción: </strong></p>
+                    <p>{{ course.description }}</p>
+                </div>
+                <div class="link-section">
+                    <p><strong>Dirección - Link: </strong></p>
+                    <a [href]="course.link" target="_blank">{{ course.link }}</a>
+                </div>
+            </div>
+    
+            <div class="image-section">
+                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="People Icon" class="icon">
+                <div class="stats">
+                    <h1 class="title">Inscríbete no pierdas la oportunidad</h1>
+                    <p><strong>Recuerde que tenemos cupos limitados.</strong></p>
+                    <p><strong>Cupos Disponibles: </strong>15</p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!course">
+            <h2>Course not found.</h2>
+        </div>
+   </div>
+   <div class="addBtn-container">
+        <a [routerLink]="'/capacitaciones'">
+            <i class='bx bx-left-arrow-alt'></i>
+            Regresar
+        </a>
+        <a [routerLink]="'/capacitaciones'">
+            Registrarse
+        </a>
+    </div>
+</body>

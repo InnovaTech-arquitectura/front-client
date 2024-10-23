@@ -1,0 +1,68 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+  <app-sidebar-client class="sidebar"></app-sidebar-client>
+
+  <section class="contenido">
+    <div class="pedido-container">
+      <!-- Lista de productos -->
+      <div class="productos-list">
+        <h2>Emprendimiento XYZ</h2>
+        <div class="producto-item" *ngFor="let producto of productos">
+          <div class="producto-image">
+            <i class='bx bxs-package'></i>
+          </div>
+          <div class="producto-info">
+            <h3>{{ producto.nombre }}</h3>
+            <p>Descripción: {{ producto.descripcion }}</p>
+            <div class="producto-acciones">
+              <a href="#">Eliminar</a>
+              <a href="#">Guardar</a>
+              <a href="#">Modificar</a>
+            </div>
+          </div>
+          <div class="producto-precio">
+            $ {{ producto.precio }}
+            <div class="cantidad-controles">
+              <button (click)="disminuirCantidad(producto)">-</button>
+              {{ producto.cantidad }}
+              <button (click)="aumentarCantidad(producto)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información de envío -->
+      <div class="envio-detalle">
+        <h3>Información de envío</h3>
+        <div class="input-group">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" [(ngModel)]="direccion" placeholder="Value">
+        </div>
+        <div class="input-group">
+          <label for="departamento">Departamento</label>
+          <select id="departamento" [(ngModel)]="departamento">
+            <option value="Cundinamarca">Cundinamarca</option>
+            <option value="Antioquia">Antioquia</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="ciudad">Ciudad</label>
+          <select id="ciudad" [(ngModel)]="ciudad">
+            <option value="Bogotá">Bogotá</option>
+            <option value="Medellín">Medellín</option>
+          </select>
+        </div>
+
+        <!-- Resumen de pago -->
+        <div class="resumen-pago">
+          <h3>Resumen de pago</h3>
+          <p>Productos: {{ totalProductos }}$</p>
+          <p>Domicilio: {{ costoDomicilio }}$</p>
+          <h4>Total: {{ total }}$</h4>
+          <button class="addBtn-container" (click)="confirmarPedido()">Confirmar pedido</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

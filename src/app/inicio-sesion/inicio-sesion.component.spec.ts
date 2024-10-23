@@ -12,7 +12,7 @@ describe('InicioSesionComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [InicioSesionComponent],
-      imports: [RouterTestingModule, HttpClientModule, FormsModule], // Cambia NgModel por FormsModule
+      imports: [RouterTestingModule, HttpClientModule, FormsModule],
       providers: [AuthService]
     });
     fixture = TestBed.createComponent(InicioSesionComponent);

@@ -1,0 +1,37 @@
+<app-header-client class="headerPage"></app-header-client>
+<body>
+    <app-sidebar-client class="sidebar"></app-sidebar-client>
+
+<section class="contenido">
+    <div class="titulo">
+        <h1>Pedidos</h1>
+    </div>
+    <!-- Tabla de Pedidos -->
+    <div class="table-container">
+        <table id="myTable" class="tablita">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Precio</th>
+                    <th>Emprendimiento</th>
+                    <th>Estado del pedido</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pedido of pedidos"> <!-- Cambia a usar *ngFor -->
+                    <td>{{ pedido.id }}</td>
+                    <td>${{ pedido.precio }}</td>
+                    <td>{{ pedido.emprendimiento }}</td>
+                    <td>{{ pedido.estado }}</td>
+                    <td>
+                        <a class="links info" [routerLink]="['/pedidos-cliente/info/', pedido.id]" [attr.id]="'info-' + pedido.id">
+                            <i class='bx bx-info-circle'></i>
+                        </a> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>

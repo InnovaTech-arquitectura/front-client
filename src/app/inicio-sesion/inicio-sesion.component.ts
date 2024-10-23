@@ -9,7 +9,6 @@ export class InicioSesionComponent {
   email: string = '';
   password: string = '';
   isLoading: boolean = false; // Initialize isLoading to false
-
   constructor() {}
 
   onSubmit() {

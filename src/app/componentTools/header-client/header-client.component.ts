@@ -17,10 +17,14 @@ export class HeaderClientComponent {
   }
 
   market() {
-    this.router.navigate(['/servicios']);
+    this.router.navigate(['/productos']);
   }
 
   profile() {
     this.router.navigate(['/datos']);
+  }
+
+  cart() {
+    this.router.navigate(['/carrito']);
   }
 }
