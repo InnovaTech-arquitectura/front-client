@@ -4,35 +4,35 @@ import { shopItem } from 'src/app/model/shopItem';
 import { EcommerceService } from 'src/app/service/ecommerce.service';
 
 @Component({
-  selector: 'app-info-service',
-  templateUrl: './info-service.component.html',
-  styleUrls: ['./info-service.component.css']
+  selector: 'app-info-product',
+  templateUrl: './info-product.component.html',
+  styleUrls: ['./info-product.component.css']
 })
-export class InfoServiceComponent implements OnInit {
+export class InfoProductComponent implements OnInit {
 
   constructor(
     private ecommerceService: EcommerceService,
     private route: ActivatedRoute
-  ) {
-    this.service = {
+  ) { 
+    this.product = {
       id: 0,
       name: '',
       price: 0,
       description: '',
       image: ''
     };
-   }
+  }
 
-  service: shopItem;
+  product: shopItem;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
 			const id = Number(params.get('id'));
 
-			this.ecommerceService.findServiceById(id).subscribe(
+			this.ecommerceService.findProductById(id).subscribe(
         (data) => {
           console.log(data);
-          this.service = data;
+          this.product = data;
         }
       );
 		});
