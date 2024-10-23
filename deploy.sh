@@ -34,7 +34,11 @@ fi
 # Ejecutar docker-compose con el argumento de entorno
 docker compose up --build -d
 
+# Detener el Nginx en el contenedor antes de reiniciar
+echo "Deteniendo Nginx en el contenedor..."
+docker exec front-client-container nginx -s quit
+
 echo "Reiniciando Nginx en el contenedor..."
-docker exec front-client-container nginx -s reload
+docker exec front-client-container nginx
 
 echo "Despliegue completado."
