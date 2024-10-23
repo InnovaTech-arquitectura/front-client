@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 describe('PedidoService', () => {
   let service: PedidoService;
   let httpMock: HttpTestingController;
-  const apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
+  const apiUrl = environment.baseApiUrl + '/api/pedidos';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

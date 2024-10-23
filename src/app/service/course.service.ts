@@ -20,7 +20,7 @@ export interface Course {
 })
 export class CourseService {
 
-  private apiUrl = environment.funcionalidadesUrl + ':8080/api/courses';
+  private apiUrl = environment.baseApiUrl + '/api/courses';
 
   constructor(private http: HttpClient) { }
 
