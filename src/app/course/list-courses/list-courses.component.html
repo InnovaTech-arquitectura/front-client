@@ -19,45 +19,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>##01</td>
-            <td>Cap_Finanzas</td>
-            <td>dd/mm/yyyy</td>
-            <a class="links info" [routerLink]="['/capacitaciones/info/', 1]" [attr.id]="'info-' + 1">
+          <tr *ngFor="let course of courses">
+            <td>{{ course.id }}</td>
+            <td>{{ course.title }}</td>
+            <td>{{ course.date }}</td>
+            <td>
+              <a class="links info" [routerLink]="['/capacitaciones/info/', course.id]">
                 <i class='bx bx-info-circle'></i>
-            </a>
-          </tr>
-          <tr>
-            <td>##02</td>
-            <td>Cap_Ventas</td>
-            <td>dd/mm/yyyy</td>
-            <a class="links info" [routerLink]="['/capacitaciones/info/', 2]" [attr.id]="'info-' + 2">
-                <i class='bx bx-info-circle'></i>
-            </a>
-          </tr>
-          <tr>
-            <td>##03</td>
-            <td>Cap_Marketing</td>
-            <td>dd/mm/yyyy</td>
-            <a class="links info" [routerLink]="['/capacitaciones/info/', 3]" [attr.id]="'info-' + 3">
-                <i class='bx bx-info-circle'></i>
-            </a>
-          </tr>
-          <tr>
-            <td>##04</td>
-            <td>Cap_Llegar a mas clientes</td>
-            <td>dd/mm/yyyy</td>
-            <a class="links info" [routerLink]="['/capacitaciones/info/', 4]" [attr.id]="'info-' + 4">
-                <i class='bx bx-info-circle'></i>
-            </a>
-          </tr>
-          <tr>
-            <td>##05</td>
-            <td>Cap_Redes Sociales</td>
-            <td>dd/mm/yyyy</td>
-            <a class="links info" [routerLink]="['/capacitaciones/info/', 5]" [attr.id]="'info-' + 5">
-                <i class='bx bx-info-circle'></i>
-            </a>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
