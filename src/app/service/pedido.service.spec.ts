@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PedidoService } from './pedido.service';
-import { Pedido } from '../pedido.model'; // Asegúrate de definir el modelo
+import { Pedido } from '../pedido.model';
 import { environment } from '../../environments/environment';
 
 describe('PedidoService', () => {
   let service: PedidoService;
   let httpMock: HttpTestingController;
-  const apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
+  const apiUrl = environment.funcionalidadesUrl + ':8090/order';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -36,12 +36,12 @@ describe('PedidoService', () => {
       }
     ];
 
-    service.getAllPedidos().subscribe(pedidos => {
+    service.getAllPedidos(0, 10).subscribe(pedidos => {
       expect(pedidos.length).toBe(2);
       expect(pedidos).toEqual(dummyPedidos);
     });
 
-    const req = httpMock.expectOne(apiUrl);
+    const req = httpMock.expectOne(`${apiUrl}/all?page=0&limit=10`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyPedidos);
   });
