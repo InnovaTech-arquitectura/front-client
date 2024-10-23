@@ -6,5 +6,7 @@ export interface Pedido {
     direccion: string;
     departamento: string;
     ciudad: string;
+    cliente : string;
+    fecha: string;
   }
   
