@@ -8,7 +8,7 @@ describe('PedidoService', () => {
   let service: PedidoService;
   let httpMock: HttpTestingController;
 
-  const apiUrl = environment.funcionalidadesUrl + ':8090/order';
+  const apiUrl = environment.baseApiUrl + '/order';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

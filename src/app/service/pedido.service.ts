@@ -10,20 +10,11 @@ import { Producto } from '../model/producto';
 })
 export class PedidoService {
 
-  private apiUrl = environment.funcionalidadesUrl + ':8090/order';
+  private apiUrl = environment.baseApiUrl + '/order';
 
 
 
   constructor(private http: HttpClient) {}
-
-  /*getAllPedidos(page: number, limit: number): Observable<Pedido[]> {
-    return this.http.get<Pedido[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`);
-}
-
-
-  getPedidoById(id: number): Observable<Pedido> { 
-    return this.http.get<Pedido>(`${this.apiUrl}/${id}`);
-  }*/
 
     getAllPedidos(page: number, limit: number): Observable<Pedido[]> {
       return this.http.get<Pedido[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`);
