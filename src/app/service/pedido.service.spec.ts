@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 describe('PedidoService', () => {
   let service: PedidoService;
   let httpMock: HttpTestingController;
-  let apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
+  const apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -24,8 +24,16 @@ describe('PedidoService', () => {
 
   it('should retrieve all pedidos from the API via GET', () => {
     const dummyPedidos: Pedido[] = [
-      { id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '' },
-      { id: 2, precio: 200, emprendimiento: 'Emp2', estado: 'entregado', direccion: '', departamento: '', ciudad: '' }
+      {
+        id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '',
+        cliente: '',
+        fecha: ''
+      },
+      {
+        id: 2, precio: 200, emprendimiento: 'Emp2', estado: 'entregado', direccion: '', departamento: '', ciudad: '',
+        cliente: '',
+        fecha: ''
+      }
     ];
 
     service.getAllPedidos().subscribe(pedidos => {
@@ -39,7 +47,11 @@ describe('PedidoService', () => {
   });
 
   it('should retrieve a single pedido by ID from the API via GET', () => {
-    const dummyPedido: Pedido = { id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '' };
+    const dummyPedido: Pedido = {
+      id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '',
+      cliente: '',
+      fecha: ''
+    };
 
     service.getPedidoById(1).subscribe(pedido => {
       expect(pedido).toEqual(dummyPedido);
