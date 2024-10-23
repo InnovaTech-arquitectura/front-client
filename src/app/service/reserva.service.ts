@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ReservaService {
-  private apiUrl = environment.funcionalidadesUrl + ':8080/api/reservas';
+  private apiUrl = environment.baseApiUrl + '/api/reservas';
 
   //private apiUrl = 'http://localhost:8080/api/reservas'; // Asegúrate de que la URL coincida con el backend
 

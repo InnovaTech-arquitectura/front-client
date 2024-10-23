@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class PedidoService {
-  private apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
+  private apiUrl = environment.baseApiUrl + '/api/pedidos';
 
   //private apiUrl = 'http://localhost:8080/api/pedidos'; // Cambia esto según tu configuración
 
