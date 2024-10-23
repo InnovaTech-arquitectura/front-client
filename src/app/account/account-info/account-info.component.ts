@@ -76,25 +76,7 @@ export class AccountInfoComponent implements OnInit {
     }
   }
   
-  saveClientInfo() {
-    this.clientService.updateClient(this.clientId, this.client)
-      .subscribe({
-        next: (response) => {
-          console.log('Información del cliente guardada en el servidor:', response);
-          this.message = 'Información del cliente guardada exitosamente'; // Mensaje de éxito
-          this.isSuccess = true; // Establece el estado de éxito
-        },
-        error: (err) => {
-          console.error('Error al guardar la información del cliente:', err);
-          this.message = 'Error al guardar la información del cliente'; // Mensaje de error
-          this.isSuccess = false; // Establece el estado de error
-        }
-      });
-  }
-
-  saveEntrepreneurshipInfo() {
-    console.log('Guardando información del emprendimiento:', this.entrepreneurship);
-
+  saveInfo() {
     // Verifica si los datos son válidos antes de enviar la solicitud
     if (!this.client.name || !this.client.id_card || !this.client.email || !this.entrepreneurship.name || !this.entrepreneurship.description) {
       console.log('Hay campos requeridos que no están completos.');
@@ -124,16 +106,28 @@ export class AccountInfoComponent implements OnInit {
       }
     }
   
-    this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData)
+    // Llama a los servicios para guardar la información del cliente y del emprendimiento
+    this.clientService.updateClient(this.clientId, this.client)
       .subscribe({
         next: (response) => {
-          console.log('Información del emprendimiento guardada en el servidor:', response);
-          this.message = 'Información del emprendimiento guardada exitosamente'; // Mensaje de éxito
-          this.isSuccess = true; // Establece el estado de éxito
+          console.log('Información del cliente guardada en el servidor:', response);
+          this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData)
+            .subscribe({
+              next: (response) => {
+                console.log('Información del emprendimiento guardada en el servidor:', response);
+                this.message = 'Información del cliente y del emprendimiento guardadas exitosamente'; // Mensaje de éxito
+                this.isSuccess = true; // Establece el estado de éxito
+              },
+              error: (err) => {
+                console.log('Error al guardar la información del emprendimiento:', err);
+                this.message = `Error al guardar la información del emprendimiento: ${err.message}`; // Mensaje de error más detallado
+                this.isSuccess = false; // Establece el estado de error
+              }
+            });
         },
         error: (err) => {
-          console.log('Error al guardar la información del emprendimiento:', err);
-          this.message = `Error al guardar la información del emprendimiento: ${err.message}`; // Mensaje de error más detallado
+          console.error('Error al guardar la información del cliente:', err);
+          this.message = 'Error al guardar la información del cliente'; // Mensaje de error
           this.isSuccess = false; // Establece el estado de error
         }
       });

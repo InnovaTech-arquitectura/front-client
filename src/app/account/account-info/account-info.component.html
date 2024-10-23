@@ -23,11 +23,7 @@
           <label for="correo-titular">Correo</label>
           <input id="correo-titular" type="email" [(ngModel)]="client.email" placeholder="Correo del titular" />
         </div>
-        <button class="save-btn" (click)="saveClientInfo()">Guardar cambios</button>
-      </div>
-
-      <div class="column">
-        <h3>Info. del Emprendimiento</h3>
+        
         <div class="form-group">
           <label for="nombre-emprendimiento">Nombre del emprendimiento</label>
           <input id="nombre-emprendimiento" type="text" [(ngModel)]="entrepreneurship.name" placeholder="Nombre del emprendimiento" />
@@ -40,7 +36,8 @@
           <label for="descripcion-emprendimiento">Descripción</label>
           <textarea id="descripcion-emprendimiento" [(ngModel)]="entrepreneurship.description" placeholder="Es importante para el Marketplace"></textarea>
         </div>
-        <button class="save-btn" (click)="saveEntrepreneurshipInfo()">Guardar cambios</button>
+
+        <button class="save-btn" (click)="saveInfo()">Guardar cambios</button>
       </div>
 
       <div class="column preview">
