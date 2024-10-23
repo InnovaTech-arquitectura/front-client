@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { PageEvent } from '@angular/material/paginator';
+import { EventsService } from 'src/app/service/events.service';
 
 @Component({
   selector: 'app-ver-bazares',
@@ -12,17 +12,20 @@ export class VerBazaresComponent implements OnInit {
   length = 0;
   pageSize = 4;
   pageIndex = 0;
-  constructor(private http: HttpClient) {}
+
+  constructor(private eventsService: EventsService) {} // Inyectamos el servicio
 
   ngOnInit(): void {
     this.getBazares(this.pageIndex, this.pageSize);
   }
 
   getBazares(page: number, size: number) {
-    this.http.get<any>(`http://localhost:8080/api/bazares?page=${page}&size=${size}`)
+    this.eventsService.getBazares(page, size) // Usamos el servicio para obtener los bazares
       .subscribe(response => {
         this.bazares = response.content;
         this.length = response.totalElements;
+      }, error => {
+        console.error('Error fetching bazares:', error);
       });
   }
 

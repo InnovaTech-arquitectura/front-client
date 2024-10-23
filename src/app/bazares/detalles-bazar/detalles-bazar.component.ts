@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { EventsService } from 'src/app/service/events.service';
 
 @Component({
   selector: 'app-detalles-bazar',
@@ -11,32 +11,27 @@ import Swal from 'sweetalert2';
 export class DetallesBazarComponent implements OnInit {
   bazar: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private eventsService: EventsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('id'));
-      this.getBazarDetails(id.toString());
-		});
+      this.getBazarDetails(id);
+    });
   }
 
-
-
-  getBazarDetails(id: string) {
-    this.http.get<any>(`http://localhost:8080/api/bazares/${id}`)
-      .subscribe(data => {
-        this.bazar = data;
-      });
+  getBazarDetails(id: number) {
+    this.eventsService.getBazarDetails(id).subscribe(data => {
+      this.bazar = data;
+    });
   }
 
   inscribirseAlBazar() {
-        Swal.fire({
-          icon: 'success',
-          title: '¡Inscripción exitosa!',
-          text: 'Te has inscrito correctamente al bazar.',
-          confirmButtonText: 'OK'
-        });
-
+    Swal.fire({
+      icon: 'success',
+      title: '¡Inscripción exitosa!',
+      text: 'Te has inscrito correctamente al bazar.',
+      confirmButtonText: 'OK'
+    });
   }
 }
