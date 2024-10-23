@@ -29,7 +29,7 @@ import { VerProductosServiciosComponent } from './inventario/ver-productos-servi
 import { NuevoProductoComponent } from './inventario/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './inventario/editar-producto/editar-producto.component';
 import { InfoProductoComponent } from './inventario/info-producto/info-producto.component';
-import { InfoSupplierComponent } from './inventario/info-supplier/info-supplier.component';
+import { InfoSupplierComponent } from './proveedores/info-supplier/info-supplier.component';
 import { NuevoServicioComponent } from './inventario/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './inventario/editar-servicio/editar-servicio.component';
 import { InfoServicioComponent } from './inventario/info-servicio/info-servicio.component';
@@ -38,6 +38,10 @@ import { AccountInfoComponent } from './account/account-info/account-info.compon
 import { CrearPreguntasComponent } from './soporte/crear-preguntas/crear-preguntas.component';
 import { VerPreguntaComponent } from './soporte/ver-pregunta/ver-pregunta.component';
 import { MisPreguntasComponent } from './soporte/mis-preguntas/mis-preguntas.component';
+import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers.component';
+import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
+import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
+import { InfoProductComponent } from './shopping/info-product/info-product.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -54,7 +58,10 @@ const routes: Routes = [
   { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
   { path: 'inventario/editarProducto', component: EditarProductoComponent },
   { path: 'inventario/infoProducto', component: InfoProductoComponent},
-  { path: 'inventario/infoSupplier', component: InfoSupplierComponent},
+
+  { path: 'proveedores', component: AllSuppliersComponent},
+  { path: 'proveedores/add', component: AddSupplierComponent},
+  { path: 'proveedores/:id', component: InfoSupplierComponent},
 
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
   { path: 'inventario/editarServicio', component: EditarServicioComponent },
@@ -65,6 +72,8 @@ const routes: Routes = [
   { path: 'pagos', component: PagosComponent },
   { path: 'servicios', component: BuyServicesComponent },
   { path: 'servicios/:id', component: InfoServiceComponent },
+  { path: 'productos', component: BuyProductsComponent },
+  { path: 'productos/:id', component: InfoProductComponent },
   { path: 'reservas', component: ListReservationComponent},
   { path: 'datos', component: PersonalInformationComponent},
   { path: 'planes', component: RedeemPlanComponent},

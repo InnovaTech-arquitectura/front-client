@@ -1,39 +1,41 @@
 <app-header class="headerPage"></app-header>
 <body>
-
     <app-sidebar class="sidebar"></app-sidebar>
 
     <div class="container">
         <h1 class="title">Info. Capacitación</h1>
     
-        <div class="content">
-        <div class="info-section">
-            <!-- <h2>{{formCourse.title}}</h2> -->
-             <h2>Aprende más sobre tus finanzas</h2>
+        <div class="content" *ngIf="course">
+            <div class="info-section">
+                <h2>{{ course.title }}</h2>
     
-            <div class="details">
-            <p><strong>Fecha: </strong> <!--{{formCourse.date}}--> 12/10/2024</p>
-            <p><strong>Modalidad: </strong><!--{{formCourse.modality}}--> Virtual</p>
+                <div class="details">
+                    <p><strong>Fecha: </strong>{{ course.date }}</p>
+                    <p><strong>Modalidad: </strong>{{ course.modality }}</p>
+                </div>
+    
+                <div class="description">
+                    <p><strong>Descripción: </strong></p>
+                    <p>{{ course.description }}</p>
+                </div>
+                <div class="link-section">
+                    <p><strong>Dirección - Link: </strong></p>
+                    <a [href]="course.link" target="_blank">{{ course.link }}</a>
+                </div>
             </div>
     
-            <div class="description">
-            <p><strong>Descripción: </strong></p>
-            <p><!--{{formCourse.description}}--> En este curso vas a potencializar tus capacidades financiera y vas a aprender más sobre tus finanzas</p>
-            </div>
-            <div class="link-section">
-            <p><strong>Dirección - Link: </strong></p>
-            <p><!--{{{formCourse.link}}-->https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3AcnR7aerwTmTXe8CI4o4XyD_-rO72c88cb7odYOuef0U1%40thread.tacv2%2F1722870238140%3Fcontext%3D%257B%2522Tid%2522%3A%25229aa676fe-9114-4d03-ac8a-a4974d6ba8c1%2522%2C%2522Oid%2522%3A%25220770e6b9-f498-47f0-95c0-efa55d6c902d%2522%257D%26anon%3Dtrue&type=meetup-join&deeplinkId=10defffe-305e-4d9f-a45a-a011ce2bdce4&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true</p>
+            <div class="image-section">
+                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="People Icon" class="icon">
+                <div class="stats">
+                    <h1 class="title">Inscríbete no pierdas la oportunidad</h1>
+                    <p><strong>Recuerde que tenemos cupos limitados.</strong></p>
+                    <p><strong>Cupos Disponibles: </strong>15</p>
+                </div>
             </div>
         </div>
-    
-        <div class="image-section">
-            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="People Icon" class="icon">
-            <div class="stats">
-            <h1 class="title">Inscribete no pierdas la oportundiadad</h1>
-            <p><strong>Recuerde que tenemos cupos limitados.</strong></p>
-            <p><strong>Cupos Disponibles: </strong><!--{{formCourse.places}}-->15</p>
-            </div>
-        </div>
+
+        <div *ngIf="!course">
+            <h2>Course not found.</h2>
         </div>
    </div>
    <div class="addBtn-container">
@@ -45,4 +47,4 @@
             Registrarse
         </a>
     </div>
-</body>  
+</body>
