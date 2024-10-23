@@ -13,7 +13,15 @@ export class InfoProductComponent implements OnInit {
   constructor(
     private ecommerceService: EcommerceService,
     private route: ActivatedRoute
-  ) { }
+  ) { 
+    this.product = {
+      id: 0,
+      name: '',
+      price: 0,
+      description: '',
+      image: ''
+    };
+  }
 
   product: shopItem;
 

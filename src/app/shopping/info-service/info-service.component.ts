@@ -13,7 +13,15 @@ export class InfoServiceComponent implements OnInit {
   constructor(
     private ecommerceService: EcommerceService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.service = {
+      id: 0,
+      name: '',
+      price: 0,
+      description: '',
+      image: ''
+    };
+   }
 
   service: shopItem;
 

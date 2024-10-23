@@ -5,6 +5,8 @@ import { HeaderClientComponent } from 'src/app/componentTools/header-client/head
 import { SidebarClientComponent } from 'src/app/componentTools/sidebar-client/sidebar-client.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { EcommerceService } from 'src/app/service/ecommerce.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('InfoServiceComponent', () => {
   let component: InfoServiceComponent;
@@ -12,13 +14,14 @@ describe('InfoServiceComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [
         InfoServiceComponent,
         HeaderClientComponent, // Añadido aquí
         SidebarClientComponent
-      ]
+      ],
+      providers: [EcommerceService]
     });
     fixture = TestBed.createComponent(InfoServiceComponent);
     component = fixture.componentInstance;
