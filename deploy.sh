@@ -25,24 +25,16 @@ echo "Construyendo la aplicación Angular..."
 # Establecer la variable de entorno para el build
 if [[ $1 == "production" ]]; then
     export ENVIRONMENT=production
+    export SERVER_NAME=10.43.100.206
 else
     export ENVIRONMENT=testing
+    export SERVER_NAME=10.43.101.180
 fi
 
-# Detener y eliminar contenedores existentes
-echo "Deteniendo y eliminando contenedores existentes..."
-docker-compose down
-
-# Limpiar imágenes huérfanas y no utilizadas
-echo "Limpiando imágenes de Docker no utilizadas..."
-docker image prune -f
-
 # Ejecutar docker-compose con el argumento de entorno
-echo "Levantando el contenedor con docker-compose..."
-
-docker-compose up --build -d
+docker compose up --build -d
 
 echo "Reiniciando Nginx en el contenedor..."
-docker-compose restart nginx
+docker exec front-client-container nginx -s reload
 
 echo "Despliegue completado."
