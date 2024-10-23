@@ -8,16 +8,17 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.baseApiUrl + '/login';
+  private apiUrl = environment.baseApiUrl; // Base URL para la API
 
   constructor(private http: HttpClient) {}
 
+  // Método para el inicio de sesión
   login(email: string, password: string): Observable<string> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = JSON.stringify({ email, password });
-   
-    // Cambia el responseType a 'text'
-    return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
+
+    // Ajusta la URL para que apunte a la ruta de login
+    return this.http.post(`${this.apiUrl}/api/Users/Login`, body, { headers, responseType: 'text' }).pipe(
       catchError(error => {
         console.error('Error en la solicitud:', error);
         return throwError(error);
@@ -36,8 +37,8 @@ export class AuthService {
       userType
     });
 
-    // Llama a la API de registro con los datos
-    return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
+    // Ajusta la URL para que apunte a la ruta de registro
+    return this.http.post(`${this.apiUrl}/api/Users/Register`, body, { headers, responseType: 'text' }).pipe(
       catchError(error => {
         console.error('Error en la solicitud:', error);
         return throwError(error);
