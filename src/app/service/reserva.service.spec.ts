@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 describe('ReservaService', () => {
   let service: ReservaService;
   let httpMock: HttpTestingController;
-  const apiUrl = environment.funcionalidadesUrl + ':8080/api/reservas';
+  const apiUrl = environment.baseApiUrl + '/api/reservas';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

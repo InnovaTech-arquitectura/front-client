@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EcommerceService {
 
-  private apiUrl = environment.funcionalidadesUrl + ':8070/api/tienda';
+  private apiUrl = environment.baseApiUrl + '/api/tienda';
 
   constructor(
     private http: HttpClient

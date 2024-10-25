@@ -19,17 +19,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let pedido of pedidos"> <!-- Cambia a usar *ngFor -->
-                    <td>{{ pedido.id }}</td>
-                    <td>${{ pedido.precio }}</td>
-                    <td>{{ pedido.emprendimiento }}</td>
-                    <td>{{ pedido.estado }}</td>
+                <tr *ngFor="let order of orders">
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.price }}</td>
+                    <td>{{ order.entrepreneurshipName }}</td>
+                    <td>{{ order.state }}</td>
                     <td>
-                        <a class="links info" [routerLink]="['/pedidos-cliente/info/', pedido.id]" [attr.id]="'info-' + pedido.id">
-                            <i class='bx bx-info-circle'></i>
-                        </a> 
+                      <a class="links info" [routerLink]="['/pedidos-cliente/info/', order.id]" [attr.id]="'info-' + order.id">
+                        <i class='bx bx-info-circle'></i>
+                      </a>
                     </td>
-                </tr>
+                  </tr>
+                  
             </tbody>
         </table>
     </div>

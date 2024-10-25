@@ -8,7 +8,7 @@ import { Question } from '../model/question';
   providedIn: 'root'
 })
 export class SupportService {
-  private apiUrl = environment.usuarioSoporteUrl + ':8080/support'; 
+  private apiUrl = environment.baseApiUrl + '/support'; 
 
   constructor(private http: HttpClient) { }
 
