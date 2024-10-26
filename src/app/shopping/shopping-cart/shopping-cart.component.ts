@@ -1,50 +1,58 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
+import { shoppingCartItem } from 'src/app/model/shoppingCartItem';
+import { ShoppingCartService } from '../../service/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent {
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-  ) {}
-  productos = [
-    { nombre: 'Producto 1', descripcion: 'Descripción del producto 1', precio: 50, cantidad: 1 },
-    { nombre: 'Producto 2', descripcion: 'Descripción del producto 2', precio: 30, cantidad: 1 },
-    { nombre: 'Producto 3', descripcion: 'Descripción del producto 3', precio: 40, cantidad: 1 },
-    { nombre: 'Producto 4', descripcion: 'Descripción del producto 4', precio: 20, cantidad: 1 },
-    { nombre: 'Producto 5', descripcion: 'Descripción del producto 5', precio: 60, cantidad: 1 }
-  ];
+export class ShoppingCartComponent implements OnInit {
 
   direccion = 'Cra. 33 # 33-33';
   departamento = 'Cundinamarca';
   ciudad = 'Bogotá';
   totalProductos = 120;
   costoDomicilio = 10;
-  total = this.totalProductos + this.costoDomicilio;
+  total = 0;
 
-  aumentarCantidad(producto) {
-    producto.cantidad++;
-    this.actualizarTotal();
+  
+  constructor(
+    // private router: Router,
+    private shoppingCartService: ShoppingCartService,
+  ) {}
+  
+  cartProducts: shoppingCartItem[] = [];
+
+  ngOnInit() {
+    this.shoppingCartService.obtenerItems().subscribe(
+      (data) => {
+        this.cartProducts = data;
+        this.actualizarTotal();  // Para calcular el total al cargar productos
+        console.log(data);
+      }
+    );
   }
 
-  disminuirCantidad(producto) {
-    if (producto.cantidad > 1) {
-      producto.cantidad--;
-      this.actualizarTotal();
-    }
-  }
+   aumentarCantidad(producto: shoppingCartItem) {
+     producto.quantity++;
+     this.actualizarTotal();
+   }
 
-  actualizarTotal() {
-    this.totalProductos = this.productos.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0);
-    this.total = this.totalProductos + this.costoDomicilio;
-  }
+   disminuirCantidad(producto: shoppingCartItem) {
+     if (producto.quantity > 1) {
+       producto.quantity--;
+       this.actualizarTotal();
+     }
+   }
+
+   actualizarTotal() {
+     this.totalProductos = this.cartProducts.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0);
+     this.total = this.totalProductos + this.costoDomicilio;
+   }
 
   confirmarPedido() {
     alert('Pedido confirmado!');
-    this.router.navigate(['/servicios']);
   }
 }
