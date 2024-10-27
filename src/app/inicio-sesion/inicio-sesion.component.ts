@@ -1,7 +1,8 @@
+// inicio-sesion.component.ts
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // Importa Router para redirigir después del login
+import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-import Swal from 'sweetalert2'; // Importa SweetAlert2 para las alertas
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -11,26 +12,27 @@ import Swal from 'sweetalert2'; // Importa SweetAlert2 para las alertas
 export class InicioSesionComponent {
   email: string = '';
   password: string = '';
-  isLoading: boolean = false; // Inicializa isLoading en falso
+  isLoading: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {} // Inyecta AuthService y Router
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.isLoading = true; // Mostrar el spinner al iniciar sesión
+    this.isLoading = true;
 
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
-        this.isLoading = false; // Ocultar el spinner
+        this.isLoading = false;
         console.log('Inicio de sesión exitoso:', response);
         
-        // Guardar el token en el localStorage
-        localStorage.setItem('token', response);
-        
+        // Guardar el token y el userId en el localStorage
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('userId', response.userId);
+
         // Redirigir a otra ruta, por ejemplo, el dashboard
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
-        this.isLoading = false; // Ocultar el spinner en caso de error
+        this.isLoading = false;
         console.error('Error en el inicio de sesión:', error);
 
         // Mostrar una alerta de error con SweetAlert2
