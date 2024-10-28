@@ -137,12 +137,21 @@
     </div>
 
     <div class="addBtn-container">
-        <input class="cupon" type="text" placeholder="Código de cupón" />
-        <a>
+        <select class="cupon-dropdown" [(ngModel)]="selectedCouponId">
+            <option *ngFor="let coupon of coupons" [value]="coupon.idCoupon">
+              Cupón ID: {{ coupon.idCoupon }} - Estado: {{ coupon.active ? 'Activo' : 'Inactivo' }}
+            </option>
+        </select>
+          
+        <a (click)="redeemCoupon()">
             <i class='bx bx-plus-circle'></i>
             Redimir cupón
         </a>
     </div>
+    
+    
+    
+    
     
   </section>
 </body>

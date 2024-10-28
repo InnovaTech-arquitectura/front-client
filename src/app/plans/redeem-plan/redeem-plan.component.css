@@ -12,7 +12,27 @@ body {
 	margin-top: 100px;
 	width: 100%;
 }
-
+.cupon {
+    width: 600px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 25px;
+    border-radius: 10px;
+    border: 1px solid #91918f;
+    outline-color: black;
+    appearance: none; /* Oculta la flecha por defecto del dropdown en algunos navegadores */
+    background-color: #fff;
+}
+.cupon-dropdown {
+	width: 600px;
+	height: 40px;
+	padding-left: 25px;
+	border-radius: 10px;
+	text-decoration: none;
+	border: 1px solid #91918f;
+	outline-color: black;
+  }
+  
 .headerPage {
 	z-index: 10;
 	width: 100%;
