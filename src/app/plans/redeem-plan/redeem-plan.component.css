@@ -39,7 +39,23 @@ body {
 	position: fixed;
 	top: 0;
 }
-
+.button-container a {
+	display: block; /* Asegúrate de que el enlace sea un bloque */
+	height: 40px; /* Ajusta la altura si es necesario */
+	width: 100%; /* Asegúrate de que ocupe todo el ancho */
+	background-color: #d9d9d9;
+	padding: 10px; /* Ajusta el padding según sea necesario */
+	color: black;
+	text-align: center; /* Centra el texto */
+	border-radius: 10px; /* Bordes redondeados */
+	text-decoration: none; /* Sin subrayado */
+  }
+  
+  .button-container a:hover {
+	background-color: black; /* Cambia el color de fondo al pasar el mouse */
+	color: #d9d9d9; /* Cambia el color del texto al pasar el mouse */
+  }
+  
 .sidebar {
 	position: fixed;
 	top: 100px;
