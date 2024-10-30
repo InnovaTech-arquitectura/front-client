@@ -8,24 +8,31 @@
 			<h1>Información del Servicio</h1>
 		</div>
 
-		<div class="info-product">
+		<div class="info-product" *ngIf="servicio">
 			<div class="info-product-container">
 				<div class="image-placeholder">
-					<img src="https://via.placeholder.com/300x300" alt="Image Placeholder" />
+					
+					<img
+						*ngIf="servicio.picture"
+						[src]="'data:image/png;base64,' + servicio.picture"
+						alt="Service Image"
+						class="service-img"
+					/>
+					
 				</div>
 				<div class="product-info">
 					<div class="info-group">
 						<strong>Nombre:</strong>
-						<p>Tutoría de Matemáticas</p>
+						<p>{{ servicio.name }}</p>
 					</div>
 					<div class="info-group">
 						<strong>Precio:</strong>
-						<p>$80</p>
+						<p>{{ servicio.price }}</p>
 					</div>
                     <div class="info-group">
                         <strong>Descripción:</strong>
                         <p>
-                            Mejora tus habilidades en matemáticas con nuestras tutorías personalizadas. Desde aritmética hasta cálculo avanzado, ofrecemos apoyo adaptado a tu nivel para que entiendas y domines los conceptos. ¡Aprende a tu ritmo y alcanza tus metas académicas!
+                            {{ servicio.description }}
                         </p>
                     </div>
                         <a [routerLink]="['/inventario']">
