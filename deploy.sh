@@ -31,9 +31,14 @@ else
     export SERVER_NAME=10.43.101.180
 fi
 
+# Imprimir el entorno y el servidor configurados
+echo "Entorno de ejecución: $ENVIRONMENT"
+echo "Servidor configurado: $SERVER_NAME"
+
 # Ejecutar docker-compose con el argumento de entorno
 echo "Iniciando el contenedor con la nueva imagen..."
-docker compose up --build -d
+docker compose build --build-arg ENV=$ENVIRONMENT
+docker compose up -d
 
 # Esperar unos segundos para asegurarse de que el contenedor esté activo
 sleep 5
