@@ -32,6 +32,15 @@ body {
 	padding: 20px;
 }
 
+.titulo-paginacion {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+
 .titulo {
 	width: 100%;
 	height: 70px;
@@ -140,4 +149,22 @@ table.tablita {
 .add {
     font-size: 1.5em;
     color: black;
+}
+
+.paginacion {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+}
+.paginacion mat-paginator {
+	border-radius: 8px;
+	background-color: var(--light-gray);
+	padding: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	margin-right: 10px;
+}
+
+.paginacionServices {
+	margin-top: 25px;
 }

@@ -56,16 +56,16 @@ const routes: Routes = [
 
   { path: 'inventario', component: VerProductosServiciosComponent },
   { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
-  { path: 'inventario/editarProducto', component: EditarProductoComponent },
-  { path: 'inventario/infoProducto', component: InfoProductoComponent},
+  { path: 'inventario/editarProducto/:id', component: EditarProductoComponent },
+  { path: 'inventario/infoProducto/:id', component: InfoProductoComponent},
 
   { path: 'proveedores', component: AllSuppliersComponent},
   { path: 'proveedores/add', component: AddSupplierComponent},
   { path: 'proveedores/:id', component: InfoSupplierComponent},
 
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
-  { path: 'inventario/editarServicio', component: EditarServicioComponent },
-  { path: 'inventario/infoServicio', component: InfoServicioComponent},
+  { path: 'inventario/editarServicio/:id', component: EditarServicioComponent },
+  { path: 'inventario/infoServicio/:id', component: InfoServicioComponent},
   
   { path: 'bazares-cliente', component: VerBazaresClienteComponent},
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent},
