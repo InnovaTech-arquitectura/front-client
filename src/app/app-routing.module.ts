@@ -55,18 +55,33 @@ const routes: Routes = [
   { path: 'bazares', component: VerBazaresComponent, canActivate: [AuthGuard] },
   { path: 'bazares/:id', component: DetallesBazarComponent, canActivate: [AuthGuard] },
 
+
   { path: 'inventario', component: VerProductosServiciosComponent, canActivate: [AuthGuard] },
   { path: 'inventario/nuevoProducto', component: NuevoProductoComponent, canActivate: [AuthGuard] },
-  { path: 'inventario/editarProducto', component: EditarProductoComponent, canActivate: [AuthGuard] },
-  { path: 'inventario/infoProducto', component: InfoProductoComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/editarProducto/:id', component: EditarProductoComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/infoProducto/:id', component: InfoProductoComponent, canActivate: [AuthGuard]},
+
 
   { path: 'proveedores', component: AllSuppliersComponent, canActivate: [AuthGuard] },
   { path: 'proveedores/add', component: AddSupplierComponent, canActivate: [AuthGuard] },
   { path: 'proveedores/:id', component: InfoSupplierComponent, canActivate: [AuthGuard] },
 
+
   { path: 'inventario/nuevoServicio', component: NuevoServicioComponent, canActivate: [AuthGuard] },
-  { path: 'inventario/editarServicio', component: EditarServicioComponent, canActivate: [AuthGuard] },
-  { path: 'inventario/infoServicio', component: InfoServicioComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/editarServicio/:id', component: EditarServicioComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/infoServicio/:id', component: InfoServicioComponent, canActivate: [AuthGuard]},
+  
+  { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard]},
+  { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard]},
+  { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
+  { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
+  { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
+  { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },
+  { path: 'productos/:id', component: InfoProductComponent, canActivate: [AuthGuard] },
+  { path: 'reservas', component: ListReservationComponent, canActivate: [AuthGuard]},
+  { path: 'datos', component: PersonalInformationComponent, canActivate: [AuthGuard]},
+  { path: 'planes', component: RedeemPlanComponent, canActivate: [AuthGuard]},
+
 
   { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard] },
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard] },

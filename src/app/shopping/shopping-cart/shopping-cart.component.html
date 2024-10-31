@@ -8,28 +8,33 @@
       <!-- Lista de productos -->
       <div class="productos-list">
         <h2>Emprendimiento XYZ</h2>
-        <div class="producto-item" *ngFor="let producto of productos">
-          <div class="producto-image">
-            <i class='bx bxs-package'></i>
-          </div>
-          <div class="producto-info">
-            <h3>{{ producto.nombre }}</h3>
-            <p>Descripción: {{ producto.descripcion }}</p>
-            <div class="producto-acciones">
-              <a href="#">Eliminar</a>
-              <a href="#">Guardar</a>
-              <a href="#">Modificar</a>
+        <div *ngIf="cartProducts.length > 0; else noProductos">
+          <div class="producto-item" *ngFor="let producto of cartProducts">
+            <div class="producto-image">
+              <img src="{{ producto.image }}" alt="{{ producto.name }}">
             </div>
-          </div>
-          <div class="producto-precio">
-            $ {{ producto.precio }}
-            <div class="cantidad-controles">
-              <button (click)="disminuirCantidad(producto)">-</button>
-              {{ producto.cantidad }}
-              <button (click)="aumentarCantidad(producto)">+</button>
+            <div class="producto-info">
+              <h3>{{ producto.name }}</h3>
+              <p>Descripción: {{ producto.description }}</p>
+              <div class="producto-acciones">
+                <a href="#">Guardar</a>
+                <a href="#">Modificar</a>
+              </div>
+            </div>
+            <div class="producto-precio">
+              $ {{ producto.price }}
+              <div class="cantidad-controles">
+                <button (click)="disminuirCantidad(producto)">-</button>
+                {{ producto.quantity }}
+                <button (click)="aumentarCantidad(producto)">+</button>
+              </div>
             </div>
           </div>
         </div>
+
+        <ng-template #noProductos>
+          <p>No hay productos en el carrito.</p>
+        </ng-template>
       </div>
 
       <!-- Información de envío -->
@@ -37,7 +42,7 @@
         <h3>Información de envío</h3>
         <div class="input-group">
           <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" [(ngModel)]="direccion" placeholder="Value">
+          <input type="text" id="direccion" [(ngModel)]="direccion" placeholder="Ingresa tu dirección">
         </div>
         <div class="input-group">
           <label for="departamento">Departamento</label>

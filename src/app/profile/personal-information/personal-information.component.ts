@@ -20,7 +20,7 @@ export class PersonalInformationComponent implements OnInit {
   constructor(private clientService: ClientService) {}
 
   ngOnInit() {
-    const userId = 12; // ID del usuario que deseas cargar
+    const userId = 2; // ID del usuario que deseas cargar
     this.clientService.getClient(userId)
       .subscribe({
         next: (response) => {
