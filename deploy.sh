@@ -31,10 +31,24 @@ else
     export SERVER_NAME=10.43.101.180
 fi
 
-# Ejecutar docker-compose con el argumento de entorno
-docker compose up --build -d
+# Imprimir el entorno y el servidor configurados
+echo "Entorno de ejecución: $ENVIRONMENT"
+echo "Servidor configurado: $SERVER_NAME"
 
-echo "Reiniciando Nginx en el contenedor..."
-docker exec front-client-container nginx -s reload
+# Ejecutar docker-compose con el argumento de entorno
+echo "Iniciando el contenedor con la nueva imagen..."
+docker compose build --build-arg ENV=$ENVIRONMENT
+docker compose up -d
+
+# Esperar unos segundos para asegurarse de que el contenedor esté activo
+sleep 5
+
+# Reiniciar el contenedor de Nginx
+echo "Reiniciando el contenedor de Nginx..."
+docker restart front-client-container
+
+# Verificar el estado de los contenedores
+echo "Comprobando estado de los contenedores..."
+docker ps
 
 echo "Despliegue completado."
