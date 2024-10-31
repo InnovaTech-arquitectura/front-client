@@ -22,7 +22,7 @@ export class InfoProductoComponent implements OnInit {
   }
 
   loadProduct(id: number): void {
-    this.productsService.finfindProduct(id).subscribe(
+    this.productsService.findProduct(id).subscribe(
       data => {
         this.producto = data;
       },
@@ -30,5 +30,7 @@ export class InfoProductoComponent implements OnInit {
         console.error('Error fetching product details:', error);
       }
     );
+
+    console.log(this.producto);
   }
 }
