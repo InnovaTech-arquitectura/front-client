@@ -8,29 +8,19 @@
             <h1>Nueva venta Presencial</h1>
         </div>
 
-        <form class="crear" (ngSubmit)="crear()">
-            <!-- Selección de producto -->
-            <label for="producto">Producto</label>
-           <!--- <select id="producto" name="producto" [(ngModel)]="formSale.producto">-->
-            <select id="producto" name="producto">
-                <option value="" disabled selected>Seleccione el producto</option>
-                <option *ngFor="let producto of productos" [value]="producto">{{ producto }}</option>
-            </select>
+        <form class="crear" (ngSubmit)="onSubmit()">
 
-            <!-- Precio unitario -->
-            <label for="precio">Precio Unitario</label>
-            <!-- <input type="number" id="precio" name="precio" placeholder="$" [(ngModel)]="formSale.precio">--> 
-            <input type="number" id="precio" name="precio" placeholder="$" > 
+            <!-- ID del producto -->
+            <label for="IDproducto">ID del producto vendido</label>
+            <input type="number" id="IDproducto" name="IDproducto" placeholder="Ingrese el ID del producto" > 
 
             <!-- Cantidad vendida -->
-            <label for="cantidad">Cantidad</label>
-            <!-- <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad vendida" [(ngModel)]="formSale.cantidad"> -->
+            <label for="cantidad">Cantidad - Unidades Vendidas</label>
             <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad vendida" >
 
             <!-- Número de venta -->
-            <label for="numero">Número de venta</label>
-            <!-- <input type="text" id="numero" name="numero" placeholder="###" [(ngModel)]="formSale.numero"> -->
-             <input type="text" id="numero" name="numero" placeholder="###" >
+            <label for="numeroVenta">Número de venta</label>
+             <input type="text" id="numeroVenta" name="numeroVenta" placeholder="Ingrese el numero de venta" >
 
             <!-- Botones de acción -->
             <div class="addBtn-container">

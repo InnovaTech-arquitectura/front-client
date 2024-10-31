@@ -4,9 +4,25 @@
     <app-sidebar class="sidebar"></app-sidebar>
 
     <section class="contenido">
-        <div class="titulo">
-            <h1>Ventas</h1>
+
+        <div class="titulo-paginacion">
+
+            <div class="titulo">
+                <h1>Ventas</h1>
+            </div>
+
+            <div class="paginacion">
+				<mat-paginator
+					[length]="length"
+					[pageSize]="pageSize"
+					(page)="handlePageEvent($event)"
+					[hidePageSize]="true"
+				>
+				</mat-paginator>
+			</div>
+
         </div>
+
 
         <div class="table-container">
             <table id="myTable" class="tablita">
@@ -15,59 +31,13 @@
                         <th>ID</th>
                         <th>Nom Producto</th>
                         <th>Unidades vendidas</th>
-                        <th>Detalle</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>###01</td>
-                        <td>hoddie negro</td>
-                        <td>#####</td>
-                        <td>
-                            <a class="links info" [routerLink]="['/ventas/info/', 1]" [attr.id]="'info-' + 1">
-                                <i class='bx bx-info-circle'></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>###02</td>
-                        <td>hoddie naranja</td>
-                        <td>#####</td>
-                        <td>
-                            <a class="links info" [routerLink]="['/ventas/info/', 2]" [attr.id]="'info-' + 2">
-                                <i class='bx bx-info-circle'></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>###03</td>
-                        <td>hoddie verde</td>
-                        <td>#####</td>
-                        <td>
-                            <a class="links info" [routerLink]="['/ventas/info/', 3]" [attr.id]="'info-' + 3">
-                                <i class='bx bx-info-circle'></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>###05</td>
-                        <td>pantalón negro</td>
-                        <td>#####</td>
-                        <td>
-                            <a class="links info" [routerLink]="['/ventas/info/', 5]" [attr.id]="'info-' + 5">
-                                <i class='bx bx-info-circle'></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>###06</td>
-                        <td>pantalón negra</td>
-                        <td>#####</td>
-                        <td>
-                            <a class="links info" [routerLink]="['/ventas/info/', 6]" [attr.id]="'info-' + 6">
-                                <i class='bx bx-info-circle'></i>
-                            </a>
-                        </td>
+                    <tr *ngFor="let venta of sales">
+                        <td>{{ venta.id }}</td>
+                        <td>{{ venta.producto.name }}</td>
+                        <td>{{ venta.unidadesVendidas }}</td>
                     </tr>
                 </tbody>
             </table>
