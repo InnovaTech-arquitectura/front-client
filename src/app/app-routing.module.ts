@@ -42,6 +42,7 @@ import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
 import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
 import { InfoProductComponent } from './shopping/info-product/info-product.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -51,51 +52,51 @@ const routes: Routes = [
   { path: 'recuperar-password/verificacion', component: VerificacionComponent },
   { path: 'login', component: InicioSesionComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'bazares', component: VerBazaresComponent },
-  { path: 'bazares/:id', component: DetallesBazarComponent },
+  { path: 'bazares', component: VerBazaresComponent, canActivate: [AuthGuard] },
+  { path: 'bazares/:id', component: DetallesBazarComponent, canActivate: [AuthGuard] },
 
-  { path: 'inventario', component: VerProductosServiciosComponent },
-  { path: 'inventario/nuevoProducto', component: NuevoProductoComponent },
-  { path: 'inventario/editarProducto', component: EditarProductoComponent },
-  { path: 'inventario/infoProducto', component: InfoProductoComponent},
+  { path: 'inventario', component: VerProductosServiciosComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/nuevoProducto', component: NuevoProductoComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/editarProducto', component: EditarProductoComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/infoProducto', component: InfoProductoComponent, canActivate: [AuthGuard] },
 
-  { path: 'proveedores', component: AllSuppliersComponent},
-  { path: 'proveedores/add', component: AddSupplierComponent},
-  { path: 'proveedores/:id', component: InfoSupplierComponent},
+  { path: 'proveedores', component: AllSuppliersComponent, canActivate: [AuthGuard] },
+  { path: 'proveedores/add', component: AddSupplierComponent, canActivate: [AuthGuard] },
+  { path: 'proveedores/:id', component: InfoSupplierComponent, canActivate: [AuthGuard] },
 
-  { path: 'inventario/nuevoServicio', component: NuevoServicioComponent },
-  { path: 'inventario/editarServicio', component: EditarServicioComponent },
-  { path: 'inventario/infoServicio', component: InfoServicioComponent},
-  
-  { path: 'bazares-cliente', component: VerBazaresClienteComponent},
-  { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent},
-  { path: 'pagos', component: PagosComponent },
-  { path: 'servicios', component: BuyServicesComponent },
-  { path: 'servicios/:id', component: InfoServiceComponent },
-  { path: 'productos', component: BuyProductsComponent },
-  { path: 'productos/:id', component: InfoProductComponent },
-  { path: 'reservas', component: ListReservationComponent},
-  { path: 'datos', component: PersonalInformationComponent},
-  { path: 'planes', component: RedeemPlanComponent},
+  { path: 'inventario/nuevoServicio', component: NuevoServicioComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/editarServicio', component: EditarServicioComponent, canActivate: [AuthGuard] },
+  { path: 'inventario/infoServicio', component: InfoServicioComponent, canActivate: [AuthGuard] },
 
-  { path: 'capacitaciones', component: ListCoursesComponent},
-  { path: 'capacitaciones/info/:id', component: InfoCourseComponent },
-  { path: 'ventas', component: ListSalesComponent },
-  { path: 'ventas/crear', component: CreateSaleComponent },
-  { path: 'pedidos', component: ListOrdersComponent },
-  { path: 'pedidos-cliente', component: ListOrdersClientComponent },
-  { path: 'pedidos-cliente/info/:id', component: InfoOrderClientComponent },
-  { path: 'carrito', component: ShoppingCartComponent },
-  { path: 'soporte/crear-pregunta', component: CrearPreguntasComponent },
-  { path: 'soporte/ver-pregunta/:id', component: VerPreguntaComponent },
-  {path: 'soporte', component: MisPreguntasComponent},
+  { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard] },
+  { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard] },
+  { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
+  { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
+  { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
+  { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },
+  { path: 'productos/:id', component: InfoProductComponent, canActivate: [AuthGuard] },
+  { path: 'reservas', component: ListReservationComponent, canActivate: [AuthGuard] },
+  { path: 'datos', component: PersonalInformationComponent, canActivate: [AuthGuard] },
+  { path: 'planes', component: RedeemPlanComponent, canActivate: [AuthGuard] },
 
+  { path: 'capacitaciones', component: ListCoursesComponent, canActivate: [AuthGuard] },
+  { path: 'capacitaciones/info/:id', component: InfoCourseComponent, canActivate: [AuthGuard] },
+  { path: 'ventas', component: ListSalesComponent, canActivate: [AuthGuard] },
+  { path: 'ventas/crear', component: CreateSaleComponent, canActivate: [AuthGuard] },
+  { path: 'pedidos', component: ListOrdersComponent, canActivate: [AuthGuard] },
+  { path: 'pedidos-cliente', component: ListOrdersClientComponent, canActivate: [AuthGuard] },
+  { path: 'pedidos-cliente/info/:id', component: InfoOrderClientComponent, canActivate: [AuthGuard] },
+  { path: 'carrito', component: ShoppingCartComponent, canActivate: [AuthGuard] },
+  { path: 'soporte/crear-pregunta', component: CrearPreguntasComponent, canActivate: [AuthGuard] },
+  { path: 'soporte/ver-pregunta/:id', component: VerPreguntaComponent, canActivate: [AuthGuard] },
+  { path: 'soporte', component: MisPreguntasComponent, canActivate: [AuthGuard] },
 
-  { path: 'dashboard', component: EntrepreneurshipStatsComponent },
-  { path: 'account', component: AccountInfoComponent },
+  { path: 'dashboard', component: EntrepreneurshipStatsComponent, canActivate: [AuthGuard] },
+  { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard] },
 
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
