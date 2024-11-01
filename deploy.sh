@@ -35,6 +35,14 @@ fi
 echo "Entorno de ejecución: $ENVIRONMENT"
 echo "Servidor configurado: $SERVER_NAME"
 
+# Detener y eliminar contenedores existentes
+echo "Deteniendo y eliminando contenedores existentes..."
+docker-compose down
+
+# Limpiar imágenes huérfanas y no utilizadas
+echo "Limpiando imágenes de Docker no utilizadas..."
+docker image prune -f
+
 # Ejecutar docker-compose con el argumento de entorno
 echo "Iniciando el contenedor con la nueva imagen..."
 docker compose build --build-arg ENV=$ENVIRONMENT
