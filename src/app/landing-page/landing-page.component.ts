@@ -61,12 +61,18 @@ export class LandingPageComponent {
     this.currentBannerIndex = (this.currentBannerIndex + 1) % this.bannerImages.length;
   }
 
-  navigateTo(section: string) {
-    console.log(`Navigate to ${section}`);
+  navigateTo(num: number) {
+    if(num == 1)
+      this.router.navigate(['/view/productos'])
+    else if(num == 2)
+      this.router.navigate(['/registro'])
   }
 
   createAccount() {
     console.log('Create account');
+    this.router.navigate(['/registro']).catch(err => {
+      console.error('Navigation error:', err);
+    });
   }
 
   login() {
