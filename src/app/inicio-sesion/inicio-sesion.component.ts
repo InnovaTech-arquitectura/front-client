@@ -13,6 +13,7 @@ export class InicioSesionComponent {
   email: string = '';
   password: string = '';
   isLoading: boolean = false;
+  userType: number = 0;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -29,7 +30,10 @@ export class InicioSesionComponent {
         localStorage.setItem('userId', response.userId);
 
         // Redirigir a otra ruta, por ejemplo, el dashboard
-        this.router.navigate(['/dashboard']);
+        if(this.userType == 1)
+          this.router.navigate(['/dashboard']);
+        else
+          this.router.navigate(['/productos']);
       },
       error: (error) => {
         this.isLoading = false;
