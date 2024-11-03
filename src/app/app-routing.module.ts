@@ -116,10 +116,10 @@ const routes: Routes = [
   { path: 'dashboard', component: EntrepreneurshipStatsComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard] },
 
-  { path: 'view/servicios', component: BuyServicesNaComponent, canActivate: [AuthGuard] },
-  { path: 'view/servicios/:id', component: InfoServiceNaComponent, canActivate: [AuthGuard] },
-  { path: 'view/productos', component: BuyProductsNaComponent, canActivate: [AuthGuard] },
-  { path: 'view/productos/:id', component: InfoProductNaComponent, canActivate: [AuthGuard] },
+  { path: 'view/servicios', component: BuyServicesNaComponent },
+  { path: 'view/servicios/:id', component: InfoServiceNaComponent },
+  { path: 'view/productos', component: BuyProductsNaComponent },
+  { path: 'view/productos/:id', component: InfoProductNaComponent },
 
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
