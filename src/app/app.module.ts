@@ -61,6 +61,7 @@ import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
 import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
 import { InfoProductComponent } from './shopping/info-product/info-product.component';
+import { PagosClientComponent } from './pagosCliente/pagos-client/pagos-client.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { InfoProductComponent } from './shopping/info-product/info-product.compo
     AllSuppliersComponent,
     AddSupplierComponent,
     BuyProductsComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    PagosClientComponent
 
   ],
   imports: [

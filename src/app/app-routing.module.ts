@@ -9,6 +9,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
 import { PagosComponent } from './pagos/pagos.component';
+import { PagosClientComponent } from './pagosCliente/pagos-client/pagos-client.component';
 import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
 import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard]},
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard]},
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
+  { path: 'pagos-cliente', component: PagosClientComponent, canActivate: [AuthGuard] },
   { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
   { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
   { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },
@@ -86,6 +88,7 @@ const routes: Routes = [
   { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard] },
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard] },
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
+  { path: 'pagos-cliente', component: PagosClientComponent, canActivate: [AuthGuard] },
   { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
   { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
   { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },

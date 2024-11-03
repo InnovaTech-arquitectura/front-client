@@ -1,0 +1,102 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+  <app-sidebar-client class="sidebar"></app-sidebar-client>
+
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Pagos</h1>
+    </div>
+
+    <div class="container">
+      <!-- Contenedor de métodos de pago -->
+      <div class="payment-container">
+        <h2>Métodos de pago</h2>
+        <div class="payment-methods">
+          <img src="assets/images/paypal.png" alt="PayPal">
+          <img src="assets/images/mastercard.png" alt="Mastercard">
+          <img src="assets/images/visa.png" alt="Visa">
+          <img src="assets/images/tarjeta.png" alt="Maestro">
+          <img src="assets/images/pago-de-apple.png" alt="Apple Pay">
+          <img src="assets/images/pago-de-google.png" alt="Google Pay">
+          <img src="assets/images/pago-de-amazon.png" alt="Amazon Pay">
+        </div>
+
+        <div class="payment-form">
+          <div class="inputText">
+            <label for="card-name" >Nombre en la tarjeta</label>
+            <input type="text" id="card-name" value="Value" />
+          </div>
+          <div class="inputText">
+            <label for="card-number" >Número de la tarjeta</label>
+            <input type="text" id="card-number" value="Value" />
+          </div>
+          <div class="inputText">
+            <div>
+              <label for="expiry-date" >Fecha de vencimiento</label>
+              <input type="text" id="expiry-date" value="Value" />
+            </div>
+            <div class="inputText">
+              <label for="security-code" class="inputText">Código de seguridad</label>
+              <input type="text" id="security-code" value="Value" />
+            </div>
+          </div>
+
+          <div class="save-info">
+            <input type="checkbox" id="save-info" checked>
+            <label for="save-info">Guardar información para futuras compras</label>
+          </div>
+        </div>
+      </div>
+      <div class="summary-container">
+        <h2>Resumen de pago</h2>
+        <div class="summary">
+          <p>Productos</p>
+          <p>120$</p>
+        </div>
+        <div class="summary">
+          <p>Servicios</p>
+          <p>10$</p>
+        </div>
+        <div class="summary">
+          <p>Domicilio</p>
+          <p>10$</p>
+        </div>
+        <div class="total">
+          <p>Total</p>
+          <p>140$</p>
+        </div>
+        
+        <div class="container-btn">
+          <div class="left-side" (click)="confirmPayment()">
+            
+            <div class="card">
+              <div class="card-line"></div>
+              <div class="buttons"></div>
+            </div>
+            <div class="post">
+              <div class="post-line"></div>
+              <div class="screen">
+                <div class="dollar">$</div>
+              </div>
+              <div class="numbers"></div>
+              <div class="numbers-line2"></div>
+            </div>
+          </div>
+        
+          <div class="right-side">
+            <!-- Puedes eliminar este div si prefieres solo el botón de Angular -->
+              Confirmar pedido
+              <svg viewBox="0 0 451.846 451.847" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                <path fill="#cfcfcf" data-old_color="#000000" class="active-path" data-original="#000000" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"></path>
+              </svg>
+          </div>
+        </div>
+        
+
+
+
+      </div>
+    </div>
+  </section>
+</body>

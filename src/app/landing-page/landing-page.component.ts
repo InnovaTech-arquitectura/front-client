@@ -63,10 +63,16 @@ export class LandingPageComponent {
 
   navigateTo(section: string) {
     console.log(`Navigate to ${section}`);
+    this.router.navigate([`/registro`]).catch(err => {
+      console.error('Navigation error:', err);
+    });
   }
 
   createAccount() {
     console.log('Create account');
+    this.router.navigate(['/registro']).catch(err => {
+      console.error('Navigation error:', err);
+    });
   }
 
   login() {
