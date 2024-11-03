@@ -44,6 +44,10 @@ import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.co
 import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
 import { InfoProductComponent } from './shopping/info-product/info-product.component';
 import { AuthGuard } from './auth.guard';
+import { BuyServicesNaComponent } from './shopping/buy-services-na/buy-services-na.component';
+import { InfoServiceNaComponent } from './shopping/info-service-na/info-service-na.component';
+import { BuyProductsNaComponent } from './shopping/buy-products-na/buy-products-na.component';
+import { InfoProductNaComponent } from './shopping/info-product-na/info-product-na.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -111,6 +115,11 @@ const routes: Routes = [
 
   { path: 'dashboard', component: EntrepreneurshipStatsComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard] },
+
+  { path: 'view/servicios', component: BuyServicesNaComponent, canActivate: [AuthGuard] },
+  { path: 'view/servicios/:id', component: InfoServiceNaComponent, canActivate: [AuthGuard] },
+  { path: 'view/productos', component: BuyProductsNaComponent, canActivate: [AuthGuard] },
+  { path: 'view/productos/:id', component: InfoProductNaComponent, canActivate: [AuthGuard] },
 
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
