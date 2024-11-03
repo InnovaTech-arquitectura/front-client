@@ -61,6 +61,12 @@ import { AllSuppliersComponent } from './proveedores/all-suppliers/all-suppliers
 import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.component';
 import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
 import { InfoProductComponent } from './shopping/info-product/info-product.component';
+import { PagosClientComponent } from './pagosCliente/pagos-client/pagos-client.component';
+import { BuyServicesNaComponent } from './shopping/buy-services-na/buy-services-na.component';
+import { BuyProductsNaComponent } from './shopping/buy-products-na/buy-products-na.component';
+import { InfoProductNaComponent } from './shopping/info-product-na/info-product-na.component';
+import { InfoServiceNaComponent } from './shopping/info-service-na/info-service-na.component';
+import { HeaderNaComponent } from './componentTools/header-na/header-na.component';
 
 
 @NgModule({
@@ -114,7 +120,13 @@ import { InfoProductComponent } from './shopping/info-product/info-product.compo
     AllSuppliersComponent,
     AddSupplierComponent,
     BuyProductsComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    PagosClientComponent,
+    BuyServicesNaComponent,
+    BuyProductsNaComponent,
+    InfoProductNaComponent,
+    InfoServiceNaComponent,
+    HeaderNaComponent
 
   ],
   imports: [

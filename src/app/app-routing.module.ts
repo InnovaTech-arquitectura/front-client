@@ -9,6 +9,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { VerBazaresComponent } from './bazares/ver-bazares/ver-bazares.component';
 import { DetallesBazarComponent } from './bazares/detalles-bazar/detalles-bazar.component';
 import { PagosComponent } from './pagos/pagos.component';
+import { PagosClientComponent } from './pagosCliente/pagos-client/pagos-client.component';
 import { VerBazaresClienteComponent } from './bazares/ver-bazares-cliente/ver-bazares-cliente.component';
 import { DetallesBazarClienteComponent } from './bazares/detalles-bazar-cliente/detalles-bazar-cliente.component';
 import { BuyServicesComponent } from './shopping/buy-services/buy-services.component';
@@ -43,6 +44,10 @@ import { AddSupplierComponent } from './proveedores/add-supplier/add-supplier.co
 import { BuyProductsComponent } from './shopping/buy-products/buy-products.component';
 import { InfoProductComponent } from './shopping/info-product/info-product.component';
 import { AuthGuard } from './auth.guard';
+import { BuyServicesNaComponent } from './shopping/buy-services-na/buy-services-na.component';
+import { InfoServiceNaComponent } from './shopping/info-service-na/info-service-na.component';
+import { BuyProductsNaComponent } from './shopping/buy-products-na/buy-products-na.component';
+import { InfoProductNaComponent } from './shopping/info-product-na/info-product-na.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -74,6 +79,7 @@ const routes: Routes = [
   { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard]},
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard]},
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard]},
+  { path: 'pagos-cliente', component: PagosClientComponent, canActivate: [AuthGuard] },
   { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
   { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
   { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },
@@ -86,6 +92,7 @@ const routes: Routes = [
   { path: 'bazares-cliente', component: VerBazaresClienteComponent, canActivate: [AuthGuard] },
   { path: 'bazares-cliente/:id', component: DetallesBazarClienteComponent, canActivate: [AuthGuard] },
   { path: 'pagos', component: PagosComponent, canActivate: [AuthGuard] },
+  { path: 'pagos-cliente', component: PagosClientComponent, canActivate: [AuthGuard] },
   { path: 'servicios', component: BuyServicesComponent, canActivate: [AuthGuard] },
   { path: 'servicios/:id', component: InfoServiceComponent, canActivate: [AuthGuard] },
   { path: 'productos', component: BuyProductsComponent, canActivate: [AuthGuard] },
@@ -108,6 +115,11 @@ const routes: Routes = [
 
   { path: 'dashboard', component: EntrepreneurshipStatsComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard] },
+
+  { path: 'view/servicios', component: BuyServicesNaComponent },
+  { path: 'view/servicios/:id', component: InfoServiceNaComponent },
+  { path: 'view/productos', component: BuyProductsNaComponent },
+  { path: 'view/productos/:id', component: InfoProductNaComponent },
 
   { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
