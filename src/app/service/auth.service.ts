@@ -14,21 +14,33 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   // Método para el registro
-  register(name: string, documentNumber: string, email: string, password: string, userType: string): Observable<any> {
+  register(name: string, documentNumber: number, email: string, password: string, userType: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    // Cuerpo de la solicitud
     const body = {
       name: name,
       id_card: documentNumber,
       email: email,
       password: password,
-      userName: name,   // This maps to 'userName' in your API
-      roleName: userType // Adjusted to match 'roleName' as expected by the API
+      userName: name,
+      roleName: userType
     };
-
-    return this.http.post<any>(`${this.apiUrl}/api/Users/Register`, body, { headers }).pipe(
+  
+    // Determinar la URL según el tipo de usuario
+    let apiUrl = '';
+    if (userType === 'Client') {
+      apiUrl = `${this.apiUrl}/api/Client/Register`;
+    } else if (userType === 'Entrepreneurship') {
+      apiUrl = `${this.apiUrl}/api/Entrepreneurship/Register`;
+    }
+  
+    // Realizar la solicitud POST con la URL dinámica
+    return this.http.post<any>(apiUrl, body, { headers }).pipe(
       catchError(error => {
+        const errorMsg = error?.error?.message || 'Hubo un problema al registrar el usuario.';
         console.error('Registration request error:', error);
-        return throwError(error);
+        return throwError(errorMsg);
       })
     );
   }

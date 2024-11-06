@@ -13,7 +13,7 @@
 			<div class="titulo-paginacion">
 				<div class="container-title">
 					<h2>Productos</h2>
-					<a class="links add" [routerLink]="'/inventario/nuevoProducto'">
+					<a class="links add" [routerLink]="'/inventario/nuevoProducto'" id="addProduct">
 						<i class="bx bx-add-to-queue"></i>
 					</a>
 				</div>
@@ -46,13 +46,13 @@
 							<td>{{ producto.quantity }}</td>
 							<td>{{ producto.price }}</td>
 							<td>
-								<a class="links delete" (click)="deleteProduct(producto.id)" [routerLink] ="'/inventario'">
+								<a class="links delete" (click)="deleteProduct(producto.id)" [routerLink] ="'/inventario'" id="deleteProduct">
 									<i class="bx bx-trash"></i>
 								</a>
-								<a class="links edit" [routerLink]="'/inventario/editarProducto/' + producto.id">
+								<a class="links edit" [routerLink]="'/inventario/editarProducto/' + producto.id" id="editProduct">
 									<i class="bx bx-edit"></i>
 								</a>
-								<a class="links informa" [routerLink]="'/inventario/infoProducto/' + producto.id">
+								<a class="links informa" [routerLink]="'/inventario/infoProducto/' + producto.id" id="infoProduct">
 									<i class="bx bx-info-circle"></i>
 								</a>
 							</td>
@@ -67,7 +67,7 @@
 			<div class="titulo-paginacion paginacionServices">
 				<div class="container-title">
 					<h2>Servicios</h2>
-					<a class="links add" [routerLink]="'/inventario/nuevoServicio'">
+					<a class="links add" [routerLink]="'/inventario/nuevoServicio'" id="addService">
 						<i class="bx bx-add-to-queue"></i>
 					</a>
 				</div>
@@ -98,13 +98,13 @@
 							<td>{{ servicio.name }}</td>
 							<td>{{ servicio.price | currency }}</td>
 							<td>
-								<a class="links delete" (click)="deleteService(servicio.id)">
+								<a class="links delete" (click)="deleteService(servicio.id)" id ="deleteService">
 									<i class="bx bx-trash"></i>
 								</a>
-								<a class="links edit" [routerLink]="'/inventario/editarServicio/' + servicio.id">
+								<a class="links edit" [routerLink]="'/inventario/editarServicio/' + servicio.id" id="editService">
 									<i class="bx bx-edit"></i>
 								</a>
-								<a class="links informa" [routerLink]="'/inventario/infoServicio/' + servicio.id">
+								<a class="links informa" [routerLink]="'/inventario/infoServicio/' + servicio.id" id="infoService">
 									<i class="bx bx-info-circle"></i>
 								</a>
 							</td>
