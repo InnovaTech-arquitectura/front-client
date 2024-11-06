@@ -7,6 +7,7 @@ import { ClientAccount } from '../../client-account.model';
   templateUrl: './personal-information.component.html',
   styleUrls: ['./personal-information.component.css']
 })
+
 export class PersonalInformationComponent implements OnInit {
   client: ClientAccount = {
     id_card: 0,
@@ -20,7 +21,9 @@ export class PersonalInformationComponent implements OnInit {
   constructor(private clientService: ClientService) {}
 
   ngOnInit() {
-    const userId = 2; // ID del usuario que deseas cargar
+    const userId = Number(localStorage.getItem('userId')); 
+
+    //const userId = 2; // ID del usuario que deseas cargar
     this.clientService.getClient(userId)
       .subscribe({
         next: (response) => {
@@ -34,7 +37,9 @@ export class PersonalInformationComponent implements OnInit {
   }
 
   discardChanges() {
-    const userId = 12; // ID del usuario que deseas cargar
+    const userId = Number(localStorage.getItem('userId')); 
+
+    //const userId = 12; // ID del usuario que deseas cargar
     this.clientService.getClient(userId)
       .subscribe({
         next: (response) => {
@@ -49,7 +54,11 @@ export class PersonalInformationComponent implements OnInit {
   }
 
   saveClientInfo() {
-    const userId = 12; // Aseguramos que se use el ID 12
+    const userId = Number(localStorage.getItem('userId')); 
+
+    //const userId = 12
+    //const userId = Number(localStorage.getItem('userId')); 
+    ; // Aseguramos que se use el ID 12
     this.clientService.updateClient(userId, this.client)
       .subscribe({
         next: (response) => {

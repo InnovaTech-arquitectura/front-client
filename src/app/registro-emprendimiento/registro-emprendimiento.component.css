@@ -1,0 +1,145 @@
+.loginContainer {
+    display: flex;
+    height: 100vh;
+}
+
+.imageContainer {
+    flex: 1;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.logoHeader {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    max-width: 150px;
+    height: auto;
+}
+
+.formContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+form {
+    width: 80%;
+    padding: 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid layout for form fields */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullWidth {
+    grid-column: 1 / -1; /* Span across all columns */
+}
+
+form label {
+    margin: 5px 0;
+}
+
+form input, form textarea, form select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 8px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%; /* Full width */
+}
+
+button:hover {
+    background-color: #333;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a {
+    margin-top: 5px;
+    color: #666;
+    text-decoration: none;
+}
+
+.registrationLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.registerHere {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.forgotPassword {
+    text-align: left;
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+.forgotPassword:hover {
+    color: #333; 
+    cursor: pointer; 
+}

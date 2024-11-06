@@ -1,26 +1,43 @@
+// registroEmprendimiento.component.ts
 import { Component } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  selector: 'app-register-entrepreneurship',
+  templateUrl: './registro-emprendimiento.component.html',
+  styleUrls: ['./registro-emprendimiento.component.css']
 })
-export class RegistroComponent {
+export class RegistroEmprendimientoComponent {
   name: string = '';
-  documentNumber: number | null = null;
+  names: string = '';
+  lastNames: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
-  userType: string = 'Client'; // Set userType to "Client" by default
+  documentNumber: number | null = null;
+  userName: string = '';
+  nameEntrepreneurship: string = '';
+  description: string = '';
   isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    if (!this.name || this.documentNumber === null || !this.email || !this.password || !this.confirmPassword) {
+    // Verificación de campos requeridos
+    if (
+      !this.name ||
+      !this.names ||
+      !this.lastNames ||
+      !this.email ||
+      !this.password ||
+      !this.confirmPassword ||
+      this.documentNumber === null ||
+      !this.userName ||
+      !this.nameEntrepreneurship ||
+      !this.description
+    ) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -30,6 +47,7 @@ export class RegistroComponent {
       return;
     }
 
+    // Verificación de coincidencia de contraseñas
     if (this.password !== this.confirmPassword) {
       Swal.fire({
         icon: 'error',
@@ -42,13 +60,24 @@ export class RegistroComponent {
 
     this.isLoading = true;
 
-    this.authService.registerClient(this.name, this.documentNumber, this.email, this.password)
+    // Llama al servicio para registrar emprendimiento
+    this.authService.registerEntrepreneur(
+      this.name,
+      this.names,
+      this.lastNames,
+      this.email,
+      this.password,
+      this.documentNumber,
+      this.userName,
+      this.nameEntrepreneurship,
+      this.description
+    )
       .subscribe({
-        next: () => {
+        next: (response) => {
           Swal.fire({
             icon: 'success',
             title: 'Registro exitoso',
-            text: 'Usuario registrado correctamente.',
+            text: 'Emprendimiento registrado correctamente.',
             confirmButtonText: 'Aceptar'
           }).then(() => {
             this.router.navigate(['/login']);
@@ -56,7 +85,7 @@ export class RegistroComponent {
           this.isLoading = false;
         },
         error: (error) => {
-          const errorMsg = error?.error || 'Hubo un problema al registrar el usuario. Intenta nuevamente.';
+          const errorMsg = error?.error || 'Hubo un problema al registrar el emprendimiento. Intenta nuevamente.';
           Swal.fire({
             icon: 'error',
             title: 'Error',

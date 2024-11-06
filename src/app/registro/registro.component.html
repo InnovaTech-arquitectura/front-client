@@ -20,13 +20,6 @@
             <label for="confirmPassword">Verificación de Contraseña</label>
             <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
 
-            <label for="userType">Regístrate como:</label>
-            <select id="userType" [(ngModel)]="userType" name="userType" required>
-                <option value="--" disabled selected>-- Seleccione un tipo de usuario --</option>
-                <option value="Entrepreneurship">Emprendedor</option>
-                <option value="Client">Cliente</option>
-            </select>
-
             <button type="submit" [disabled]="isLoading">
                 <span *ngIf="!isLoading">Registrarse</span>
                 <span *ngIf="isLoading" class="spinner"></span>
@@ -35,10 +28,13 @@
             <a [routerLink]="['/recuperar-password/recuperar']" class="forgotPassword">¿Olvidaste tu contraseña?</a>
         </form>
 
-        <!-- Mover el enlace de registro fuera del formulario -->
         <div class="registrationLinks">
             <a>¿Ya tienes una cuenta?</a>
             <a [routerLink]="['/login']" class="registerHere">Inicia sesión Aquí</a>
+        </div>
+        <div class="registrationLinks">
+            <p>¿Deseas registrar un emprendimiento?</p>
+            <a [routerLink]="['/registroEmprendimiento']" class="registerHere">Regístrate como Emprendedor Aquí</a>
         </div>
     </div>
 </div>
