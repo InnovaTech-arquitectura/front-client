@@ -24,7 +24,7 @@ export class AuthService {
       RoleName: userType // Ajusta esto según cómo estés manejando los roles
     };
 
-    return this.http.post<any>(`${this.apiUrl}/api/Client/Register`, body, { headers }).pipe(
+    return this.http.post<any>(`${this.apiUrl}/api/Users/Register`, body, { headers }).pipe(
       catchError(error => {
         console.error('Error en la solicitud de registro:', error);
         return throwError(error);
