@@ -29,8 +29,12 @@ export class AccountInfoComponent implements OnInit {
   message: string = ''; // Mensaje de éxito o error
   isSuccess: boolean = false; // Estado de éxito
 
-  private clientId = 13; // ID del cliente
-  private entrepreneurshipId = 13; // ID del emprendimiento
+  private clientId = Number(localStorage.getItem('userId')); 
+  private entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+
+  //private clientId = 13; // ID del cliente
+  //private entrepreneurshipId = 13; // ID del emprendimiento
 
   logoFile: File | null = null;
 

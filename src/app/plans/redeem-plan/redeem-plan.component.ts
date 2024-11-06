@@ -17,7 +17,9 @@ export class RedeemPlanComponent implements OnInit {
   }
 
   loadCoupons() {
-    const entrepreneurshipId = 2; // ID que probaste en Swagger
+    const entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+    //const entrepreneurshipId = 2; // ID que probaste en Swagger
     this.couponService.getCouponsByEntrepreneurshipId(entrepreneurshipId).subscribe({
       next: (data) => {
         this.coupons = data.map(coupon => ({
