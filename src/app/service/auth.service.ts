@@ -17,16 +17,17 @@ export class AuthService {
   register(name: string, documentNumber: string, email: string, password: string, userType: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = {
-      Name: name,
-      Id_card: documentNumber,
-      Email: email,
-      Password: password,
-      RoleName: userType // Ajusta esto según cómo estés manejando los roles
+      name: name,
+      id_card: documentNumber,
+      email: email,
+      password: password,
+      userName: name,   // This maps to 'userName' in your API
+      roleName: userType // Adjusted to match 'roleName' as expected by the API
     };
 
     return this.http.post<any>(`${this.apiUrl}/api/Users/Register`, body, { headers }).pipe(
       catchError(error => {
-        console.error('Error en la solicitud de registro:', error);
+        console.error('Registration request error:', error);
         return throwError(error);
       })
     );
