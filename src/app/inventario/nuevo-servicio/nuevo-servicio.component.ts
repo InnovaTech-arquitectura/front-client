@@ -70,7 +70,7 @@ export class NuevoServicioComponent {
       return;
     }
 
-    const idUser = "1";// Cambiar por el id del usuario logueado
+    const idUser = localStorage.getItem('userId');
 
     const formData = new FormData();
     formData.append('name', name);
