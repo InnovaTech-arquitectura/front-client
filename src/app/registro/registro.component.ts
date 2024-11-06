@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent {
   name: string = '';
-  documentNumber: number | null = null; // Cambiado a 'number'
+  documentNumber: number; 
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
@@ -44,7 +44,7 @@ export class RegistroComponent {
 
     this.isLoading = true;
 
-    // Llama al servicio de registro
+    // Llama al servicio de registro con el tipo de usuario dinámico
     this.authService.register(this.name, this.documentNumber, this.email, this.password, this.userType)
       .subscribe({
         next: (response) => {
