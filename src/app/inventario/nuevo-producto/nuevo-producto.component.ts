@@ -68,7 +68,7 @@ export class NuevoProductoComponent {
       Swal.fire('Error', 'La descripción es requerida', 'error');
       return
     }
-    const idUser = "1";// Cambiar por el id del usuario logueado
+    const idUser = localStorage.getItem('userId');
     
 
     const formData = new FormData();
