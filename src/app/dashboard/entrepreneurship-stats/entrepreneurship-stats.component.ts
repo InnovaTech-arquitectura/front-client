@@ -31,7 +31,7 @@ export class EntrepreneurshipStatsComponent implements OnInit{
       this.chartVentasPrducto = response.chartData2;
       this.datosSueltos = response.summary;
     }, error => {
-      console.error('Error al cargar los datos del dashboard:', error);
+      //console.error('Error al cargar los datos del dashboard:', error);
     });
   }
 

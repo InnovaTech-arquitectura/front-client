@@ -41,7 +41,7 @@ export class EditarServicioComponent implements OnInit {
         this.imagePreview = this.servicio.imageUrl;  // Si tiene una URL de imagen, la mostramos en la vista previa
       },
       (error) => {
-        console.error('Error al cargar el servicio:', error);
+        //console.error('Error al cargar el servicio:', error);
       }
     );
   }

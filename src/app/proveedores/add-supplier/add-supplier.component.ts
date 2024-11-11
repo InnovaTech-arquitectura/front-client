@@ -33,15 +33,15 @@ export class AddSupplierComponent {
 
   addSupplier(): void {
     this.sendSupply = Object.assign({}, this.formSupply);
-    console.log(this.sendSupply);
+    //console.log(this.sendSupply);
 
     this.supplierService.addSupplier(this.sendSupply).subscribe(
       (response) => {
-        console.log(response);
+        //console.log(response);
         this.router.navigate(['/proveedores']);
       },
       error => {
-        console.error(error);
+        //console.error(error);
       }
     );
   }

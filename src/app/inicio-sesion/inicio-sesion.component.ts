@@ -23,7 +23,7 @@ export class InicioSesionComponent {
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         this.isLoading = false;
-        console.log('Inicio de sesión exitoso:', response);
+        //console.log('Inicio de sesión exitoso:', response);
         
         // Guardar el token y el userId en el localStorage
         localStorage.setItem('token', response.token);
@@ -37,7 +37,7 @@ export class InicioSesionComponent {
       },
       error: (error) => {
         this.isLoading = false;
-        console.error('Error en el inicio de sesión:', error);
+        //console.error('Error en el inicio de sesión:', error);
 
         // Mostrar una alerta de error con SweetAlert2
         Swal.fire({
