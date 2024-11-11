@@ -19,18 +19,18 @@ export class ListSalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageIndex = 0;
-    console.log(this.pageIndex);
+    //console.log(this.pageIndex);
     this.getSales(this.pageIndex, this.pageSize);
-    console.log(this.length);
+    //console.log(this.length);
   }
 
   getSales(pageIndex: number, pageSize: number): void {
     this.salesService.getSales(pageIndex, pageSize).subscribe((data: any) => {
-        console.log(data);
+        //console.log(data);
         this.sales = data.content;
         this.length = data.totalElements;
       }, error => {
-        console.error('Error fetching sales:', error);
+        //console.error('Error fetching sales:', error);
       });
   }
 

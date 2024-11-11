@@ -20,7 +20,7 @@ export class BuyProductsNaComponent implements OnInit {
     this.ecommerceService.findProducts().subscribe(
       (data) => {
         this.productsList = data;
-        console.log(data);
+        //console.log(data);
       }
     );
   }

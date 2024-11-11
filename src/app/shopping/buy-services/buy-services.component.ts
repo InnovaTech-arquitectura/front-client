@@ -20,7 +20,7 @@ export class BuyServicesComponent implements OnInit {
     this.ecommerceService.findServices().subscribe(
       (data) => {
         this.serviceList = data;
-        console.log(data);
+        //console.log(data);
       }
     );
   }

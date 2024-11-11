@@ -37,12 +37,12 @@ export class VerProductosServiciosComponent implements OnInit {
 	listProducts(page: number, size: number) {
 		this.productsService.listProducts(page, size).subscribe(
 			(data) => {
-				console.log(data);
+				//console.log(data);
 				this.productos = data;
 				this.totalProducts = data.totalElements;
 			},
 			(error) => {
-				console.error('Error fetching products:', error);
+				//console.error('Error fetching products:', error);
 			}
 		);
 	}
@@ -54,7 +54,7 @@ export class VerProductosServiciosComponent implements OnInit {
 				this.totalServices = data.totalElements;
 			},
 			(error) => {
-				console.error('Error fetching services:', error);
+				//console.error('Error fetching services:', error);
 			}
 		);
 	}
@@ -107,7 +107,7 @@ export class VerProductosServiciosComponent implements OnInit {
 							this.listProducts(this.pageIndexProducts, this.pageSize);
 						} else {
 							// Muestra un mensaje de error solo si el código de estado es diferente
-							console.error('Error deleting product:', error);
+							//console.error('Error deleting product:', error);
 							Swal.fire('Error', 'Hubo un problema al eliminar el producto', 'error');
 						}
 					}
@@ -138,7 +138,7 @@ export class VerProductosServiciosComponent implements OnInit {
 							Swal.fire('Eliminado', 'El servicio ha sido eliminado', 'success');
 							this.listServices(this.pageIndexServices, this.pageSize);
 						} else {
-							console.error('Error deleting service:', error);
+							//console.error('Error deleting service:', error);
 							Swal.fire('Error', 'Hubo un problema al eliminar el servicio', 'error');
 						}
 					}
