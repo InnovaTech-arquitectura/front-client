@@ -71,11 +71,11 @@ export class AuthService {
 
 
   // Método para el inicio de sesión
-  login(email: string, password: string): Observable<{ isSuccess: boolean, token: string, userId: string }> {
+  login(email: string, password: string): Observable<{ isSuccess: boolean, token: string, userId: string, role: string}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = JSON.stringify({ email, password });
 
-    return this.http.post<{ isSuccess: boolean, token: string, userId: string }>(`${this.apiUrl}/api/Users/Login`, body, { headers }).pipe(
+    return this.http.post<{ isSuccess: boolean, token: string, userId: string, role: string }>(`${this.apiUrl}/api/Users/Login`, body, { headers }).pipe(
       catchError(error => {
         //console.error('Error en la solicitud de inicio de sesión:', error);
         return throwError(error);

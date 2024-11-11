@@ -13,7 +13,7 @@ export class InicioSesionComponent {
   email: string = '';
   password: string = '';
   isLoading: boolean = false;
-  userType: number = 0;
+  userType: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -28,10 +28,10 @@ export class InicioSesionComponent {
         // Guardar el token y el userId en el localStorage
         localStorage.setItem('token', response.token);
         localStorage.setItem('userId', response.userId);
+        this.userType = response.role;
 
-        // Redirigir a otra ruta, por ejemplo, el dashboard
-        if(this.userType == 1)
-          this.router.navigate(['/dashboard']);
+        if(this.userType == '9')
+          this.router.navigate(['/inventario']);
         else
           this.router.navigate(['/productos']);
       },
