@@ -40,7 +40,7 @@ export class EditarProductoComponent implements OnInit {
         this.imagePreview = this.producto.imageUrl;  // Si tiene una URL de imagen, la mostramos en la vista previa
       },
       (error) => {
-        console.error('Error al cargar el producto:', error);
+        //console.error('Error al cargar el producto:', error);
       }
     );
   }
@@ -109,7 +109,7 @@ export class EditarProductoComponent implements OnInit {
     formData.append('picture', this.selectedFile);
     formData.append('IdUser_Entity', idUser);
 
-    console.log(formData);
+    //console.log(formData);
     
     this.productsService.editProduct(productId, formData).subscribe(
       (response) => {

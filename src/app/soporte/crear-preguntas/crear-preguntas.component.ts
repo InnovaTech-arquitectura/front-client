@@ -17,7 +17,7 @@ export class CrearPreguntasComponent {
   enviarPregunta(): void {
     const newQuestion: Question = { question: this.pregunta, answer: null, business: this.business };
     this.supportService.createQuestion(newQuestion).subscribe(response => {
-      console.log('Pregunta enviada', response);
+      //console.log('Pregunta enviada', response);
       this.pregunta = ''; // Limpia el campo después de enviar
 
       // Redirige a la página de Mis Preguntas

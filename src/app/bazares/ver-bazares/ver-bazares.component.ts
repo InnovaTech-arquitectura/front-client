@@ -25,7 +25,7 @@ export class VerBazaresComponent implements OnInit {
         this.bazares = response.content;
         this.length = response.totalElements;
       }, error => {
-        console.error('Error fetching bazares:', error);
+        //console.error('Error fetching bazares:', error);
       });
   }
 

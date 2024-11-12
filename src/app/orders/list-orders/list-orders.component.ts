@@ -23,9 +23,9 @@ export class ListOrdersComponent implements OnInit{
 
   ngOnInit(): void {
     this.pageIndex = 0;
-		console.log(this.pageIndex);
+		//console.log(this.pageIndex);
 		this.getOrders(this.pageIndex, this.pageSize);
-		console.log(this.length);
+		//console.log(this.length);
   }
 
 getOrders(pageIndex: number, pageSize: number): void {

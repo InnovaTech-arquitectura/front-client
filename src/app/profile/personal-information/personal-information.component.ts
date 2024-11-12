@@ -28,10 +28,10 @@ export class PersonalInformationComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.client = response;
-          console.log('Información del cliente cargada:', this.client);
+          //console.log('Información del cliente cargada:', this.client);
         },
         error: (err) => {
-          console.error('Error al cargar la información del cliente:', err);
+          //console.error('Error al cargar la información del cliente:', err);
         }
       });
   }
@@ -45,10 +45,10 @@ export class PersonalInformationComponent implements OnInit {
         next: (response) => {
           this.client = response;
           this.message = ''; // Resetea el mensaje al descartar cambios
-          console.log('Información del cliente cargada:', this.client);
+          //console.log('Información del cliente cargada:', this.client);
         },
         error: (err) => {
-          console.error('Error al cargar la información del cliente:', err);
+          //console.error('Error al cargar la información del cliente:', err);
         }
       });
   }
@@ -62,12 +62,12 @@ export class PersonalInformationComponent implements OnInit {
     this.clientService.updateClient(userId, this.client)
       .subscribe({
         next: (response) => {
-          console.log('Información guardada en el servidor:', response);
+          //console.log('Información guardada en el servidor:', response);
           this.message = 'Información guardada exitosamente'; // Mensaje de éxito
           this.isSuccess = true; // Establece el estado de éxito
         },
         error: (err) => {
-          console.error('Error al guardar la información:', err);
+          //console.error('Error al guardar la información:', err);
           this.message = 'Error al guardar la información'; // Mensaje de error
           this.isSuccess = false; // Establece el estado de error
         }

@@ -80,7 +80,7 @@ export class NuevoProductoComponent {
     formData.append('picture', this.selectedFile);
     formData.append('IdUser_Entity', idUser);
 
-    console.log(formData);
+    //console.log(formData);
 
     this.productsService.createProduct(formData).subscribe(
       (response) => {

@@ -41,7 +41,7 @@ export class AllSuppliersComponent implements OnInit {
         this.supplierService.deleteSupplier(id).subscribe(
           response => {
             // Eliminación exitosa
-            console.log('Plan eliminado', response);
+            //console.log('Plan eliminado', response);
             
             // Eliminamos el plan de la lista local (en el front)
             const index = this.supplierList.findIndex((plan) => plan.id === id);
@@ -67,7 +67,7 @@ export class AllSuppliersComponent implements OnInit {
               confirmButtonText: 'Aceptar',
               confirmButtonColor: '#19647e'
             });
-            console.error(error);
+            //console.error(error);
           }
         );
       }

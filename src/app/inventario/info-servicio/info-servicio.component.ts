@@ -27,7 +27,7 @@ export class InfoServicioComponent implements OnInit {
         this.servicio = data;
       },
       error => {
-        console.error('Error fetching product details:', error);
+        //console.error('Error fetching product details:', error);
       }
     );
   }
