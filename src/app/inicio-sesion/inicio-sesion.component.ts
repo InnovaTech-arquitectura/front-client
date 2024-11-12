@@ -23,7 +23,6 @@ export class InicioSesionComponent {
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         this.isLoading = false;
-        //console.log('Inicio de sesión exitoso:', response);
         
         // Guardar el token y el userId en el localStorage
         localStorage.setItem('token', response.token);
