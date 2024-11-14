@@ -27,10 +27,10 @@ export class InfoProductoComponent implements OnInit {
         this.producto = data;
       },
       error => {
-        console.error('Error fetching product details:', error);
+        //console.error('Error fetching product details:', error);
       }
     );
 
-    console.log(this.producto);
+    //console.log(this.producto);
   }
 }

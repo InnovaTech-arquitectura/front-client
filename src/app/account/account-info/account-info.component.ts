@@ -29,8 +29,12 @@ export class AccountInfoComponent implements OnInit {
   message: string = ''; // Mensaje de éxito o error
   isSuccess: boolean = false; // Estado de éxito
 
-  private clientId = 13; // ID del cliente
-  private entrepreneurshipId = 13; // ID del emprendimiento
+  private clientId = Number(localStorage.getItem('userId')); 
+  private entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+
+  //private clientId = 13; // ID del cliente
+  //private entrepreneurshipId = 13; // ID del emprendimiento
 
   logoFile: File | null = null;
 
@@ -49,10 +53,10 @@ export class AccountInfoComponent implements OnInit {
         next: (response) => {
           this.originalEntrepreneurship = { ...response }; // Copia del emprendimiento original
           this.entrepreneurship = response;
-          console.log('Información del emprendimiento cargada:', this.entrepreneurship);
+          //console.log('Información del emprendimiento cargada:', this.entrepreneurship);
         },
         error: (err) => {
-          console.error('Error al cargar la información del emprendimiento:', err);
+          //console.error('Error al cargar la información del emprendimiento:', err);
         }
       });
     
@@ -61,10 +65,10 @@ export class AccountInfoComponent implements OnInit {
         next: (response) => {
           this.originalClient = { ...response }; // Copia del cliente original
           this.client = response; 
-          console.log('Información del cliente cargada:', this.client);
+          //console.log('Información del cliente cargada:', this.client);
         },
         error: (err) => {
-          console.error('Error al cargar la información del cliente:', err);
+          //console.error('Error al cargar la información del cliente:', err);
         }
       });
   }
@@ -79,7 +83,7 @@ export class AccountInfoComponent implements OnInit {
   saveInfo() {
     // Verifica si los datos son válidos antes de enviar la solicitud
     if (!this.client.name || !this.client.id_card || !this.client.email || !this.entrepreneurship.name || !this.entrepreneurship.description) {
-      console.log('Hay campos requeridos que no están completos.');
+      //console.log('Hay campos requeridos que no están completos.');
       this.message = 'Por favor, completa todos los campos requeridos.';
       this.isSuccess = false;
       return; // Salir si hay campos vacíos
@@ -99,7 +103,7 @@ export class AccountInfoComponent implements OnInit {
       if (validImageTypes.includes(fileType)) {
         formData.append('Logo', this.logoFile); // Logo como archivo
       } else {
-        console.log('El archivo seleccionado no es una imagen válida.');
+        //console.log('El archivo seleccionado no es una imagen válida.');
         this.message = 'Por favor, selecciona un archivo de imagen válido.';
         this.isSuccess = false;
         return;
@@ -110,23 +114,23 @@ export class AccountInfoComponent implements OnInit {
     this.clientService.updateClient(this.clientId, this.client)
       .subscribe({
         next: (response) => {
-          console.log('Información del cliente guardada en el servidor:', response);
+          //console.log('Información del cliente guardada en el servidor:', response);
           this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData)
             .subscribe({
               next: (response) => {
-                console.log('Información del emprendimiento guardada en el servidor:', response);
+                //console.log('Información del emprendimiento guardada en el servidor:', response);
                 this.message = 'Información del cliente y del emprendimiento guardadas exitosamente'; // Mensaje de éxito
                 this.isSuccess = true; // Establece el estado de éxito
               },
               error: (err) => {
-                console.log('Error al guardar la información del emprendimiento:', err);
+                //console.log('Error al guardar la información del emprendimiento:', err);
                 this.message = `Error al guardar la información del emprendimiento: ${err.message}`; // Mensaje de error más detallado
                 this.isSuccess = false; // Establece el estado de error
               }
             });
         },
         error: (err) => {
-          console.error('Error al guardar la información del cliente:', err);
+          //console.error('Error al guardar la información del cliente:', err);
           this.message = 'Error al guardar la información del cliente'; // Mensaje de error
           this.isSuccess = false; // Establece el estado de error
         }

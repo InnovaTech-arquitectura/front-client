@@ -25,13 +25,13 @@ export class CrearComponent {
     // Llamar al método del servicio para crear la nueva contraseña
     this.passwordRecoveryService.setNewPassword(this.newPassword, this.confirmPassword).subscribe(
       response => {
-        console.log('Contraseña cambiada con éxito:', response);
+        //console.log('Contraseña cambiada con éxito:', response);
         this.successMessage = 'Contraseña creada correctamente. Puedes iniciar sesión ahora.'; // Mensaje de éxito
         // Redirigir al usuario al inicio de sesión después de un cambio exitoso
         this.router.navigate(['/inicio-sesion']);
       },
       error => {
-        console.error('Error al cambiar la contraseña:', error);
+        //console.error('Error al cambiar la contraseña:', error);
         this.errorMessage = 'Hubo un error al crear la nueva contraseña. Inténtalo nuevamente.'; // Manejo de errores
       }
     );

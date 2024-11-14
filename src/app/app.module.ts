@@ -67,6 +67,7 @@ import { BuyProductsNaComponent } from './shopping/buy-products-na/buy-products-
 import { InfoProductNaComponent } from './shopping/info-product-na/info-product-na.component';
 import { InfoServiceNaComponent } from './shopping/info-service-na/info-service-na.component';
 import { HeaderNaComponent } from './componentTools/header-na/header-na.component';
+import { RegistroEmprendimientoComponent } from './registro-emprendimiento/registro-emprendimiento.component';
 
 
 @NgModule({
@@ -126,7 +127,8 @@ import { HeaderNaComponent } from './componentTools/header-na/header-na.componen
     BuyProductsNaComponent,
     InfoProductNaComponent,
     InfoServiceNaComponent,
-    HeaderNaComponent
+    HeaderNaComponent,
+    RegistroEmprendimientoComponent
 
   ],
   imports: [

@@ -18,13 +18,13 @@ export class VerificacionComponent {
     // Llamar al método del servicio para verificar el código
     this.passwordRecoveryService.requestVerificationCode(this.code).subscribe(
       response => {
-        console.log('Código verificado con éxito:', response);
+        //console.log('Código verificado con éxito:', response);
         this.successMessage = 'Código verificado correctamente. Puedes continuar.'; // Mensaje de éxito
         // Redirigir al componente correspondiente después de la verificación exitosa
         this.router.navigate(['/recuperar-password/crear']);
       },
       error => {
-        console.error('Error al verificar el código:', error);
+        //console.error('Error al verificar el código:', error);
         this.errorMessage = 'El código ingresado es incorrecto. Inténtalo nuevamente.'; // Manejo de errores
       }
     );
