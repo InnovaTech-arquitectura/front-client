@@ -31,10 +31,10 @@ export class InfoSupplierComponent implements OnInit {
         description: data.description,
         products: data.products ? data.products.map(product => product.id) : []  // Manejo de posible undefined
       };
-      console.log('Supplier data loaded:', this.supplier);  // Verifica que se obtienen los datos correctamente
-      console.log('Edited Supplier:', this.editedSupplier);  // Verifica que se inicializan correctamente
+      //console.log('Supplier data loaded:', this.supplier);  // Verifica que se obtienen los datos correctamente
+      //console.log('Edited Supplier:', this.editedSupplier);  // Verifica que se inicializan correctamente
     }, error => {
-      console.error('Error loading supplier data:', error);  // Manejo de errores
+      //console.error('Error loading supplier data:', error);  // Manejo de errores
     });
   }
 
@@ -94,7 +94,7 @@ export class InfoSupplierComponent implements OnInit {
           confirmButtonText: 'Aceptar',
           confirmButtonColor: '#19647e'
         });
-        console.error('Error updating supplier:', error);
+        //console.error('Error updating supplier:', error);
       }
     );
   }

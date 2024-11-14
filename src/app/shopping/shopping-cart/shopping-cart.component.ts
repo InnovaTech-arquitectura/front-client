@@ -30,7 +30,7 @@ export class ShoppingCartComponent implements OnInit {
       (data) => {
         this.cartProducts = data;
         this.actualizarTotal();  // Para calcular el total al cargar productos
-        console.log(data);
+        //console.log(data);
       }
     );
   }

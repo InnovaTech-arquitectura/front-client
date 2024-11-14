@@ -34,6 +34,6 @@ export class SalesService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.post<any>(`${this.apiUrl}/add`, sale);
+    return this.http.post<any>(`${this.apiUrl}/add`, sale, { headers });
   }
 }

@@ -52,7 +52,7 @@ export class NuevoServicioComponent {
     }
     
     const initialDate = (document.getElementById('initialDate') as HTMLInputElement)?.value;
-    console.log(initialDate);
+    //console.log(initialDate);
     if (!initialDate) {
       Swal.fire('Error', 'La fecha inicial es requerida', 'error');
       return;
@@ -70,7 +70,7 @@ export class NuevoServicioComponent {
       return;
     }
 
-    const idUser = "1";// Cambiar por el id del usuario logueado
+    const idUser = localStorage.getItem('userId');
 
     const formData = new FormData();
     formData.append('name', name);
@@ -81,7 +81,7 @@ export class NuevoServicioComponent {
     formData.append('picture', this.selectedFile);
     formData.append('IdUser_Entity', idUser);
 
-    console.log(formData);
+    //console.log(formData);
 
     this.servicesService.createService(formData).subscribe(
       (response) => {

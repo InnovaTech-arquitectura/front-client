@@ -41,7 +41,24 @@ body {
 	font-size: 3em;
 	font-weight: bold;
 }
+.link {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+    background-color: #d9d9d9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block; /* para que respete el padding y se vea como botón */
+    transition: all 0.2s ease;
+}
 
+.link:hover {
+    background-color: black;
+    color: #d9d9d9;
+    text-shadow: none; /* elimina el shadow para mantener el estilo coherente */
+}
 .products {
     margin-top: 25px;
     padding-left: 25px;

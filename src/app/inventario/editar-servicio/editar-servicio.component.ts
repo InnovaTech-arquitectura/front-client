@@ -41,7 +41,7 @@ export class EditarServicioComponent implements OnInit {
         this.imagePreview = this.servicio.imageUrl;  // Si tiene una URL de imagen, la mostramos en la vista previa
       },
       (error) => {
-        console.error('Error al cargar el servicio:', error);
+        //console.error('Error al cargar el servicio:', error);
       }
     );
   }
@@ -100,7 +100,7 @@ export class EditarServicioComponent implements OnInit {
       return;
     }
 
-    const idUser = "1";// Cambiar por el id del usuario logueado
+    const idUser = localStorage.getItem('userId');
     
     const formData = new FormData();
     formData.append('name', name);

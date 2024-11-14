@@ -48,6 +48,7 @@ import { BuyServicesNaComponent } from './shopping/buy-services-na/buy-services-
 import { InfoServiceNaComponent } from './shopping/info-service-na/info-service-na.component';
 import { BuyProductsNaComponent } from './shopping/buy-products-na/buy-products-na.component';
 import { InfoProductNaComponent } from './shopping/info-product-na/info-product-na.component';
+import { RegistroEmprendimientoComponent } from './registro-emprendimiento/registro-emprendimiento.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'recuperar-password/verificacion', component: VerificacionComponent },
   { path: 'login', component: InicioSesionComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'registroEmprendimiento', component: RegistroEmprendimientoComponent },
   { path: 'bazares', component: VerBazaresComponent, canActivate: [AuthGuard] },
   { path: 'bazares/:id', component: DetallesBazarComponent, canActivate: [AuthGuard] },
 

@@ -69,25 +69,25 @@ export class LandingPageComponent {
   }
 
   createAccount() {
-    console.log('Create account');
+    //console.log('Create account');
     this.router.navigate(['/registro']).catch(err => {
-      console.error('Navigation error:', err);
+      //console.error('Navigation error:', err);
     });
   }
 
   login() {
-    console.log('Login');
+    //console.log('Login');
     this.router.navigate(['/inicio-sesion']).catch(err => {
-      console.error('Navigation error:', err);
+      //console.error('Navigation error:', err);
     });
   }
   
 
   logout() {
-    console.log('Logout');
+    //console.log('Logout');
   }
 
   sell() {
-    console.log('Sell section');
+    //console.log('Sell section');
   }
 } 

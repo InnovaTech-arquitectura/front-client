@@ -31,7 +31,7 @@ export class InfoProductNaComponent implements OnInit {
 
 			this.ecommerceService.findProductById(id).subscribe(
         (data) => {
-          console.log(data);
+          //console.log(data);
           this.product = data;
         }
       );

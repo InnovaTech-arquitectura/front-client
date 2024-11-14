@@ -68,7 +68,7 @@ export class NuevoProductoComponent {
       Swal.fire('Error', 'La descripción es requerida', 'error');
       return
     }
-    const idUser = "1";// Cambiar por el id del usuario logueado
+    const idUser = localStorage.getItem('userId');
     
 
     const formData = new FormData();
@@ -80,7 +80,7 @@ export class NuevoProductoComponent {
     formData.append('picture', this.selectedFile);
     formData.append('IdUser_Entity', idUser);
 
-    console.log(formData);
+    //console.log(formData);
 
     this.productsService.createProduct(formData).subscribe(
       (response) => {
