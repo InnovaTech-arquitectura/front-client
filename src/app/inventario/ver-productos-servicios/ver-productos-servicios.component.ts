@@ -28,46 +28,40 @@ export class VerProductosServiciosComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.pageIndexProducts = 0;
-		this.pageIndexServices = 0;
 		this.listProducts(this.pageIndexProducts, this.pageSize);
 		this.listServices(this.pageIndexServices, this.pageSize);
 	}
 
 	listProducts(page: number, size: number) {
-		this.productsService.listProducts(page, size).subscribe(
-			(data) => {
-				//console.log(data);
-				this.productos = data;
-				this.totalProducts = data.totalElements;
-			},
-			(error) => {
-				//console.error('Error fetching products:', error);
-			}
-		);
+		this.productsService.listProducts(page, size)
+		.subscribe(response => {
+			this.productos = response.content;
+			this.totalProducts = response.totalElements;
+		}, error => {
+			//console.error('Error fetching products:', error);
+		});
 	}
 
 	listServices(page: number, size: number) {
-		this.servicesService.listServices(page, size).subscribe(
-			(data) => {
-				this.servicios = data;
-				this.totalServices = data.totalElements;
+		this.servicesService.listServices(page, size)
+		.subscribe(response => {
+				this.servicios = response.content;
+				this.totalServices = response.totalElements;
 			},
 			(error) => {
 				//console.error('Error fetching services:', error);
-			}
-		);
+			});
 	}
 
 	handleProductsPageEvent(event: PageEvent): void {
-		this.pageIndexProducts = event.pageIndex;
 		this.pageSize = event.pageSize;
+		this.pageIndexProducts = event.pageIndex;
 		this.listProducts(this.pageIndexProducts, this.pageSize);
 	}
 
 	handleServicesPageEvent(event: PageEvent): void {
-		this.pageIndexServices = event.pageIndex;
 		this.pageSize = event.pageSize;
+		this.pageIndexServices = event.pageIndex;
 		this.listServices(this.pageIndexServices, this.pageSize);
 	}
 
