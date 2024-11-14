@@ -18,7 +18,7 @@ export class ProductsService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get<any>(this.apiUrl + '/all', { headers });
+    return this.http.get<any>(`${this.apiUrl + '/entrepreneurship/' + localStorage.getItem('userId')}?page=${page}&size=${size}`, { headers });
   }
 
   findProduct(id: number): Observable<any> {
