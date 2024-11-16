@@ -1,55 +1,52 @@
 <app-header class="headerPage"></app-header>
 
 <body>
-    <app-sidebar class="sidebar"></app-sidebar>
+  <app-sidebar class="sidebar"></app-sidebar>
 
-    <section class="contenido">
-        <div class="titulo">
-            <h1>Pedidos</h1>
-        </div>
-   
-        <div class="paginacion">
-            <mat-paginator
-                [length]="length"
-                [pageSize]="pageSize"
-                (page)="handlePageEvent($event)"
-                [hidePageSize]="true"
-            >
-            </mat-paginator>
-        </div>
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Pedidos</h1>
+    </div>
 
+    <div class="paginacion">
+        <mat-paginator
+            [length]="length"
+            [pageSize]="pageSize"
+            (page)="handlePageEvent($event)"
+            [hidePageSize]="true"
+        >
+        </mat-paginator>
+    </div>
 
-        
-        <div class="search-container">
-            <i class='bx bx-search'>
-                <input type="text" placeholder="Búsqueda por ID del pedido" id="searchBar">
-            </i>
-        </div>
-
-        <div class="table-container">
-            <table id="myTable" class="tablita">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cliente</th>
-                        <th>Fecha</th>
-                        <th>Estado del Pedido</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let order of orders">
-						<td>{{ order.id }}</td>
-						<td>{{ order.client}}</td>
-						<td>{{ order.date| date: 'dd/MM/yyyy' }}</td>
-						<td>{{ order.state }}</td>
-					</tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Pedidos Totales -->
-        <div class="total-pedidos">
-            <p><strong>Pedidos totales: {{length}}</strong></p>
-        </div>
-    </section>
+    <div class="table-container">
+      <table id="myTable" class="tablita">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ciudad</th>
+            <th>Estado</th>
+            <th>Dirección</th>
+            <th>Estado del Pedido</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.city.name }}</td>
+            <td>{{ order.city.state.name }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.orderState.state }}</td>
+            <td>
+              <button (click)="deleteOrder(order.id)" class="btn-delete">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Pedidos Totales -->
+    <div class="total-pedidos">
+        <p><strong>Pedidos totales: {{length}}</strong></p>
+    </div>
+  </section>
 </body>
