@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Pedido } from '../pedido.model';
 import { environment } from '../../environments/environment';
 import { Producto } from '../model/producto';
+import { Order } from '../model/order';
 
 @Injectable({
 	providedIn: 'root'
@@ -13,13 +14,18 @@ export class PedidoService {
 
 	constructor(private http: HttpClient) {}
 
-	getAllPedidos(page: number, limit: number): Observable<any> {
+	/*getAllPedidos(page: number, limit: number): Observable<any> {
 		const token = localStorage.getItem('token');
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-		//console.log('Enviando solicitud al backend:', `${this.apiUrl}/all?page=${page}&limit=${limit}`); 
 		return this.http.get<any>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
- }
+ }*/
+		getAllPedidos(page: number, limit: number): Observable<Order[]> {
+			const token = localStorage.getItem('token');
+			const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+		
+			return this.http.get<Order[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
+		}
 
 
 	getPedidoById(id: number): Observable<Pedido> {

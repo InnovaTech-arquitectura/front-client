@@ -1,83 +1,92 @@
 import { Component, OnInit } from '@angular/core';
+import { PedidoService } from 'src/app/service/pedido.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Order } from 'src/app/model/order';
-import { Pedido } from 'src/app/pedido.model';
-import { PedidoService } from 'src/app/service/pedido.service';
 import Swal from 'sweetalert2';
-
 
 @Component({
   selector: 'app-list-orders',
   templateUrl: './list-orders.component.html',
   styleUrls: ['./list-orders.component.css']
 })
-export class ListOrdersComponent implements OnInit{
-
-    orders: Order[] = [];
-
-	paginatedOrders: Order[] = [];
-
-	length = 0;
-	pageSize = 4;
-	pageIndex = 0;
+export class ListOrdersComponent implements OnInit {
+  orders: Order[] = [];
+  length = 0;
+  pageSize = 4;
+  pageIndex = 0;
 
   constructor(private pedidoService: PedidoService) {}
 
   ngOnInit(): void {
-    this.pageIndex = 0;
-		//console.log(this.pageIndex);
-		this.getOrders(this.pageIndex, this.pageSize);
-		//console.log(this.length);
+    this.getOrders(this.pageIndex, this.pageSize);
   }
 
   getOrders(pageIndex: number, pageSize: number): void {
-	Swal.fire({
-	title: 'Cargando pedidos...',
-	text: 'Por favor espera.',
-	allowOutsideClick: false,
-	didOpen: () => {
-		Swal.showLoading();
-	}
-	});
-  
-	this.pedidoService.getAllPedidos(pageIndex, pageSize).subscribe(
-	(data: any) => {
-		console.log('Datos recibidos:', data); // Log para depurar
-		this.orders = data.content || [];
-		this.length = data.totalElements || 0;
-		Swal.close();
-	},
-	(error) => {
-		console.error('Error al cargar pedidos:', error); // Log para depurar
-		Swal.fire({
-	title: 'Error',
-	text: 'Ocurrió un error al cargar los pedidos. Intenta nuevamente.',
-	icon: 'error',
-	confirmButtonText: 'Aceptar'
-		});
-	}
-	);
-  }
-  
-  
+    Swal.fire({
+      title: 'Cargando pedidos...',
+      text: 'Por favor espera.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
 
+    this.pedidoService.getAllPedidos(pageIndex, pageSize).subscribe(
+      (data: Order[]) => {
+        //console.log('Datos recibidos:', data);
+        this.orders = data;
+        Swal.close();
+      },
+      (error) => {
+        //console.error('Error al cargar pedidos:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudieron cargar los pedidos.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    );
+  }
 
   handlePageEvent(event: PageEvent): void {
-		this.pageIndex = event.pageIndex;
-		this.pageSize = event.pageSize;
-		this.getOrders(this.pageIndex, this.pageSize);
-	}
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getOrders(this.pageIndex, this.pageSize);
+  }
 
-	paginarBazares(): void {
-		const startIndex = this.pageIndex * this.pageSize;
-		const endIndex = startIndex + this.pageSize;
-		this.paginatedOrders = this.orders.slice(startIndex, endIndex);
-	}
 
-	delete(id: number): void {
-		this.pedidoService.deletePedido(id).subscribe(() => {
-			this.getOrders(this.pageIndex, this.pageSize);
-		});
-	}
-
+  deleteOrder(id: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esta acción.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.pedidoService.deletePedido(id).subscribe(
+          () => {
+            Swal.fire(
+              'Eliminado',
+              'El pedido ha sido eliminado exitosamente.',
+              'success'
+            );
+            this.getOrders(this.pageIndex, this.pageSize);
+          },
+          (error) => {
+            //console.error('Error al eliminar pedido:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'No se pudo eliminar el pedido.',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+          }
+        );
+      }
+    });
+  }
 }
