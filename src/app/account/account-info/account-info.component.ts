@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EntrepreneurshipService } from '../../service/entrepreneurship.service';
 import { ClientService } from '../../service/client.service'; 
 import { EntrepreneurshipInfo } from 'src/app/model/EntrepreneurshipInfo';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-account-info',
@@ -52,13 +53,9 @@ export class AccountInfoComponent implements OnInit {
           console.log('Información del emprendimiento cargada:', this.entrepreneurship);
         },
         error: (err) => {
-          console.error('Error al cargar la información del emprendimiento:', err);
+          Swal.fire('Error', 'Error al cargar la información del emprendimiento.', 'error');
         }
-      });
-
-      console.error('ninini');
-
-    
+      });    
   }
 
   onLogoSelected(event: Event) {
@@ -71,7 +68,7 @@ export class AccountInfoComponent implements OnInit {
   saveInfo() {
     // Verifica si los datos son válidos antes de enviar la solicitud
     if (!this.entrepreneurship.Description || !this.entrepreneurship.Id_card || !this.entrepreneurship.email || !this.entrepreneurship.NameTitular) {
-      this.message = 'Por favor, completa todos los campos requeridos.';
+      Swal.fire('Error', 'Por favor, completa todos los campos requeridos.', 'error');
       this.isSuccess = false;
       return; // Salir si hay campos vacíos
     }
@@ -91,7 +88,7 @@ export class AccountInfoComponent implements OnInit {
       if (validImageTypes.includes(fileType)) {
         formData.append('Logo', this.logoFile); // Logo como archivo
       } else {
-        this.message = 'Por favor, selecciona un archivo de imagen válido.';
+        Swal.fire('Error', 'Por favor, selecciona un archivo de imagen válido.', 'error');
         this.isSuccess = false;
         return;
       }
@@ -121,11 +118,15 @@ export class AccountInfoComponent implements OnInit {
     // Llama al servicio para actualizar la información del emprendimiento
     this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData).subscribe({
       next: (response) => {
+        Swal.fire('Error', 'Información  guardada exitosamente', 'success');
+
         this.message = 'Información del cliente y del emprendimiento guardadas exitosamente';
         this.isSuccess = true;
       },
       error: (err) => {
-        this.message = `Error al guardar la información del emprendimiento: ${err.message}`;
+        Swal.fire('Error', 'Error al guardar la información del emprendimiento', 'error');
+
+        //this.message = `Error al guardar la información del emprendimiento: ${err.message}`;
         this.isSuccess = false;
       }
     });
