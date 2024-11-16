@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EntrepreneurshipService } from '../../service/entrepreneurship.service';
-import { Entrepreneurship } from '../../entrepreneurship.model';
 import { ClientService } from '../../service/client.service'; 
-import { ClientAccount } from '../../client-account.model';
+import { EntrepreneurshipInfo } from 'src/app/model/EntrepreneurshipInfo';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-account-info',
@@ -10,26 +10,23 @@ import { ClientAccount } from '../../client-account.model';
   styleUrls: ['./account-info.component.css']
 })
 export class AccountInfoComponent implements OnInit {
-  entrepreneurship: Entrepreneurship = {
-    id: -1,
-    name: "sss",
-    logo: '', 
-    description: ''
+  entrepreneurship: EntrepreneurshipInfo = {
+    NameTitular: '',
+    Id_card: 0, 
+    email: '', 
+    NameEntrepreneurship: '',
+    idEntrepreneurship: 0,
+    Logo: '',
+    Description: ''
   };
 
-  client: ClientAccount = {
-    id_card: -1,
-    name: '',
-    email: ''
-  };
 
-  originalClient: ClientAccount; // Variable para almacenar el cliente original
-  originalEntrepreneurship: Entrepreneurship; // Variable para almacenar el emprendimiento original
+
+  originalEntrepreneurship: EntrepreneurshipInfo; // Variable para almacenar el emprendimiento original
 
   message: string = ''; // Mensaje de éxito o error
   isSuccess: boolean = false; // Estado de éxito
 
-  private clientId = Number(localStorage.getItem('userId')); 
   private entrepreneurshipId = Number(localStorage.getItem('userId')); 
 
 
@@ -52,25 +49,13 @@ export class AccountInfoComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.originalEntrepreneurship = { ...response }; // Copia del emprendimiento original
-          this.entrepreneurship = response;
-          //console.log('Información del emprendimiento cargada:', this.entrepreneurship);
+          this.entrepreneurship= { ...response };
+          console.log('Información del emprendimiento cargada:', this.entrepreneurship);
         },
         error: (err) => {
-          //console.error('Error al cargar la información del emprendimiento:', err);
+          Swal.fire('Error', 'Error al cargar la información del emprendimiento.', 'error');
         }
-      });
-    
-    this.clientService.getClient(this.clientId)
-      .subscribe({
-        next: (response) => {
-          this.originalClient = { ...response }; // Copia del cliente original
-          this.client = response; 
-          //console.log('Información del cliente cargada:', this.client);
-        },
-        error: (err) => {
-          //console.error('Error al cargar la información del cliente:', err);
-        }
-      });
+      });    
   }
 
   onLogoSelected(event: Event) {
@@ -82,60 +67,72 @@ export class AccountInfoComponent implements OnInit {
   
   saveInfo() {
     // Verifica si los datos son válidos antes de enviar la solicitud
-    if (!this.client.name || !this.client.id_card || !this.client.email || !this.entrepreneurship.name || !this.entrepreneurship.description) {
-      //console.log('Hay campos requeridos que no están completos.');
-      this.message = 'Por favor, completa todos los campos requeridos.';
+    if (!this.entrepreneurship.Description || !this.entrepreneurship.Id_card || !this.entrepreneurship.email || !this.entrepreneurship.NameTitular) {
+      Swal.fire('Error', 'Por favor, completa todos los campos requeridos.', 'error');
       this.isSuccess = false;
       return; // Salir si hay campos vacíos
     }
-
+  
     // Crea un FormData para enviar los datos
     const formData = new FormData();
-    formData.append('NameTitular', this.client.name); // Nombre del titular
-    formData.append('Id_card', this.client.id_card.toString()); // ID del cliente
-    formData.append('email', this.client.email); // Email del cliente
-    formData.append('NameEntrepreneurship', this.entrepreneurship.name); // Nombre del emprendimiento
-    formData.append('Description', this.entrepreneurship.description); // Descripción del emprendimiento
-
+    formData.append('NameTitular', this.entrepreneurship.NameTitular); // Nombre del titular
+    formData.append('Id_card', this.entrepreneurship.Id_card.toString()); // ID del cliente
+    formData.append('email', this.entrepreneurship.email); // Email del cliente
+    formData.append('NameEntrepreneurship', this.entrepreneurship.NameEntrepreneurship); // Nombre del emprendimiento
+    formData.append('Description', this.entrepreneurship.Description); // Descripción del emprendimiento
+  
+    // Si hay un archivo de logo seleccionado, lo agregamos al FormData
     if (this.logoFile) {
       const fileType = this.logoFile.type;
       const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
       if (validImageTypes.includes(fileType)) {
         formData.append('Logo', this.logoFile); // Logo como archivo
       } else {
-        //console.log('El archivo seleccionado no es una imagen válida.');
-        this.message = 'Por favor, selecciona un archivo de imagen válido.';
+        Swal.fire('Error', 'Por favor, selecciona un archivo de imagen válido.', 'error');
         this.isSuccess = false;
         return;
       }
+    } else {
+      // Si no hay imagen seleccionada y ya existe un logo en base64
+      if (this.entrepreneurship.Logo) {
+        // Convertir el string Base64 a un Blob (archivo binario)
+        const base64String = this.entrepreneurship.Logo.split(',')[1]; // Eliminar el prefijo 'data:image/png;base64,' (si lo tiene)
+        const byteCharacters = atob(base64String); // Decodificar Base64 a bytes
+        const byteArrays = [];
+        
+        // Convertir los bytes en un array de bytes
+        for (let offset = 0; offset < byteCharacters.length; offset++) {
+          byteArrays.push(byteCharacters.charCodeAt(offset));
+        }
+        
+        // Crear un Blob con los datos binarios
+        const blob = new Blob([new Uint8Array(byteArrays)], { type: 'image/png' }); // Asegúrate de que el tipo coincida con el tipo real de la imagen
+        formData.append('Logo', blob, 'logo.png'); // Agregar el Blob al FormData
+      } else {
+        // Si no hay logo y no se seleccionó uno nuevo, enviar un archivo vacío
+        const emptyFile = new Blob([], { type: 'application/octet-stream' });
+        formData.append('Logo', emptyFile, 'empty-logo.png');
+      }
     }
   
-    // Llama a los servicios para guardar la información del cliente y del emprendimiento
-    this.clientService.updateClient(this.clientId, this.client)
-      .subscribe({
-        next: (response) => {
-          //console.log('Información del cliente guardada en el servidor:', response);
-          this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData)
-            .subscribe({
-              next: (response) => {
-                //console.log('Información del emprendimiento guardada en el servidor:', response);
-                this.message = 'Información del cliente y del emprendimiento guardadas exitosamente'; // Mensaje de éxito
-                this.isSuccess = true; // Establece el estado de éxito
-              },
-              error: (err) => {
-                //console.log('Error al guardar la información del emprendimiento:', err);
-                this.message = `Error al guardar la información del emprendimiento: ${err.message}`; // Mensaje de error más detallado
-                this.isSuccess = false; // Establece el estado de error
-              }
-            });
-        },
-        error: (err) => {
-          //console.error('Error al guardar la información del cliente:', err);
-          this.message = 'Error al guardar la información del cliente'; // Mensaje de error
-          this.isSuccess = false; // Establece el estado de error
-        }
-      });
+    // Llama al servicio para actualizar la información del emprendimiento
+    this.entrepreneurshipService.updateEntrepreneurship(this.entrepreneurshipId, formData).subscribe({
+      next: (response) => {
+        Swal.fire('Error', 'Información  guardada exitosamente', 'success');
+
+        this.message = 'Información del cliente y del emprendimiento guardadas exitosamente';
+        this.isSuccess = true;
+      },
+      error: (err) => {
+        Swal.fire('Error', 'Error al guardar la información del emprendimiento', 'error');
+
+        //this.message = `Error al guardar la información del emprendimiento: ${err.message}`;
+        this.isSuccess = false;
+      }
+    });
   }
+  
+  
 
   discardChanges() {
     this.loadData(); // Vuelve a cargar los datos

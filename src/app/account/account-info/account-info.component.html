@@ -13,20 +13,20 @@
         <h3>Info. Titular de la cuenta</h3>
         <div class="form-group">
           <label for="nombre-titular">Nombre</label>
-          <input id="nombre-titular" type="text" [(ngModel)]="client.name" placeholder="Nombre del titular" />
+          <input id="nombre-titular" type="text" [(ngModel)]="entrepreneurship.NameTitular" placeholder="Nombre del titular" />
         </div>
         <div class="form-group">
           <label for="documento-titular">Número de documento</label>
-          <input id="documento-titular" type="text" [(ngModel)]="client.id_card" placeholder="Número de documento" />
+          <input id="documento-titular" type="text" [(ngModel)]="entrepreneurship.Id_card" placeholder="Número de documento" />
         </div>
         <div class="form-group">
           <label for="correo-titular">Correo</label>
-          <input id="correo-titular" type="email" [(ngModel)]="client.email" placeholder="Correo del titular" />
+          <input id="correo-titular" type="email" [(ngModel)]="entrepreneurship.email" placeholder="Correo del titular" />
         </div>
         
         <div class="form-group">
           <label for="nombre-emprendimiento">Nombre del emprendimiento</label>
-          <input id="nombre-emprendimiento" type="text" [(ngModel)]="entrepreneurship.name" placeholder="Nombre del emprendimiento" />
+          <input id="nombre-emprendimiento" type="text" [(ngModel)]="entrepreneurship.NameEntrepreneurship" placeholder="Nombre del emprendimiento" />
         </div>
         <div class="form-group">
           <label for="logo-emprendimiento">Logo</label>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
           <label for="descripcion-emprendimiento">Descripción</label>
-          <textarea id="descripcion-emprendimiento" [(ngModel)]="entrepreneurship.description" placeholder="Es importante para el Marketplace"></textarea>
+          <textarea id="descripcion-emprendimiento" [(ngModel)]="entrepreneurship.Description" placeholder="Es importante para el Marketplace"></textarea>
         </div>
 
         <button class="save-btn" (click)="saveInfo()">Guardar cambios</button>
@@ -42,11 +42,11 @@
 
       <div class="column preview">
         <div class="logo-placeholder">
-          <img [src]="entrepreneurship.logo ? 'data:image/png;base64,' + entrepreneurship.logo : 'https://via.placeholder.com/150'" alt="Logo del emprendimiento" />
+          <img [src]="entrepreneurship.Logo ? 'data:image/png;base64,' + entrepreneurship.Logo : 'https://via.placeholder.com/150'" alt="Logo del emprendimiento" />
         </div>
-        <h4>Nombre del emprendimiento: {{ entrepreneurship.name }}</h4>
+        <h4>Nombre del emprendimiento: {{ entrepreneurship.NameEntrepreneurship }}</h4>
         <h5>Descripción</h5>
-        <p>{{ entrepreneurship.description }}</p>
+        <p>{{ entrepreneurship.Description }}</p>
       </div>
     </div>
   </section>
