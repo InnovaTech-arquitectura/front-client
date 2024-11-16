@@ -139,3 +139,12 @@ table.tablita {
     margin-bottom: 3%;
 
   }
+  .links {
+	font-size: 1em;
+	color: black;
+}
+  .delete:hover {
+	color: #e15554;
+	text-shadow: 0 4px 16px #e15554;
+	transition: all 0.2s ease;
+}

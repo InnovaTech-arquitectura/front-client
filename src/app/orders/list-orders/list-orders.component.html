@@ -38,7 +38,9 @@
             <td>{{ order.address }}</td>
             <td>{{ order.orderState.state }}</td>
             <td>
-              <button (click)="deleteOrder(order.id)" class="btn-delete">Eliminar</button>
+                <a class="links delete" (click)="deleteOrder(order.id)">
+                    <i class="bx bx-trash"></i>
+                </a>
             </td>
           </tr>
         </tbody>
