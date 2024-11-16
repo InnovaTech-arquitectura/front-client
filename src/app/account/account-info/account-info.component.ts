@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EntrepreneurshipService } from '../../service/entrepreneurship.service';
 import { ClientService } from '../../service/client.service'; 
-import { ClientAccount } from '../../client-account.model';
 import { EntrepreneurshipInfo } from 'src/app/model/EntrepreneurshipInfo';
 
 @Component({
@@ -49,13 +48,16 @@ export class AccountInfoComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.originalEntrepreneurship = { ...response }; // Copia del emprendimiento original
-          this.entrepreneurship = response;
-          //console.log('Información del emprendimiento cargada:', this.entrepreneurship);
+          this.entrepreneurship= { ...response };
+          console.log('Información del emprendimiento cargada:', this.entrepreneurship);
         },
         error: (err) => {
-          //console.error('Error al cargar la información del emprendimiento:', err);
+          console.error('Error al cargar la información del emprendimiento:', err);
         }
       });
+
+      console.error('ninini');
+
     
   }
 
