@@ -19,9 +19,9 @@
 				</div>
 				<div class="paginacion">
 					<mat-paginator
-						[length]="totalProducts"
+						[length]="lengthProducts"
 						[pageSize]="pageSize"
-						(page)="handleProductsPageEvent($event)"
+						(page)="handlePageProduct($event)"
 						[hidePageSize]="true"
 					>
 					</mat-paginator>
@@ -73,9 +73,9 @@
 				</div>
 				<div class="paginacion">
 					<mat-paginator
-						[length]="totalServices"
+						[length]="lengthServices"
 						[pageSize]="pageSize"
-						(page)="handleServicesPageEvent($event)"
+						(page)="handlePageServices($event)"
 						[hidePageSize]="true"
 					>
 					</mat-paginator>

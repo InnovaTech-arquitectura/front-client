@@ -16,9 +16,9 @@ export class VerProductosServiciosComponent implements OnInit {
 	servicios: any[] = [];
 	serviciosPaginados: any[] = [];
 
-	totalProducts = 0;
-	totalServices = 0;
-	pageSize = 5;
+	lengthProducts = 0;
+	lengthServices = 0;
+	pageSize = 4;
 	pageIndexProducts = 0;
 	pageIndexServices = 0;
 
@@ -28,40 +28,37 @@ export class VerProductosServiciosComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		this.pageIndexProducts = 0;
+		this.pageIndexServices = 0;
 		this.listProducts(this.pageIndexProducts, this.pageSize);
 		this.listServices(this.pageIndexServices, this.pageSize);
 	}
 
-	listProducts(page: number, size: number) {
-		this.productsService.listProducts(page, size)
-		.subscribe(response => {
-			this.productos = response.content;
-			this.totalProducts = response.totalElements;
-		}, error => {
-			//console.error('Error fetching products:', error);
+	listProducts(pageIndex: number, pageSize: number): void {
+		this.productsService.listProducts(pageIndex, pageSize)
+		.subscribe((data: any) => {
+			this.productos = data.content;
+			this.lengthProducts = data.totalElements;
 		});
 	}
 
-	listServices(page: number, size: number) {
-		this.servicesService.listServices(page, size)
-		.subscribe(response => {
-				this.servicios = response.content;
-				this.totalServices = response.totalElements;
-			},
-			(error) => {
-				//console.error('Error fetching services:', error);
+	listServices(pageIndex: number, pageSize: number): void {
+		this.servicesService.listServices(pageIndex, pageSize)
+		.subscribe((data: any) => {
+				this.servicios = data.content;
+				this.lengthServices = data.totalElements;
 			});
 	}
 
-	handleProductsPageEvent(event: PageEvent): void {
-		this.pageSize = event.pageSize;
+	handlePageProduct(event: PageEvent): void {
 		this.pageIndexProducts = event.pageIndex;
+		this.pageSize = event.pageSize;
 		this.listProducts(this.pageIndexProducts, this.pageSize);
 	}
 
-	handleServicesPageEvent(event: PageEvent): void {
-		this.pageSize = event.pageSize;
+	handlePageServices(event: PageEvent): void {
 		this.pageIndexServices = event.pageIndex;
+		this.pageSize = event.pageSize;
 		this.listServices(this.pageIndexServices, this.pageSize);
 	}
 

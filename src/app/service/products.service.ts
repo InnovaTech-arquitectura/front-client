@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,16 @@ export class ProductsService {
     private http: HttpClient
   ) { }
 
-  listProducts(page: number, size: number): Observable<any> {
+  listProducts(pageIndex: number, pageSize: number): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get<any>(`${this.apiUrl + '/entrepreneurship/' + localStorage.getItem('userId')}?page=${page}&size=${size}`, { headers });
+    const params = { 
+      limit: pageSize.toString(), 
+      page: pageIndex.toString() 
+    };
+
+    return this.http.get<any>(`${this.apiUrl + '/entrepreneurship/' + localStorage.getItem('userId')}`, { headers, params });
   }
 
   findProduct(id: number): Observable<any> {
