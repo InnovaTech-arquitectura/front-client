@@ -35,6 +35,9 @@ export class ListOrdersComponent implements OnInit {
       (data: Order[]) => {
         //console.log('Datos recibidos:', data);
         this.orders = data;
+		if (pageIndex === 0) {
+			this.length = data.length;
+		}
         Swal.close();
       },
       (error) => {
@@ -55,37 +58,32 @@ export class ListOrdersComponent implements OnInit {
     this.getOrders(this.pageIndex, this.pageSize);
   }
 
-  deleteOrder(id: number): void {
+  deleteOrder(orderId: number): void {
     Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'No podrás revertir esta acción.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminar'
+        title: '¿Estás seguro?',
+        text: 'No podrás revertir esta acción.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar',
     }).then((result) => {
-      if (result.isConfirmed) {
-        this.pedidoService.deletePedido(id).subscribe(
-          () => {
-            Swal.fire(
-              'Eliminado',
-              'El pedido ha sido eliminado exitosamente.',
-              'success'
-            );
-            this.getOrders(this.pageIndex, this.pageSize);
-          },
-          (error) => {
-            console.error('Error al eliminar pedido:', error);
-            Swal.fire({
-              title: 'Error',
-              text: 'No se pudo eliminar el pedido.',
-              icon: 'error',
-              confirmButtonText: 'Aceptar'
+        if (result.isConfirmed) {
+            this.pedidoService.deletePedido(orderId).subscribe({
+                next: (success) => {
+                    if (success) {
+                        Swal.fire('Eliminado!', 'El pedido ha sido eliminado.', 'success');
+                        this.getOrders(0, this.pageSize);
+                    } else {
+                        Swal.fire('Error', 'No se pudo eliminar el pedido.', 'error');
+						this.getOrders(0, this.pageSize);
+                    }
+                },
+                error: (err) => {
+                    console.error('Error al eliminar pedido:', err);
+                    Swal.fire('Error', 'No se pudo eliminar el pedido.', 'error');
+                },
             });
-          }
-        );
-      }
+        }
     });
-  }
+}
 }
