@@ -13,12 +13,14 @@ export class PedidoService {
 
 	constructor(private http: HttpClient) {}
 
-	getAllPedidos(page: number, limit: number): Observable<Pedido[]> {
+	getAllPedidos(page: number, limit: number): Observable<any> {
 		const token = localStorage.getItem('token');
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-		return this.http.get<Pedido[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
-	}
+		//console.log('Enviando solicitud al backend:', `${this.apiUrl}/all?page=${page}&limit=${limit}`); 
+		return this.http.get<any>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
+ }
+
 
 	getPedidoById(id: number): Observable<Pedido> {
 		const token = localStorage.getItem('token');
