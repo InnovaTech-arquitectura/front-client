@@ -28,12 +28,13 @@ export class PedidoService {
 	}
 
 
-	getPedidoById(id: number): Observable<Pedido> {
+	/*getPedidoById(id: number): Observable<Pedido> {
 		const token = localStorage.getItem('token');
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
 		return this.http.get<Pedido>(`${this.apiUrl}/${id}`, { headers });
 	}
+		*/
 
 	getPedidoProductos(id: number): Observable<Producto[]> {
 		const token = localStorage.getItem('token');

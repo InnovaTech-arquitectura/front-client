@@ -31,16 +31,16 @@ export class InfoOrderClientComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadPedido(id);
+    //this.loadPedido(id);
     this.loadProductos(id);
   }
   
   // Cargar los detalles del pedido
-  loadPedido(id: number): void {
+  /*loadPedido(id: number): void {
     this.pedidoService.getPedidoById(id).subscribe((data: Pedido) => {
       this.pedido = data; 
     });
-  }
+  }*/
   
   // Cargar los productos del pedido
   loadProductos(id: number): void {

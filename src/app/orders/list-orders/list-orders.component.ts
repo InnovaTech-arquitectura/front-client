@@ -33,12 +33,12 @@ export class ListOrdersComponent implements OnInit {
 
     this.pedidoService.getAllPedidos(pageIndex, pageSize).subscribe(
       (data: Order[]) => {
-        console.log('Datos recibidos:', data);
+        //console.log('Datos recibidos:', data);
         this.orders = data;
         Swal.close();
       },
       (error) => {
-        console.error('Error al cargar pedidos:', error);
+        //console.error('Error al cargar pedidos:', error);
         Swal.fire({
           title: 'Error',
           text: 'No se pudieron cargar los pedidos.',
