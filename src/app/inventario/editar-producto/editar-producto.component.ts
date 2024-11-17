@@ -35,13 +35,18 @@ export class EditarProductoComponent implements OnInit {
 
   loadProduct(id: number): void {
     this.productsService.findProduct(id).subscribe(
-      (data) => {
-        this.producto = data;
-        
+      (data: any) => {
+        this.producto = data;        
         this.imagePreview = 'data:image/png;base64,' + this.producto.imageUrl;
       },
       error => {
-        //console.error('Error al cargar el producto:', error);
+        
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'No se pudo cargar el producto',
+          confirmButtonText: 'Cerrar'
+        });
       });
   }
 
