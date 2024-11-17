@@ -1,38 +1,59 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Plan } from '../plan.model';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlanService {
-	private baseUrl = environment.baseApiUrl + '/api/Entrepreneurship';
+  private baseUrl = environment.baseApiUrl + '/api/Entrepreneurship';
+  private functionalitiesUrl = environment.baseApiUrl + '/api/PlanCupon/functionalities';
 
-	constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-	// Obtener todos los planes
-	getPlans(): Observable<Plan[]> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  // Fetch all plans
+  getPlans(): Observable<Plan[]> {
+    return this.http.get<Plan[]>(`${this.baseUrl}/plans`);
+  }
 
-		return this.http.get<Plan[]>(`${this.baseUrl}/plans`, { headers });
-	}
+  // Fetch functionalities (descriptions) for all plans
+  getPlanFunctionalities(): Observable<any[]> {
+    return this.http.get<any[]>(this.functionalitiesUrl);
+  }
 
-	// Obtener el plan activo
-	getActivePlan(entrepreneurshipId: number): Observable<any> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  // Combine plans with their functionalities
+  getPlansWithDescriptions(): Observable<Plan[]> {
+    return forkJoin({
+      plans: this.getPlans(),
+      functionalities: this.getPlanFunctionalities(),
+    }).pipe(
+      map(({ plans, functionalities }) =>
+        plans.map(plan => ({
+          ...plan,
+          planFunctionalities: functionalities
+            .filter(f => f.planId === plan.id)  // Ensure the planId matches the functionality's planId
+            .map(f => ({
+              functionalityId: f.functionalityId,
+              name: f.name,
+              description: f.description,
+            })),
+        }))
+      )
+    );
+  }
+  
+  
 
-		return this.http.get(`${this.baseUrl}/ActivePlan/${entrepreneurshipId}`, { headers });
-	}
+  // Fetch the active plan
+  getActivePlan(entrepreneurshipId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/ActivePlan/${entrepreneurshipId}`);
+  }
 
-	// Seleccionar un plan
-	selectPlan(requestBody: { id: number; id_plan: number }) {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-		return this.http.post(`${this.baseUrl}/SelectPlan`, requestBody, { headers });
-	}
+  // Select a plan
+  selectPlan(requestBody: { id: number; id_plan: number }) {
+    return this.http.post(`${this.baseUrl}/SelectPlan`, requestBody);
+  }
 }

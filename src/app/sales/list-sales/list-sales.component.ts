@@ -25,12 +25,19 @@ export class ListSalesComponent implements OnInit {
   }
 
   getSales(pageIndex: number, pageSize: number): void {
-    this.salesService.getSales(pageIndex, pageSize).subscribe((data: any) => {
-        //console.log(data);
-        this.sales = data.content;
-        this.length = data.totalElements;
-      }, error => {
-        //console.error('Error fetching sales:', error);
+    this.salesService.getSales(pageIndex, pageSize)
+    .subscribe((data: any) => {
+      this.sales = data.content;
+      this.length = data.totalElements;
+        console.log("-------Lo que llega al front -----------")
+        console.log("data:");
+        console.log(data);
+        console.log("sales:");
+        console.log(this.sales);
+        console.log("----------------------------------------")
+        console.log("paginationSales:");
+        console.log(this.paginationSales);
+        console.log("----------------------------------------")
       });
   }
 
@@ -40,7 +47,7 @@ export class ListSalesComponent implements OnInit {
     this.getSales(this.pageIndex, this.pageSize);
   }
 
-  paginarVentas(id: number): void {
+  paginarVentas(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginationSales = this.sales.slice(startIndex, endIndex);

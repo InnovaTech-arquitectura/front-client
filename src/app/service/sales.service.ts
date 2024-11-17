@@ -13,21 +13,28 @@ export class SalesService {
 
   constructor( private http: HttpClient ) { }
 
-  findAll(): Observable<infoSale[]> {
+  findAll(pageIndex: number, pageSize: number): Observable<any> {
 		const token = localStorage.getItem('token');
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-		return this.http.get<infoSale[]>(this.apiUrl + '/all', { headers });
-	}
-  
-  getSales(pageIndex: number, pageSize: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
     const params = { 
       limit: pageSize.toString(), 
       page: pageIndex.toString() 
     };
 
     return this.http.get<any>(`${this.apiUrl}/all`, { headers, params });
+	}
+  
+  getSales(pageIndex: number, pageSize: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    const params = { 
+      limit: pageSize.toString(), 
+      page: pageIndex.toString() 
+    };
+    
+    return this.http.get<any>(`${this.apiUrl + '/by-entrepreneurship/' + localStorage.getItem('userId')}`, { headers, params });
   }
 
   addSale(sale: any): Observable<any> {
