@@ -70,6 +70,7 @@
             </div>
 
             <div class="formContainer">
+                <label for="imageUpload" class="imageLabel" *ngIf="!imagePreview">Subir imagen:</label>
                 <div 
                     class="imageUpload"
                     (click)="fileInput.click()" 

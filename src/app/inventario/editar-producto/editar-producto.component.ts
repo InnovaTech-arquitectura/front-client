@@ -40,10 +40,9 @@ export class EditarProductoComponent implements OnInit {
         
         this.imagePreview = 'data:image/png;base64,' + this.producto.imageUrl;
       },
-      (error) => {
+      error => {
         //console.error('Error al cargar el producto:', error);
-      }
-    );
+      });
   }
 
   onImageSelected(event: Event): void {
