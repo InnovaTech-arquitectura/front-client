@@ -8,23 +8,27 @@ import { PlanService } from '../../service/plan.service';
   styleUrls: ['./redeem-plan.component.css']
 })
 export class RedeemPlanComponent implements OnInit {
-  confirmingPlanId: number | null = null; // ID of the plan being confirmed
+  confirmingPlanId: number | null = null; // ID del plan en proceso de confirmación
   coupons: any[] = [];
-  selectedCouponId: number | null = null; // Selected coupon ID
-  plans: any[] = []; // List of available plans
-  activePlanId: number | null = null; // Current active plan ID
+  selectedCouponId: number | null = null; // ID del cupón seleccionado
+  plans: any[] = []; // Lista de planes
+  activePlanId: number | null = null; // Plan activo actual
+  selectedPlanId: number | null = null;
 
   constructor(private couponService: CouponService, private planService: PlanService) {}
 
   ngOnInit() {
-    //localStorage.setItem('userId', '3');
+    //localStorage.setItem('userId', '2');
+
     this.loadCoupons();
     this.loadPlans();
-    this.loadActivePlan(); // Load active plan on initialization
+    this.loadActivePlan(); // Cargar el plan activo al iniciar
   }
 
   loadCoupons() {
-    const entrepreneurshipId = Number(localStorage.getItem('userId'));
+    const entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+    //const entrepreneurshipId = 2; // ID que probaste en Swagger
     this.couponService.getCouponsByEntrepreneurshipId(entrepreneurshipId).subscribe({
       next: (data) => {
         this.coupons = data.map(coupon => ({
@@ -40,11 +44,13 @@ export class RedeemPlanComponent implements OnInit {
   redeemCoupon() {
     if (this.selectedCouponId !== null) {
       this.couponService.activateCoupon(this.selectedCouponId).subscribe({
-        next: () => {
-          console.log('Cupón activado');
-          this.loadCoupons(); // Reload coupons
+        next: (response) => {
+          console.log('Cupón activado:', response);
+          this.loadCoupons(); // Recargar la lista de cupones
         },
-        error: (error) => console.error('Error al activar el cupón:', error)
+        error: (error) => {
+          console.error('Error al activar el cupón:', error);
+        }
       });
     } else {
       console.warn('No se ha seleccionado un cupón');
@@ -52,16 +58,16 @@ export class RedeemPlanComponent implements OnInit {
   }
 
   loadPlans() {
-    this.planService.getPlansWithDescriptions().subscribe({
+    this.planService.getPlans().subscribe({
       next: (data) => {
-        this.plans = data; // Now contains plans with their functionality descriptions
-        console.log('Planes con funcionalidades cargados:', this.plans);  // Check the structure of 'plans'
+        this.plans = data; // Ajustar según la estructura de respuesta de planes
+        console.log('Planes cargados:', this.plans); // Añadir este log
       },
       error: (error) => console.error('Error al cargar planes:', error)
     });
   }
-  
 
+  
   handlePlanSelection(planId: number) {
     if (this.confirmingPlanId === planId) {
       // Second click confirms the selection
@@ -73,29 +79,39 @@ export class RedeemPlanComponent implements OnInit {
     }
   }
 
+  
   selectPlan(planId: number) {
-    const entrepreneurshipId = Number(localStorage.getItem('userId'));
+    const entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+    //const entrepreneurshipId = 2; // Cambia este ID según corresponda en tu aplicación
+  
+    // Crea el objeto con la estructura requerida por el endpoint
     const requestBody = {
       id: entrepreneurshipId,
       id_plan: planId
     };
-
+  
     this.planService.selectPlan(requestBody).subscribe({
-      next: () => {
-        console.log('Plan seleccionado:', planId);
-        this.activePlanId = planId; // Update active plan
-        this.loadActivePlan(); // Reload active plan
+      next: (response) => {
+        console.log('Plan seleccionado:', response);
+        this.activePlanId = planId; // Actualiza el plan activo después de seleccionar
+        this.loadActivePlan(); // Carga el plan activo después de seleccionar
       },
       error: (error) => console.error('Error al seleccionar el plan:', error)
     });
   }
+  
 
+
+  // Cargar el plan activo
   loadActivePlan() {
-    const entrepreneurshipId = Number(localStorage.getItem('userId'));
+    const entrepreneurshipId = Number(localStorage.getItem('userId')); 
+
+    //const entrepreneurshipId = 2; 
     this.planService.getActivePlan(entrepreneurshipId).subscribe({
       next: (data) => {
-        this.activePlanId = data?.plan?.planId || null;
-        console.log('Plan activo cargado:', this.activePlanId);
+        this.activePlanId = data?.plan?.planId || null; // Asegúrate de que 'data.plan.planId' exista
+        console.log('Plan activo cargado:', this.activePlanId); // Añadir este log
       },
       error: (error) => console.error('Error al cargar el plan activo:', error)
     });
