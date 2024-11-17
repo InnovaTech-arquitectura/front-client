@@ -25,7 +25,8 @@ export class ListSalesComponent implements OnInit {
   }
 
   getSales(pageIndex: number, pageSize: number): void {
-    this.salesService.getSales(pageIndex, pageSize).subscribe((data: any) => {
+    this.salesService.getSales(pageIndex, pageSize)
+    .subscribe((data: any) => {
         //console.log(data);
         this.sales = data.content;
         this.length = data.totalElements;
@@ -40,7 +41,7 @@ export class ListSalesComponent implements OnInit {
     this.getSales(this.pageIndex, this.pageSize);
   }
 
-  paginarVentas(id: number): void {
+  paginarVentas(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginationSales = this.sales.slice(startIndex, endIndex);
