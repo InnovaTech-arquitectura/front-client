@@ -30,19 +30,24 @@ export class EditarProductoComponent implements OnInit {
   ngOnInit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
     this.loadProduct(productId);
+
   }
 
   loadProduct(id: number): void {
     this.productsService.findProduct(id).subscribe(
-      (data) => {
-        this.producto = data;
-        
-        this.imagePreview = this.producto.imageUrl;  // Si tiene una URL de imagen, la mostramos en la vista previa
+      (data: any) => {
+        this.producto = data;        
+        this.imagePreview = 'data:image/png;base64,' + this.producto.picture;
       },
-      (error) => {
-        //console.error('Error al cargar el producto:', error);
-      }
-    );
+      error => {
+        
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'No se pudo cargar el producto',
+          confirmButtonText: 'Cerrar'
+        });
+      });
   }
 
   onImageSelected(event: Event): void {

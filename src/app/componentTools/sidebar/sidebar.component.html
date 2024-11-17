@@ -5,7 +5,7 @@
 
     <div class="opciones">
         <ul>
-            <li>
+            <li *ngIf="checkFunctionality('dashboard')" >
                 <a class="elementos" [routerLink]="'/dashboard'" id="linkDashboard" aria-label="Dashboard">
                     <i class="bx bxs-dashboard"></i>
                     <span class="nav-item">Dashboard</span>
@@ -35,13 +35,13 @@
                     <span class="nav-item">Ventas</span>
                 </a>
             </li>
-            <li>
+            <li *ngIf="checkFunctionality('bazares')">
                 <a class="elementos" [routerLink]="'/bazares'" id="linkBazares" aria-label="Bazares">
                     <i class='bx bxs-shopping-bags'></i>
                     <span class="nav-item">Bazares</span>
                 </a>
             </li>
-            <li>
+            <li *ngIf="checkFunctionality('capacitaciones')">
                 <a class="elementos" [routerLink]="'/capacitaciones'" id="linkCapacitaciones" aria-label="Potencia tu Marca">
                     <i class='bx bxl-instagram'></i>
                     <span class="nav-item">Potencia tu Marca</span>
