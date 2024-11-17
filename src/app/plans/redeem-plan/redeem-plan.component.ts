@@ -18,6 +18,8 @@ export class RedeemPlanComponent implements OnInit {
   constructor(private couponService: CouponService, private planService: PlanService) {}
 
   ngOnInit() {
+    //localStorage.setItem('userId', '2');
+
     this.loadCoupons();
     this.loadPlans();
     this.loadActivePlan(); // Cargar el plan activo al iniciar
