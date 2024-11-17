@@ -30,6 +30,13 @@ export class ListSalesComponent implements OnInit {
         //console.log(data);
         this.sales = data.content;
         this.length = data.totalElements;
+        console.log("-------Lo que llega al front -----------")
+        console.log("Sales:");
+        console.log(this.sales);
+        console.log("----------------------------------------")
+        console.log("PaginationSales:");
+        console.log(this.paginationSales);
+        console.log("----------------------------------------")
       }, error => {
         //console.error('Error fetching sales:', error);
       });
