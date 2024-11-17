@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 import { ActivatedRoute } from '@angular/router';
-import { PedidoService } from '../../service/pedido.service'; // Asegúrate de importar correctamente el servicio
-import { Pedido } from '../../pedido.model'; // Asegúrate de importar el modelo
+import { PedidoService } from '../../service/pedido.service';
+import { Pedido } from '../../pedido.model';
+import { Producto } from '../../model/producto';
 
 @Component({
   selector: 'app-info-order-client',
@@ -9,8 +10,19 @@ import { Pedido } from '../../pedido.model'; // Asegúrate de importar el modelo
   styleUrls: ['./info-order-client.component.css']
 })
 export class InfoOrderClientComponent implements OnInit {
-  pedido!: Pedido; // Usar el modelo de Pedido
-  productos = []; // Define tu lista de productos aquí, o la puedes obtener del backend
+  pedido: Pedido = {
+    id: 0,
+    emprendimiento: '',
+    precio: 0,
+    estado: '',
+    direccion: '',
+    departamento: '',
+    ciudad: '',
+    cliente: '',
+    fecha: ''
+  }; 
+  
+  productos: Producto[] = [];
 
   constructor(
     private pedidoService: PedidoService,
@@ -19,13 +31,21 @@ export class InfoOrderClientComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadPedido(id);
+    //this.loadPedido(id);
+    this.loadProductos(id);
   }
-
-  loadPedido(id: number): void {
+  
+  // Cargar los detalles del pedido
+  /*loadPedido(id: number): void {
     this.pedidoService.getPedidoById(id).subscribe((data: Pedido) => {
-      this.pedido = data;
-      // Aquí puedes cargar la lista de productos, si es necesario
+      this.pedido = data; 
+    });
+  }*/
+  
+  // Cargar los productos del pedido
+  loadProductos(id: number): void {
+    this.pedidoService.getPedidoProductos(id).subscribe((data: Producto[]) => {
+      this.productos = data;
     });
   }
-} 
+}

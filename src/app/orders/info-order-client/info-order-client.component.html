@@ -1,11 +1,11 @@
 <app-header-client class="headerPage"></app-header-client>
-<body>
+
 <app-sidebar-client class="sidebar"></app-sidebar-client>
 
 <section class="contenido">
     <div class="pedido-container">
         <!-- Lista de Productos -->
-        <div class="productos-list">
+        <div class="productos-list" *ngIf="productos && productos.length > 0; else noProducts">
             <div class="producto-item" *ngFor="let producto of productos">
                 <div class="producto-image">
                     <i class='bx bxs-package'></i>
@@ -18,16 +18,18 @@
                     $ {{ producto.precio }}
                 </div>
             </div>
-        </div>
+        </div>>
+        <ng-template #noProducts>
+            <p>No hay productos disponibles para este pedido.</p>
+        </ng-template>
  
         <!-- Detalles del Pedido -->
-        <div class="pedido-detalle">
-            <h2>Pedido #{{ pedido.id }}</h2> <!-- Corregido para que no tenga símbolos innecesarios -->
+        <div class="pedido-detalle" *ngIf="pedido">
+            <h2>Pedido #{{ pedido.id }}</h2>
             <p><strong>Emprendimiento:</strong> {{ pedido.emprendimiento }}</p>
             <p><strong>Precio:</strong> ${{ pedido.precio }}</p>
             <p><strong>Estado del pedido:</strong> {{ pedido.estado }}</p>
-
-            <!-- Información de Envío -->
+            <!-- Información de envío -->
             <div class="envio-info">
                 <h3>Información de envío</h3>
                 <div class="input-group">
@@ -35,13 +37,11 @@
                     <input type="text" id="direccion" [value]="pedido.direccion" readonly>
                     <i class="bx bx-lock"></i>
                 </div>
-
                 <div class="input-group">
                     <label for="departamento">Departamento</label>
                     <input type="text" id="departamento" [value]="pedido.departamento" readonly>
                     <i class="bx bx-lock"></i>
                 </div>
-
                 <div class="input-group">
                     <label for="ciudad">Ciudad</label>
                     <input type="text" id="ciudad" [value]="pedido.ciudad" readonly>
@@ -51,4 +51,3 @@
         </div>
     </div>
 </section>
-</body>

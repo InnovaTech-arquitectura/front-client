@@ -41,7 +41,24 @@ body {
 	font-size: 3em;
 	font-weight: bold;
 }
+.link {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+    background-color: #d9d9d9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block; /* para que respete el padding y se vea como botón */
+    transition: all 0.2s ease;
+}
 
+.link:hover {
+    background-color: black;
+    color: #d9d9d9;
+    text-shadow: none; /* elimina el shadow para mantener el estilo coherente */
+}
 .products {
     margin-top: 25px;
     padding-left: 25px;
@@ -67,6 +84,11 @@ body {
 	background: #fff;
 	padding: 0.5em;
 	padding-bottom: 3.4em;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.2);
 }
 
 .card .title {
@@ -97,4 +119,28 @@ body {
 	height: 100%;
 	display: grid;
 	place-items: center;
+}
+
+.foto {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.linkSeccion {
+	width: 100%;
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+}
+
+.link {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: black;
+}
+
+.link:hover {
+	text-shadow: 0 3.2px 12.8px black;
+    transition: all 0.2s ease;
 }

@@ -12,14 +12,50 @@ body {
 	margin-top: 100px;
 	width: 100%;
 }
-
+.cupon {
+    width: 600px;
+    height: 40px;
+    padding-left: 10px;
+    margin-right: 25px;
+    border-radius: 10px;
+    border: 1px solid #91918f;
+    outline-color: black;
+    appearance: none; /* Oculta la flecha por defecto del dropdown en algunos navegadores */
+    background-color: #fff;
+}
+.cupon-dropdown {
+	width: 600px;
+	height: 40px;
+	padding-left: 25px;
+	border-radius: 10px;
+	text-decoration: none;
+	border: 1px solid #91918f;
+	outline-color: black;
+  }
+  
 .headerPage {
 	z-index: 10;
 	width: 100%;
 	position: fixed;
 	top: 0;
 }
-
+.button-container a {
+	display: block; /* Asegúrate de que el enlace sea un bloque */
+	height: 40px; /* Ajusta la altura si es necesario */
+	width: 100%; /* Asegúrate de que ocupe todo el ancho */
+	background-color: #d9d9d9;
+	padding: 10px; /* Ajusta el padding según sea necesario */
+	color: black;
+	text-align: center; /* Centra el texto */
+	border-radius: 10px; /* Bordes redondeados */
+	text-decoration: none; /* Sin subrayado */
+  }
+  
+  .button-container a:hover {
+	background-color: black; /* Cambia el color de fondo al pasar el mouse */
+	color: #d9d9d9; /* Cambia el color del texto al pasar el mouse */
+  }
+  
 .sidebar {
 	position: fixed;
 	top: 100px;

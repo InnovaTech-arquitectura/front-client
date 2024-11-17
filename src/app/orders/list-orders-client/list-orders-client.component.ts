@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PedidoService } from '../../service/pedido.service'; // Asegúrate de importar correctamente el servicio
-import { Pedido } from '../../pedido.model'; // Asegúrate de importar el modelo
+import { PedidoService } from '../../service/pedido.service';
+import { Pedido } from '../../pedido.model';
+import { PageEvent } from '@angular/material/paginator';
+import { PedidoCliente } from 'src/app/model/pedido-cliente';
 
 @Component({
   selector: 'app-list-orders-client',
@@ -8,18 +10,42 @@ import { Pedido } from '../../pedido.model'; // Asegúrate de importar el modelo
   styleUrls: ['./list-orders-client.component.css']
 })
 export class ListOrdersClientComponent implements OnInit {
-  pedidos: Pedido[] = [];
+  orders: PedidoCliente[] = [];
+	paginatedOrders: PedidoCliente[] = [];
+
+	length = 0;
+	pageSize = 4;
+	pageIndex = 0;
 
   constructor(private pedidoService: PedidoService) {}
 
   ngOnInit(): void {
-    this.loadPedidos();
+    this.getOrders(this.pageIndex, this.pageSize);
   }
 
-  loadPedidos(): void {
-    this.pedidoService.getAllPedidos().subscribe((data: Pedido[]) => {
-      this.pedidos = data;
-    });
-  }
+	getOrders(pageIndex: number, pageSize: number): void {
+		this.pedidoService.getAllPedidos(pageIndex, pageSize).subscribe((data: any) => {
+		this.orders = data.content;
+		this.length = data.totalElements;
+	});
+ }
+
+  handlePageEvent(event: PageEvent): void {
+		this.pageIndex = event.pageIndex;
+		this.pageSize = event.pageSize;
+		this.getOrders(this.pageIndex, this.pageSize);
+	}
+
+	paginarBazares(): void {
+		const startIndex = this.pageIndex * this.pageSize;
+		const endIndex = startIndex + this.pageSize;
+		this.paginatedOrders = this.orders.slice(startIndex, endIndex);
+	}
+
+	delete(id: number): void {
+		this.pedidoService.deletePedido(id).subscribe(() => {
+			this.getOrders(this.pageIndex, this.pageSize);
+		});
+	}
+
 }
- 

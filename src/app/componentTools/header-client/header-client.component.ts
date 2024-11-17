@@ -17,7 +17,7 @@ export class HeaderClientComponent {
   }
 
   market() {
-    this.router.navigate(['/servicios']);
+    this.router.navigate(['/productos']);
   }
 
   profile() {

@@ -9,7 +9,7 @@ import { supplier } from '../model/supplier';
 })
 export class SupplierService {
 
-  private apiUrl = environment.funcionalidadesUrl + ':8090/supplier';
+  private apiUrl = environment.baseApiUrl + '/supplier';
 
   constructor(
     private http: HttpClient

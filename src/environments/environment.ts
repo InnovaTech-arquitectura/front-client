@@ -1,6 +1,5 @@
 export const environment = {
     production: false,
-    usuarioSoporteUrl: 'http://localhost', // URL específica para usuarioSoporte
-    funcionalidadesUrl: 'http://localhost', // URL específica para funcionalidades
+    baseApiUrl: 'http://localhost:8070',
 };
-  
+    

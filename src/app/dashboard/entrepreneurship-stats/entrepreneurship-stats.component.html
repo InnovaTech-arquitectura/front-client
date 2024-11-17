@@ -4,20 +4,24 @@
 	<app-sidebar class="sidebar"></app-sidebar>
 
 	<section class="contenido">
-		<div class="titulo">
-			<h1>Dashboard - Estadisticas Emprendiemiento</h1>
+		
+        <div class="titulo">
+			<h1>Estadisticas: emprendiemiento XYZ</h1>
 		</div>
 
 		<div class="middle">
+			
 			<div class="categoria">
+                
 				<div class="catWidgets">
-					<div class="card2 petStats">
+					
+                    <div class="card2 petStats">
 						<div class="card-header">
 							<div class="icono petIcon">
-								<i class="bx bx-show-alt"></i>
+								<i class='bx bx-show-alt' ></i>
 							</div>
-							<div class="dato">
-								<i let ventasVirtuales> 133</i>
+							<div class="dato" >
+								<i let ventasVirtual> {{datosSueltos?.ventasVirtual}} </i>
 							</div>
 						</div>
 
@@ -32,79 +36,67 @@
 								<i class="bx bx-money-withdraw"></i>
 							</div>
 							<div class="dato">
-								<i let totalVentas> 444</i>
+								<i let totalVentas> {{datosSueltos?.totalVentas}}</i>
 							</div>
 						</div>
 						<div class="card-body">
 							<p>Total de ventas del emprendimeiento</p>
 						</div>
 					</div>
+                    
+                    <div class="card2 moneyStats">
+                        <div class="card-header">
+                            <div class="icono moneyIcon">
+                                <i class='bx bxs-truck' ></i>
+                            </div>
+                            <div class="dato">
+                                <i let enviosCompletados> {{datosSueltos?.enviosCompletados}}</i>
+                            </div>
+                        </div>
+        
+                        <div class="card-body">
+                            <p>Total de enviaos completados</p>
+                        </div>
+                    </div>
+        
+                    <div class="card2 moneyStats">
+                        <div class="card-header">
+                            <div class="icono moneyIcon">
+                                <i class='bx bx-group'></i>
+                            </div>
+                            <div class="dato">
+                                <i let clientesTotales> {{datosSueltos?.clientes}}</i>
+                            </div>
+                        </div>
+        
+                        <div class="card-body">
+                            <p>Clientes del emprendimiento</p>
+                        </div>
+                    </div>
 
-					<div class="card2 moneyStats">
-						<div class="card-header">
-							<div class="icono moneyIcon">
-								<i class="bx bxs-truck"></i>
-							</div>
-							<div class="dato">
-								<i let enviosCompletados> 123</i>
-							</div>
-						</div>
-
-						<div class="card-body">
-							<p>Total de enviaos completados</p>
-						</div>
-					</div>
-
-					<div class="card2 moneyStats">
-						<div class="card-header">
-							<div class="icono moneyIcon">
-								<i class="bx bx-group"></i>
-							</div>
-							<div class="dato">
-								<i let clientesTotales> 5516</i>
-							</div>
-						</div>
-
-						<div class="card-body">
-							<p>Clientes del emprendimiento</p>
-						</div>
-					</div>
 				</div>
+
 			</div>
+            
 		</div>
 
-		<div class="bottom">
-			<div class="grafica_Izq">
-				<h1>Ventas por producto</h1>
-				<div class="chart1">
-					<canvas id="chart">{{ chart }}</canvas>
-				</div>
-			</div>
+        <div class = "bottom">
 
-			<div class="grafica_Der">
-				<table id="myTable" class="tablita">
-					<thead>
-						<tr>
-							<th>Producto</th>
-							<th>Unidades Vendidas</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Air Jordan 1 Mid</td>
-							<td>33</td>
-						</tr>
-						<tr>
-							<td>Air Jordan 1 High</td>
-							<td>90</td>
-						</tr>
-                        <tr>
-                            <td>Air Jordan 1 Low</td>
-                            <td>20</td>
-                        </tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+            <div class = "grafica_Izq">
+                <h1> Ventas por año </h1>
+                <div class = "chart1">
+                    <app-line-chart [chartData]="chartDataVentasAnio"></app-line-chart>
+                </div>
+            </div>
+
+            <div class = "grafica_Der">
+                <h1> Ventas por producto </h1>
+                <div class = "chart">
+                    <app-pie-chart [chartData]="chartVentasPrducto"></app-pie-chart>
+                </div>
+            </div>      
+            
+        </div>
+
 	</section>
 </body>

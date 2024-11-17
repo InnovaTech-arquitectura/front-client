@@ -1,3 +1,4 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -8,38 +9,75 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = environment.usuarioSoporteUrl+ '/login';
+  private apiUrl = environment.baseApiUrl; // Base URL para la API
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<string> {
+  // Método para el registro
+  // Método para el registro de clientes
+  registerClient(name: string, documentNumber: number, email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = JSON.stringify({ email, password });
-   
-    // Cambia el responseType a 'text'
-    return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
+    const body = {
+      name: name,
+      id_card: documentNumber,
+      email: email,
+      password: password,
+      userName: name,
+      roleName: "Client"
+    };
+
+    return this.http.post<any>(`${this.apiUrl}/api/Client/Register`, body, { headers }).pipe(
       catchError(error => {
-        console.error('Error en la solicitud:', error);
-        return throwError(error);
+        const errorMsg = error?.error?.message || 'Hubo un problema al registrar el usuario.';
+        //console.error('Registration request error:', error);
+        return throwError(errorMsg);
       })
     );
   }
 
-  // Método para registro de usuario
-  register(name: string, documentNumber: string, email: string, password: string, userType: string): Observable<string> {
+  registerEntrepreneur(
+    name: string,
+    names: string,
+    lastNames: string,
+    email: string,
+    password: string,
+    documentNumber: number,
+    userName: string,
+    nameEntrepreneurship: string,
+    description: string
+  ): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = JSON.stringify({
-      name,
-      documentNumber,
-      email,
-      password,
-      userType
-    });
+    const body = {
+      name: name,
+      names: names,
+      lastNames: lastNames,
+      email: email,
+      password: password,
+      id_card: documentNumber,
+      userName: userName,
+      nameEntrepreneurship: nameEntrepreneurship,
+      description: description,
+      roleName: 'Entrepreneurship'
+    };
 
-    // Llama a la API de registro con los datos
-    return this.http.post(this.apiUrl, body, { headers, responseType: 'text' }).pipe(
+    return this.http.post<any>(`${this.apiUrl}/api/Entrepreneurship/Register`, body, { headers }).pipe(
       catchError(error => {
-        console.error('Error en la solicitud:', error);
+        const errorMsg = error?.error?.message || 'Hubo un problema al registrar el emprendimiento.';
+        //console.error('Registration request error:', error);
+        return throwError(errorMsg);
+      })
+    );
+  }
+
+
+  // Método para el inicio de sesión
+  login(email: string, password: string): Observable<{ isSuccess: boolean, token: string, userId: string, role: string}> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = JSON.stringify({ email, password });
+
+    return this.http.post<{ isSuccess: boolean, token: string, userId: string, role: string }>(`${this.apiUrl}/api/Users/Login`, body, { headers }).pipe(
+      catchError(error => {
+        //console.error('Error en la solicitud de inicio de sesión:', error);
         return throwError(error);
       })
     );
