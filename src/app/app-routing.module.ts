@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'bazares/:id', component: DetallesBazarComponent, canActivate: [AuthGuard] },
 
 
-  { path: 'inventario', component: VerProductosServiciosComponent},
+  { path: 'inventario', component: VerProductosServiciosComponent, canActivate: [AuthGuard] },
   { path: 'inventario/nuevoProducto', component: NuevoProductoComponent, canActivate: [AuthGuard] },
   { path: 'inventario/editarProducto/:id', component: EditarProductoComponent, canActivate: [AuthGuard] },
   { path: 'inventario/infoProducto/:id', component: InfoProductoComponent, canActivate: [AuthGuard]},
