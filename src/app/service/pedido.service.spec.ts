@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PedidoService } from './pedido.service';
-import { Pedido } from '../pedido.model'; // Asegúrate de definir el modelo
 import { environment } from '../../environments/environment';
+import { Order } from '../model/order';
 
 describe('PedidoService', () => {
   let service: PedidoService;
   let httpMock: HttpTestingController;
-  let apiUrl = environment.funcionalidadesUrl + ':8080/api/pedidos';
+  const apiUrl = `${environment.baseApiUrl}/order`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PedidoService]
+      providers: [PedidoService],
     });
     service = TestBed.inject(PedidoService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -22,31 +22,25 @@ describe('PedidoService', () => {
     httpMock.verify();
   });
 
-  it('should retrieve all pedidos from the API via GET', () => {
-    const dummyPedidos: Pedido[] = [
-      { id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '' },
-      { id: 2, precio: 200, emprendimiento: 'Emp2', estado: 'entregado', direccion: '', departamento: '', ciudad: '' }
+  it('should retrieve all orders from the API via GET', () => {
+    const dummyOrders: Order[] = [
+      {
+        id: 1,
+        sale_number: 'SN1',
+        address: '123 Calle Principal',
+        additional_info: 'Info adicional 1',
+        city: { id: 1, name: 'Ciudad 1', state: { id: 1, name: 'Estado 1' } },
+        orderState: { id: 1, state: 'Pendiente' },
+      },
     ];
 
-    service.getAllPedidos().subscribe(pedidos => {
-      expect(pedidos.length).toBe(2);
-      expect(pedidos).toEqual(dummyPedidos);
+    service.getAllPedidos(0, 10).subscribe((orders) => {
+      expect(orders.length).toBe(1);
+      expect(orders).toEqual(dummyOrders);
     });
 
-    const req = httpMock.expectOne(apiUrl);
+    const req = httpMock.expectOne(`${apiUrl}/all?page=0&limit=10`);
     expect(req.request.method).toBe('GET');
-    req.flush(dummyPedidos);
-  });
-
-  it('should retrieve a single pedido by ID from the API via GET', () => {
-    const dummyPedido: Pedido = { id: 1, precio: 100, emprendimiento: 'Emp1', estado: 'pendiente', direccion: '', departamento: '', ciudad: '' };
-
-    service.getPedidoById(1).subscribe(pedido => {
-      expect(pedido).toEqual(dummyPedido);
-    });
-
-    const req = httpMock.expectOne(`${apiUrl}/1`);
-    expect(req.request.method).toBe('GET');
-    req.flush(dummyPedido);
+    req.flush(dummyOrders);
   });
 });

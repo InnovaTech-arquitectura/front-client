@@ -1,0 +1,26 @@
+<app-header-client class="headerPage"></app-header-client>
+
+<body>
+	<app-sidebar-client class="sidebar"></app-sidebar-client>
+
+	<section class="contenido">
+		<div class="titulo">
+			<h1>Productos</h1>
+		</div>
+
+		<div class="linkSeccion">
+			<a class="link" routerLink="/servicios">Ver servicios</a>
+		</div>
+
+		<div class="products">
+			<div *ngFor="let item of productsList" class="card" (click)="info(item.id)">
+				<div class="image">
+				  <img class="foto" [src]="item.image" alt="{{item.name}}"/>
+				</div>
+				<span class="title">{{ item.name }}</span>
+				<span class="price">${{ item.price }}</span>
+			  </div>
+			  
+		</div>
+	</section>
+</body>

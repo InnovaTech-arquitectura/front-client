@@ -1,74 +1,54 @@
-<app-header-client class="headerPage"></app-header-client>
+<app-header class="headerPage"></app-header>
 
 <body>
-    <app-sidebar class="sidebar"></app-sidebar>
+  <app-sidebar class="sidebar"></app-sidebar>
 
-    <section class="contenido">
-        <div class="titulo">
-            <h1>Pedidos</h1>
-        </div>
+  <section class="contenido">
+    <div class="titulo">
+      <h1>Pedidos</h1>
+    </div>
 
-        
-        <div class="search-container">
-            <i class='bx bx-search'>
-                <input type="text" placeholder="Búsqueda por ID del pedido" id="searchBar">
-            </i>
-        </div>
+    <div class="paginacion">
+        <mat-paginator
+            [length]="length"
+            [pageSize]="pageSize"
+            (page)="handlePageEvent($event)"
+            [hidePageSize]="true"
+        >
+        </mat-paginator>
+    </div>
 
-        <div class="table-container">
-            <table id="myTable" class="tablita">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cliente</th>
-                        <th>Fecha</th>
-                        <th>Estado del Pedido</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>####01</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                    <tr>
-                        <td>####02</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                    <tr>
-                        <td>####03</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                    <tr>
-                        <td>####04</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                    <tr>
-                        <td>####05</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                    <tr>
-                        <td>####06</td>
-                        <td>Juan #####</td>
-                        <td>##/##/####</td>
-                        <td>Empacado ▼</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Pedidos Totales -->
-        <div class="total-pedidos">
-            <p><strong>Pedidos totales: ####</strong></p>
-        </div>
-    </section>
+    <div class="table-container">
+      <table id="myTable" class="tablita">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ciudad</th>
+            <th>Estado</th>
+            <th>Dirección</th>
+            <th>Estado del Pedido</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.city.name }}</td>
+            <td>{{ order.city.state.name }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.orderState.state }}</td>
+            <td>
+                <a class="links delete" (click)="deleteOrder(order.id)">
+                    <i class="bx bx-trash"></i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Pedidos Totales -->
+    <div class="total-pedidos">
+        <p><strong>Pedidos totales: {{length}}</strong></p>
+    </div>
+  </section>
 </body>

@@ -9,140 +9,58 @@
     </div>
 
     <div class="gridTablas">
-        <!-- Card para primer plan -->
-        <div class="pack-container">
-            <div class="header">
-                <p class="title">Nombre del plan</p>
-                <div class="price-container">
-                    <span>$</span>27
-                    <span>/mo</span>
-                </div>
+        <!-- Iterar sobre cada plan disponible -->
+        <div *ngFor="let plan of plans" class="pack-container">
+          <div class="header">
+            <p class="title">{{ plan.name }}</p>
+            <div class="price-container">
+              <span>$</span>{{ plan.price }}
+              <span>/mo</span>
             </div>
-            <div>
-                <ul class="lists">
-                    <li class="list">
-                        <span>
-                            <svg
-                                aria-hidden="true"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M4.5 12.75l6 6 9-13.5"
-                                    stroke-linejoin="round"
-                                    stroke-linecap="round"
-                                ></path>
-                            </svg>
-                        </span>
-                        <p>Poner esto</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="containerBotones">
-                <div class="button-container">
-                    <a>
-                        <i class='bx bx-wallet'></i>
-                        Comprar plan
-                    </a>
-                </div>
-            </div>
+          </div>
+          <div>
+            <ul class="lists">
+              <li class="list" *ngFor="let feature of plan.planFunctionalities">
+                <span>
+                  <svg aria-hidden="true" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 12.75l6 6 9-13.5" stroke-linejoin="round" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+                <p>{{ feature }}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="containerBotones">
+            <div class="button-container">
+                <a *ngIf="activePlanId !== plan.id" (click)="handlePlanSelection(plan.id)">
+                  <span>
+                    <i class="bx bx-wallet"></i>
+                    {{ confirmingPlanId === plan.id ? 'Confirmar' : 'Comprar plan' }}
+                  </span>
+                </a>
+                <a *ngIf="activePlanId === plan.id" class="activo">
+                  <i class="bx bx-check-circle"></i>
+                  Activo
+                </a>
+              </div>
+              
+          </div>
         </div>
+      </div>
+      
+      
 
-        <!-- Card para segundo plan -->
-        <div class="pack-container">
-            <div class="header">
-                <p class="title">Nombre del plan</p>
-                <div class="price-container">
-                    <span>$</span>27
-                    <span>/mo</span>
-                </div>
-            </div>
-            <div>
-                <ul class="lists">
-                    <li class="list">
-                        <span>
-                            <svg
-                                aria-hidden="true"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M4.5 12.75l6 6 9-13.5"
-                                    stroke-linejoin="round"
-                                    stroke-linecap="round"
-                                ></path>
-                            </svg>
-                        </span>
-                        <p>Poner esto</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="containerBotones">
-                <div class="button-container">
-                    <a>
-                        <i class='bx bx-wallet'></i>
-                        Comprar plan
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card para tercer plan -->
-        <div class="pack-container">
-            <div class="header">
-                <p class="title">Nombre del plan</p>
-                <div class="price-container">
-                    <span>$</span>27
-                    <span>/mo</span>
-                </div>
-            </div>
-            <div>
-                <ul class="lists">
-                    <li class="list">
-                        <span>
-                            <svg
-                                aria-hidden="true"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M4.5 12.75l6 6 9-13.5"
-                                    stroke-linejoin="round"
-                                    stroke-linecap="round"
-                                ></path>
-                            </svg>
-                        </span>
-                        <p>Poner esto</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="containerBotones">
-                <div class="button-container">
-                    <a>
-                        <i class='bx bx-wallet'></i>
-                        Comprar plan
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Dropdown y botón para redimir cupones -->
     <div class="addBtn-container">
-        <input class="cupon" type="text" placeholder="Código de cupón" />
-        <a>
-            <i class='bx bx-plus-circle'></i>
-            Redimir cupón
-        </a>
+      <select class="cupon-dropdown" [(ngModel)]="selectedCouponId">
+        <option *ngFor="let coupon of coupons" [value]="coupon.idCoupon">
+          Cupón ID: {{ coupon.idCoupon }} - Estado: {{ coupon.active ? 'Activo' : 'Inactivo' }}
+        </option>
+      </select>
+      <a (click)="redeemCoupon()">
+        <i class="bx bx-plus-circle"></i>
+        Redimir cupón
+      </a>
     </div>
-    
   </section>
 </body>

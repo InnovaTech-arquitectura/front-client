@@ -1,47 +1,106 @@
 <app-header class="headerPage"></app-header>
 
 <body>
+
 	<app-sidebar class="sidebar"></app-sidebar>
 
 	<section class="contenido">
+
 		<div class="titulo">
-			<h1>Editar Producto</h1>
+			<h1>Editar producto</h1>
 		</div>
 
-		<div class="edit-product">
-			<div class="edit-product-container">
-				<div class="image-placeholder">
-					<img src="https://via.placeholder.com/300x300" alt="Image Placeholder" />
-				</div>
-				<div class="product-form">
-					<div class="form-group">
-						<label for="name">Nombre:</label>
-						<input type="text" id="name" value="Air Jordan 1 Mid" />
-					</div>
-					<div class="form-group">
-						<label for="price">Precio:</label>
-						<input type="number" id="price" value="140" />
-					</div>
-					<div class="form-group">
-						<label for="stock">Actualizar stock:</label>
-						<input type="number" id="stock" value="30" />
-					</div>
-				</div>
-			</div>
+        <form (ngSubmit)="onSubmit()" class="crear">
 
-			<div class="form-group description-group">
-				<label for="description">Descripción:</label>
-				<textarea id="description" rows="4">
-Inspirada en las AJ1 originales, esta edición de perfil medio mantiene el look icónico que más te gusta, y los colores elegidos y la piel impecable aportan una identidad distintiva.</textarea
-				>
-			</div>
+            <h2 class="form-group">Información del producto</h2>
 
-			<div class="form-buttons">
-                <a [routerLink]="['/inventario']">
-                    <button class="btn-back">Volver</button>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre"
+                    [(ngModel)]="producto.name"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Número de unidades disponibles (En Stock)</label>
+                <input 
+                    type="number" 
+                    id="stock" 
+                    name="stock"
+                    [(ngModel)]="producto.quantity"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="ValorUnidad">Valor por unidad</label>
+                <input 
+                    type="number" 
+                    id="ValorUnidad" 
+                    name="ValorUnidad"
+                    [(ngModel)]="producto.price"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="costo">Costo</label>
+                <input 
+                    type="number" 
+                    id="costo" 
+                    name="costo"
+                    [(ngModel)]="producto.cost"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <input 
+                    type="text" 
+                    id="descripcion" 
+                    name="descripcion"
+                    [(ngModel)]="producto.description"
+                    required
+                />
+            </div>
+
+            <div class="formContainer">
+                <div 
+                    class="imageUpload"
+                    (click)="fileInput.click()" 
+                    [ngStyle]="{'background-image': imagePreview ? 'url(' + imagePreview + ')' : 'none'} "
+                >
+                    <input 
+                        #fileInput
+                        type="file" 
+                        id="imagenUpload" 
+                        (change)="onImageSelected($event)" 
+                        accept="image/*" 
+                        hidden
+                    />
+                    <span *ngIf="!imagePreview" class="placeholder-text">Arrastra o selecciona una imagen</span>
+					<i *ngIf="!imagePreview" class="bx bxs-plus-circle iconAdd"></i>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <a [routerLink]="'/inventario'" class="btn">
+                  <i class="bx bx-left-arrow-alt"></i>
+                  Cancelar
                 </a>
-				<button class="btn-save">Guardar cambios</button>
-			</div>
-		</div>
+                <button type="submit" class="btn" id="saveInfo">
+                  <i class="bx bx-save"></i>
+                  Guardar cambios
+                </button>
+            </div>
+            
+        </form>
+
 	</section>
+
 </body>

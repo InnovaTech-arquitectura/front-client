@@ -13,8 +13,7 @@ body {
 	width: 100%;
 }
 
-.headerPage {
-	z-index: 10;
+.header {
 	width: 100%;
 	position: fixed;
 	top: 0;
@@ -30,121 +29,99 @@ body {
 .contenido {
 	margin-left: 280px;
 	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .titulo {
 	width: 100%;
-	height: 70px;
-	display: flex;
-	justify-content: center;
+	height: 50px;
 	text-align: center;
 }
 
 .titulo h1 {
-	height: 50px;
 	font-size: 3em;
 	font-weight: bold;
 }
 
-.edit-product {
-	width: 80%;
-	margin: 0 auto;
-	font-family: Arial, sans-serif;
-	text-align: center;
-}
+.crear {
+	
+	width: 700px;
+	border: 2px solid #d9d9d9;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 25px;
 
-.edit-product h1 {
-	font-size: 2rem;
-	margin-bottom: 20px;
-}
-
-.edit-product-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.image-placeholder {
-	width: 45%;
-	background-color: #f0f0f0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 250px;
-}
-
-.image-placeholder img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-.product-form {
-	width: 50%;
-	text-align: left;
+    
 }
 
 .form-group {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
-	display: block;
-	margin-bottom: 5px;
-	font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.form-group input,
-.form-group textarea {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 1rem;
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.description-group {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	margin-bottom: 20px;
+.form-group select {
+    appearance: none;
+    background-color: #f9f9f9;
 }
 
-.description-group label {
-	text-align: left;
-	margin-bottom: 10px;
-	font-weight: bold;
+.form-group input:focus, .form-group select:focus {
+    border-color: #333;
+    outline: none;
 }
 
-.description-group textarea {
-	width: 100%;
-	height: 150px;
-	resize: none;
+.btn {
+    width: 48%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.form-buttons {
-	display: flex;
-	justify-content: flex-end;
-	gap: 10px;
-	margin-top: 20px;
+.btn:hover {
+    background-color: #555;
 }
 
-.form-buttons .btn-back,
-.form-buttons .btn-save {
-	padding: 10px 20px;
-	font-size: 1rem;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.form-buttons .btn-back {
-	background-color: #555;
-	color: white;
+
+.imageUpload {
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
 }
 
-.form-buttons .btn-save {
-	background-color: #000;
-	color: white;
+.imageUpload:hover {
+    border-color: #87bcde;
 }

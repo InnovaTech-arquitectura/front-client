@@ -17,12 +17,12 @@ export class RecuperarComponent {
   onSubmit(): void {
     this.passwordRecoveryService.requestPasswordRecovery(this.email).subscribe(
       response => {
-        console.log('Correo enviado con éxito:', response);
+        //console.log('Correo enviado con éxito:', response);
         this.successMessage = response.message; // Now it will display the JSON message
         this.router.navigate(['/recuperar-password/verificacion']);
       },
       error => {
-        console.error('Error al enviar la solicitud:', error);
+        //console.error('Error al enviar la solicitud:', error);
         if (error.status === 404) {
           this.errorMessage = 'El correo electrónico no está registrado. Intente nuevamente.';
         } else {

@@ -61,27 +61,33 @@ export class LandingPageComponent {
     this.currentBannerIndex = (this.currentBannerIndex + 1) % this.bannerImages.length;
   }
 
-  navigateTo(section: string) {
-    console.log(`Navigate to ${section}`);
+  navigateTo(num: number) {
+    if(num == 1)
+      this.router.navigate(['/view/productos'])
+    else if(num == 2)
+      this.router.navigate(['/registro'])
   }
 
   createAccount() {
-    console.log('Create account');
+    //console.log('Create account');
+    this.router.navigate(['/registro']).catch(err => {
+      //console.error('Navigation error:', err);
+    });
   }
 
   login() {
-    console.log('Login');
+    //console.log('Login');
     this.router.navigate(['/inicio-sesion']).catch(err => {
-      console.error('Navigation error:', err);
+      //console.error('Navigation error:', err);
     });
   }
   
 
   logout() {
-    console.log('Logout');
+    //console.log('Logout');
   }
 
   sell() {
-    console.log('Sell section');
+    //console.log('Sell section');
   }
 } 

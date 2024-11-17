@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';  
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;
@@ -13,6 +14,7 @@ describe('ShoppingCartComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ShoppingCartComponent],
       imports: [
+        RouterTestingModule,
         RouterModule.forRoot([]), 
         HttpClientModule, 
         FormsModule  

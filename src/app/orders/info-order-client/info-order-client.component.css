@@ -11,23 +11,31 @@ body {
     min-height: 89vh;
     margin-top: 100px;
     width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
+
 .headerPage {
-	z-index: 10;
-	width: 100%;
-	position: fixed;
-	top: 0;
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: var(--navy-blue);
 }
 
 .sidebar {
-	position: fixed;
-	top: 100px;
-	left: 0;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 200px;
+    background-color: var(--navy-blue);
+    height: calc(100vh - 100px);
 }
 
 .contenido {
-    margin-left: 224px;
-	padding: 20px;
+    margin-left: 220px;
+    padding: 20px;
+    width: calc(100% - 220px);
 }
 
 .pedido-container {
@@ -35,16 +43,16 @@ body {
     justify-content: space-between;
     margin-left: 20px;
     margin-top: 20px;
-    width: 100%; /* Usa el ancho completo */
-    max-width: 1200px; /* Limita el ancho máximo */
+    width: 100%;
+    max-width: 1200px;
 }
 
 .productos-list {
-    width: 60%; /* Ancho de la lista de productos */
+    width: 60%;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .producto-item {
@@ -55,37 +63,42 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
-.producto-image img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
+.producto-image i {
+    font-size: 2em;
+    color: var(--navy-blue);
     margin-right: 15px;
 }
 
 .producto-info h3 {
     margin: 0;
+    font-size: 1.2em;
+    color: var(--navy-blue);
 }
 
 .producto-precio {
     font-weight: bold;
+    color: var(--light-red);
 }
 
 .pedido-detalle {
-    width: 35%; /* Ancho de los detalles del pedido */
+    margin-top: 100px;
+    width: 35%;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra ligera */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pedido-detalle h2 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: var(--navy-blue);
 }
 
 .envio-info h3 {
     margin-top: 20px;
     font-size: 20px;
+    color: var(--navy-blue);
 }
 
 .input-group {
@@ -101,12 +114,12 @@ body {
 }
 
 .input-group input {
-    width: calc(100% - 30px); /* Resta el espacio del icono de candado */
+    width: calc(100% - 30px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    margin-right: 10px; /* Añade espacio entre el input y el icono */
+    margin-right: 10px;
 }
 
 .bx-lock {
@@ -115,23 +128,22 @@ body {
 }
 
 .productos-list, .pedido-detalle {
-    margin-bottom: 30px; /* Añade margen inferior para separación */
+    margin-bottom: 30px;
 }
 
-/* Ajuste para pantallas pequeñas */
 @media (max-width: 768px) {
     .contenido {
-        flex-direction: column; /* Cambia la disposición a columna */
-        margin-left: 0; /* Elimina el margen izquierdo */
+        flex-direction: column;
+        margin-left: 0;
     }
 
     .pedido-container {
-        flex-direction: column; /* Los contenedores se apilan verticalmente */
-        width: 100%; /* Usa todo el ancho en pantallas pequeñas */
+        flex-direction: column;
+        width: 100%;
     }
 
     .productos-list, .pedido-detalle {
-        width: 100%; /* Ambos bloques ocupan el 100% del ancho */
-        margin-bottom: 20px; /* Añade separación entre bloques */
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
