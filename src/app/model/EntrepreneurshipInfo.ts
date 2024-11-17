@@ -1,9 +1,9 @@
 export interface EntrepreneurshipInfo {
-    NameTitular: string; 
-    Id_card: number; 
+    nameTitular: string; 
+    id_card: number; 
     email: string; 
-    NameEntrepreneurship: string; 
+    nameEntrepreneurship: string; 
     idEntrepreneurship: number; 
-    Logo: string; 
-    Description: string;
+    logo: string; 
+    description: string;
 }

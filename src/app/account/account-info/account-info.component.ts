@@ -11,13 +11,13 @@ import Swal from 'sweetalert2';
 })
 export class AccountInfoComponent implements OnInit {
   entrepreneurship: EntrepreneurshipInfo = {
-    NameTitular: '',
-    Id_card: 0, 
+    nameTitular: '',
+    id_card: 0, 
     email: '', 
-    NameEntrepreneurship: '',
+    nameEntrepreneurship: '',
     idEntrepreneurship: 0,
-    Logo: '',
-    Description: ''
+    logo: '',
+    description: ''
   };
 
 
@@ -48,7 +48,7 @@ export class AccountInfoComponent implements OnInit {
     this.entrepreneurshipService.getEntrepreneurship(this.entrepreneurshipId)
       .subscribe({
         next: (response) => {
-          this.originalEntrepreneurship = { ...response }; // Copia del emprendimiento original
+        
           this.entrepreneurship= { ...response };
           console.log('Información del emprendimiento cargada:', this.entrepreneurship);
         },
@@ -67,7 +67,7 @@ export class AccountInfoComponent implements OnInit {
   
   saveInfo() {
     // Verifica si los datos son válidos antes de enviar la solicitud
-    if (!this.entrepreneurship.Description || !this.entrepreneurship.Id_card || !this.entrepreneurship.email || !this.entrepreneurship.NameTitular) {
+    if (!this.entrepreneurship.description || !this.entrepreneurship.id_card || !this.entrepreneurship.email || !this.entrepreneurship.nameTitular) {
       Swal.fire('Error', 'Por favor, completa todos los campos requeridos.', 'error');
       this.isSuccess = false;
       return; // Salir si hay campos vacíos
@@ -75,11 +75,11 @@ export class AccountInfoComponent implements OnInit {
   
     // Crea un FormData para enviar los datos
     const formData = new FormData();
-    formData.append('NameTitular', this.entrepreneurship.NameTitular); // Nombre del titular
-    formData.append('Id_card', this.entrepreneurship.Id_card.toString()); // ID del cliente
+    formData.append('NameTitular', this.entrepreneurship.nameTitular); // Nombre del titular
+    formData.append('Id_card', this.entrepreneurship.id_card.toString()); // ID del cliente
     formData.append('email', this.entrepreneurship.email); // Email del cliente
-    formData.append('NameEntrepreneurship', this.entrepreneurship.NameEntrepreneurship); // Nombre del emprendimiento
-    formData.append('Description', this.entrepreneurship.Description); // Descripción del emprendimiento
+    formData.append('NameEntrepreneurship', this.entrepreneurship.nameEntrepreneurship); // Nombre del emprendimiento
+    formData.append('Description', this.entrepreneurship.description); // Descripción del emprendimiento
   
     // Si hay un archivo de logo seleccionado, lo agregamos al FormData
     if (this.logoFile) {
@@ -94,9 +94,9 @@ export class AccountInfoComponent implements OnInit {
       }
     } else {
       // Si no hay imagen seleccionada y ya existe un logo en base64
-      if (this.entrepreneurship.Logo) {
+      if (this.entrepreneurship.logo) {
         // Convertir el string Base64 a un Blob (archivo binario)
-        const base64String = this.entrepreneurship.Logo.split(',')[1]; // Eliminar el prefijo 'data:image/png;base64,' (si lo tiene)
+        const base64String = this.entrepreneurship.logo.split(',')[1]; // Eliminar el prefijo 'data:image/png;base64,' (si lo tiene)
         const byteCharacters = atob(base64String); // Decodificar Base64 a bytes
         const byteArrays = [];
         
