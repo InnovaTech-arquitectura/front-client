@@ -103,8 +103,8 @@ const routes: Routes = [
   { path: 'datos', component: PersonalInformationComponent, canActivate: [AuthGuard] },
   { path: 'planes', component: RedeemPlanComponent, canActivate: [AuthGuard] },
 
-  { path: 'capacitaciones', component: ListCoursesComponent, canActivate: [AuthGuard] },
-  { path: 'capacitaciones/info/:id', component: InfoCourseComponent, canActivate: [AuthGuard] },
+  { path: 'capacitaciones', component: ListCoursesComponent /*, canActivate: [AuthGuard]*/ },
+  { path: 'capacitaciones/info/:id', component: InfoCourseComponent/*, canActivate: [AuthGuard] */},
   { path: 'ventas', component: ListSalesComponent, canActivate: [AuthGuard] },
   { path: 'ventas/crear', component: CreateSaleComponent, canActivate: [AuthGuard] },
   { path: 'pedidos', component: ListOrdersComponent, canActivate: [AuthGuard] },

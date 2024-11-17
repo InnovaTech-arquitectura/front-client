@@ -36,4 +36,13 @@ export class InfoCourseComponent implements OnInit {
       }
     );
   }
+  inscribirseAlCurso(){
+   
+      Swal.fire({
+        icon: 'success',
+        title: '¡Inscripción completada!', 
+        text: 'Te has inscrito exitosamente al curso. ¡Disfrútalo!',
+        confirmButtonText: 'Entendido' 
+      });
+  }   
 }
