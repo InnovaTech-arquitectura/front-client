@@ -27,18 +27,17 @@ export class ListSalesComponent implements OnInit {
   getSales(pageIndex: number, pageSize: number): void {
     this.salesService.getSales(pageIndex, pageSize)
     .subscribe((data: any) => {
-        //console.log(data);
-        this.sales = data.content;
-        this.length = data.totalElements;
+      this.sales = data.content;
+      this.length = data.totalElements;
         console.log("-------Lo que llega al front -----------")
-        console.log("Sales:");
+        console.log("data:");
+        console.log(data);
+        console.log("sales:");
         console.log(this.sales);
         console.log("----------------------------------------")
-        console.log("PaginationSales:");
+        console.log("paginationSales:");
         console.log(this.paginationSales);
         console.log("----------------------------------------")
-      }, error => {
-        //console.error('Error fetching sales:', error);
       });
   }
 

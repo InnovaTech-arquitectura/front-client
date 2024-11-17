@@ -37,7 +37,7 @@ export class EditarProductoComponent implements OnInit {
     this.productsService.findProduct(id).subscribe(
       (data: any) => {
         this.producto = data;        
-        this.imagePreview = 'data:image/png;base64,' + this.producto.imageUrl;
+        this.imagePreview = 'data:image/png;base64,' + this.producto.picture;
       },
       error => {
         
