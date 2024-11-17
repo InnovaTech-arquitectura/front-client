@@ -30,6 +30,7 @@ export class EditarProductoComponent implements OnInit {
   ngOnInit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
     this.loadProduct(productId);
+
   }
 
   loadProduct(id: number): void {
@@ -37,7 +38,7 @@ export class EditarProductoComponent implements OnInit {
       (data) => {
         this.producto = data;
         
-        this.imagePreview = this.producto.imageUrl;  // Si tiene una URL de imagen, la mostramos en la vista previa
+        this.imagePreview = 'data:image/png;base64,' + this.producto.imageUrl;
       },
       (error) => {
         //console.error('Error al cargar el producto:', error);
