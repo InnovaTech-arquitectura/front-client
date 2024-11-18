@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { shopItem } from 'src/app/model/shopItem';
 import { EcommerceService } from 'src/app/service/ecommerce.service';
+import { ShoppingCartService } from '../../service/shopping-cart.service';  // Asegúrate de importar correctamente
 
 @Component({
   selector: 'app-info-product',
@@ -12,7 +13,8 @@ export class InfoProductComponent implements OnInit {
 
   constructor(
     private ecommerceService: EcommerceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private shoppingCartService: ShoppingCartService  // Asegúrate de usar el nombre correcto
   ) { 
     this.product = {
       id: 0,
@@ -27,15 +29,25 @@ export class InfoProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-			const id = Number(params.get('id'));
+      const id = Number(params.get('id'));
 
-			this.ecommerceService.findProductById(id).subscribe(
+      this.ecommerceService.findProductById(id).subscribe(
         (data) => {
-          //console.log(data);
           this.product = data;
         }
       );
-		});
+    });
   }
 
+  addToCart(product: shopItem): void {
+    this.shoppingCartService.agregarItemAlCarrito(product).subscribe(
+      response => {
+        // Aquí puedes agregar lógica adicional, como mostrar un mensaje o actualizar el carrito
+        console.log('Producto añadido al carrito:', response);
+      },
+      error => {
+        console.error('Error al añadir el producto al carrito:', error);
+      }
+    );
+  }
 }

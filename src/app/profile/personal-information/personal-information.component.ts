@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../service/client.service'; 
 import { ClientAccount } from '../../client-account.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-personal-information',
@@ -18,8 +19,7 @@ export class PersonalInformationComponent implements OnInit {
   message: string = ''; // Agrega esta línea
   isSuccess: boolean = false; // Agrega esta línea
 
-  constructor(private clientService: ClientService) {}
-
+  constructor(private clientService: ClientService, private location: Location) {}
   ngOnInit() {
     const userId = Number(localStorage.getItem('userId')); 
 
@@ -38,6 +38,7 @@ export class PersonalInformationComponent implements OnInit {
 
   discardChanges() {
     const userId = Number(localStorage.getItem('userId')); 
+    this.location.back(); // Navegar hacia la pantalla anterior
 
     //const userId = 12; // ID del usuario que deseas cargar
     this.clientService.getClient(userId)

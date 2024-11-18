@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; // Asegúrate de importar HttpHeaders
 import { Observable } from 'rxjs';
 import { Reserva } from '../reserva.model'; // Asegúrate de importar el modelo correctamente
 import { environment } from '../../environments/environment';
@@ -10,15 +10,21 @@ import { environment } from '../../environments/environment';
 export class ReservaService {
   private apiUrl = environment.baseApiUrl + '/api/reservas';
 
-  //private apiUrl = 'http://localhost:8080/api/reservas'; // Asegúrate de que la URL coincida con el backend
-
   constructor(private http: HttpClient) {}
 
+  // Método para obtener todas las reservas con encabezado de autorización
   getAllReservas(): Observable<Reserva[]> {
-    return this.http.get<Reserva[]>(this.apiUrl);
+    const token = localStorage.getItem('token'); // Obtener el token almacenado
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Añadir el token al header
+
+    return this.http.get<Reserva[]>(this.apiUrl, { headers }); // Realizar la solicitud con el token en el header
   }
 
+  // Método para obtener una reserva por su ID con encabezado de autorización
   getReservaById(id: number): Observable<Reserva> {
-    return this.http.get<Reserva>(`${this.apiUrl}/${id}`);
+    const token = localStorage.getItem('token'); // Obtener el token almacenado
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Añadir el token al header
+
+    return this.http.get<Reserva>(`${this.apiUrl}/${id}`, { headers }); // Realizar la solicitud con el token en el header
   }
 }
