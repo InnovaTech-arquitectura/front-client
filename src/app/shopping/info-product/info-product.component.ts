@@ -44,14 +44,5 @@ export class InfoProductComponent implements OnInit {
 
   addToCart(product: shopItem): void {
     this.router.navigate(['/carrito']);
-    this.shoppingCartService.agregarItemAlCarrito(product).subscribe(
-      response => {
-        // Aquí puedes agregar lógica adicional, como mostrar un mensaje o actualizar el carrito
-        console.log('Producto añadido al carrito:', response);
-      },
-      error => {
-        console.error('Error al añadir el producto al carrito:', error);
-      }
-    );
   }
 }

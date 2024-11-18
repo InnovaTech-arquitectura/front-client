@@ -33,9 +33,9 @@
       </div>
 
       <!-- Botón para agregar al carrito -->
-      <div class="add-to-cart">
-        <button (click)="addToCart(product)">Añadir al carrito</button>
-      </div>
+      <div *ngIf="product" class="add-to-cart-container">
+        <button class="add-to-cart-btn" (click)="addToCart(product)">Añadir al carrito</button>
+    </div>
     </div>
   </section>
 </body>
