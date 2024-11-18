@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
 import { shoppingCartItem } from 'src/app/model/shoppingCartItem';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 
@@ -17,12 +16,10 @@ export class ShoppingCartComponent implements OnInit {
   costoDomicilio = 10;
   total = 0;
 
-  
   constructor(
-    // private router: Router,
     private shoppingCartService: ShoppingCartService,
   ) {}
-  
+
   cartProducts: shoppingCartItem[] = [];
 
   ngOnInit() {
@@ -30,29 +27,45 @@ export class ShoppingCartComponent implements OnInit {
       (data) => {
         this.cartProducts = data;
         this.actualizarTotal();  // Para calcular el total al cargar productos
-        //console.log(data);
       }
     );
   }
 
-   aumentarCantidad(producto: shoppingCartItem) {
-     producto.quantity++;
-     this.actualizarTotal();
-   }
+  // Función para aumentar la cantidad de un producto en el carrito
+  aumentarCantidad(producto: shoppingCartItem) {
+    producto.quantity++;
+    this.shoppingCartService.actualizarCantidadProducto(producto.id, producto.quantity).subscribe(
+      () => {
+        this.actualizarTotal();  // Recalcular el total después de la actualización
+      },
+      (error) => {
+        console.error('Error actualizando la cantidad:', error);
+      }
+    );
+  }
 
-   disminuirCantidad(producto: shoppingCartItem) {
-     if (producto.quantity > 1) {
-       producto.quantity--;
-       this.actualizarTotal();
-     }
-   }
+  // Función para disminuir la cantidad de un producto en el carrito
+  disminuirCantidad(producto: shoppingCartItem) {
+    if (producto.quantity > 1) {
+      producto.quantity--;
+      this.shoppingCartService.actualizarCantidadProducto(producto.id, producto.quantity).subscribe(
+        () => {
+          this.actualizarTotal();  // Recalcular el total después de la actualización
+        },
+        (error) => {
+          console.error('Error actualizando la cantidad:', error);
+        }
+      );
+    }
+  }
 
-   actualizarTotal() {
-     this.totalProductos = this.cartProducts.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0);
-     this.total = this.totalProductos + this.costoDomicilio;
-   }
+  // Función para actualizar el total del carrito
+  actualizarTotal() {
+    this.totalProductos = this.cartProducts.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0);
+    this.total = this.totalProductos + this.costoDomicilio;
+  }
 
   confirmarPedido() {
-    alert('Pedido confirmado!');
+    alert('¡Pedido confirmado!');
   }
 }
