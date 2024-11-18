@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { shopItem } from 'src/app/model/shopItem';
 import { EcommerceService } from 'src/app/service/ecommerce.service';
 import { ShoppingCartService } from '../../service/shopping-cart.service';  // Asegúrate de importar correctamente
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-product',
@@ -11,7 +12,9 @@ import { ShoppingCartService } from '../../service/shopping-cart.service';  // A
 })
 export class InfoProductComponent implements OnInit {
 
+
   constructor(
+    private router: Router,
     private ecommerceService: EcommerceService,
     private route: ActivatedRoute,
     private shoppingCartService: ShoppingCartService  // Asegúrate de usar el nombre correcto
@@ -40,6 +43,7 @@ export class InfoProductComponent implements OnInit {
   }
 
   addToCart(product: shopItem): void {
+    this.router.navigate(['/carrito']);
     this.shoppingCartService.agregarItemAlCarrito(product).subscribe(
       response => {
         // Aquí puedes agregar lógica adicional, como mostrar un mensaje o actualizar el carrito
