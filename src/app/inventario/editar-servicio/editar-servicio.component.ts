@@ -36,9 +36,8 @@ export class EditarServicioComponent implements OnInit {
   loadService(id: number): void {
     this.servicesService.findService(id).subscribe(
       (data) => {
-        this.servicio = data;
-        
-        this.imagePreview = 'data:image/png;base64,' + this.servicio.picture;  // Si tiene una URL de imagen, la mostramos en la vista previa
+        this.servicio = data;        
+        this.imagePreview = 'data:image/png;base64,' + this.servicio.picture;
       },
       (error) => {
         //console.error('Error al cargar el servicio:', error);
@@ -57,7 +56,7 @@ export class EditarServicioComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     } else {
-      Swal.fire('Error', 'No se ha seleccionado un archivo', 'error');
+      this.selectedFile = this.servicio.picture; 
     }
   }
   
@@ -65,10 +64,10 @@ export class EditarServicioComponent implements OnInit {
   onSubmit(): void {
     const servicioId = +this.route.snapshot.paramMap.get('id')!;
 
-    if (!this.selectedFile) {
-      Swal.fire('Error', 'No se ha seleccionado una imagen', 'error');
-      return;
-    }
+    // if (!this.selectedFile) {
+    //   Swal.fire('Error', 'No se ha seleccionado una imagen', 'error');
+    //   return;
+    // }
 
     const name = (document.getElementById('nombre') as HTMLInputElement)?.value; 
     if (!name) {
