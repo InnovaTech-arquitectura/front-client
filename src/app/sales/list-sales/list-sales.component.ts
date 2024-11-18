@@ -19,9 +19,7 @@ export class ListSalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageIndex = 0;
-    //console.log(this.pageIndex);
     this.getSales(this.pageIndex, this.pageSize);
-    //console.log(this.length);
   }
 
   getSales(pageIndex: number, pageSize: number): void {
