@@ -35,6 +35,34 @@ body {
 	background-color: var(--navy-blue);
 	transform: translateY(-3px);
   }
+  .add-to-cart-btn {
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	background: linear-gradient(45deg, var(--light-yellow), var(--navy-blue));
+	color: #fff;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .add-to-cart-btn:hover {
+	background: linear-gradient(45deg, var(--navy-blue), var(--light-yellow));
+	transform: scale(1.05);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .add-to-cart-btn:focus {
+	outline: 2px solid var(--light-blue);
+  }
+  
+  .add-to-cart-btn:active {
+	background: var(--light-blue);
+	transform: scale(0.95);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
   
   .add-to-cart-btn:focus {
 	outline: none;
