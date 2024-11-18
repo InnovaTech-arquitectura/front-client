@@ -19,26 +19,17 @@ export class CreateSaleComponent {
 	) {}
 
 	infoSale: infoSale = {
-		product: {
-			id: 0,
-			name: "",
-			quantity: 0,
-			price: 0,
-			cost: 0,
-			description: ""
-		},
+		id: 0,
 		quantitySold: 0,
-		saleNumber: "",
+		productSaleDTO: {
+			id: 0,
+			name: ""
+		}
 	};
 
-	producto: any = {
+	productSaleDTO: any = {
 		id: 0,
-		name: '',
-		quantity: 0,
-		price: 0,
-		cost: 0,
-		description: '',
-		picture: '',
+		name: ''
 	};
 
 	onSubmit() {
@@ -64,16 +55,12 @@ export class CreateSaleComponent {
 
 		this.productsService.findProduct(prodIDNumber).subscribe(
 			(data) => {
-				this.producto = data;
+				this.productSaleDTO.id = data.id;
+				this.productSaleDTO.name = data.name;
 
-				this.infoSale.product.id = this.producto.id;
-				this.infoSale.product.name = this.producto.name;
-				this.infoSale.product.quantity = this.producto.quantity;
-				this.infoSale.product.price = this.producto.price;
-				this.infoSale.product.cost = this.producto.cost;
-				this.infoSale.product.description = this.producto.description;
+				this.infoSale.productSaleDTO.id = this.productSaleDTO.id;
+				this.infoSale.productSaleDTO.name = this.productSaleDTO.name;
 				this.infoSale.quantitySold = Number(quantity);
-				this.infoSale.saleNumber = saleNumber;
 		
 				this.salesService.addSale(this.infoSale).subscribe(
 					(response) => {
