@@ -35,11 +35,11 @@ export class EditarProductoComponent implements OnInit {
 
   loadProduct(id: number): void {
     this.productsService.findProduct(id).subscribe(
-      (data: any) => {
+      (data) => {
         this.producto = data;        
         this.imagePreview = 'data:image/png;base64,' + this.producto.picture;
       },
-      error => {
+      (error) => {
         
         Swal.fire({
           icon: 'error',
@@ -61,17 +61,17 @@ export class EditarProductoComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     } else {
-      Swal.fire('Error', 'No se ha seleccionado un archivo', 'error');
+      this.selectedFile = this.producto.picture;
     }
   }
 
   onSubmit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
 
-    if (!this.selectedFile) {
-      Swal.fire('Error', 'No se ha seleccionado una imagen', 'error');
-      return;
-    }
+    // if (!this.selectedFile) {
+    //   Swal.fire('Error', 'No se ha seleccionado una imagen', 'error');
+    //   return;
+    // }
 
     const name = (document.getElementById('nombre') as HTMLInputElement)?.value; 
     if (!name) {
