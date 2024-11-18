@@ -12,7 +12,39 @@ body {
 	margin-top: 100px;
 	width: 100%;
 }
-
+.add-to-cart-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+  }
+  
+  .add-to-cart-btn {
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	background-color: var(--light-yellow);
+	color: #fff;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: background-color 0.3s, transform 0.3s ease;
+  }
+  
+  .add-to-cart-btn:hover {
+	background-color: var(--navy-blue);
+	transform: translateY(-3px);
+  }
+  
+  .add-to-cart-btn:focus {
+	outline: none;
+  }
+  
+  .add-to-cart-btn:active {
+	background-color: var(--light-blue);
+	transform: translateY(0);
+  }
+  
 .headerPage {
 	z-index: 10;
 	width: 100%;

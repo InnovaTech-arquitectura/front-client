@@ -8,52 +8,40 @@ import { Order } from '../model/order';
 
 @Injectable({
 	providedIn: 'root'
-})
-export class PedidoService {
-	private apiUrl = environment.baseApiUrl + '/order';
-
+  })
+  export class PedidoService {
+	private apiUrl = environment.baseApiUrl + '';
+  
 	constructor(private http: HttpClient) {}
-
-	/*getAllPedidos(page: number, limit: number): Observable<any> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-		//console.log('Enviando solicitud al backend:', `${this.apiUrl}/all?page=${page}&limit=${limit}`); 
-		return this.http.get<any>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
- }*/
+  
+	// Método para obtener todos los pedidos con paginación
 	getAllPedidos(page: number, limit: number): Observable<Order[]> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-		return this.http.get<Order[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
+	  const token = localStorage.getItem('token'); // Obtén el token almacenado en localStorage
+	  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Añades el token al header de la solicitud
+  
+	  // Realiza la solicitud con el token en el header
+	  return this.http.get<Order[]>(`${this.apiUrl}/all?page=${page}&limit=${limit}`, { headers });
 	}
-
-
-	/*getPedidoById(id: number): Observable<Pedido> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-		return this.http.get<Pedido>(`${this.apiUrl}/${id}`, { headers });
-	}
-		*/
-
+  
+	// Método para obtener los productos de un pedido
 	getPedidoProductos(id: number): Observable<Producto[]> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-		return this.http.get<Producto[]>(`${this.apiUrl}/${id}/details`, { headers });
+	  const token = localStorage.getItem('token');
+	  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+	  return this.http.get<Producto[]>(`${this.apiUrl}/${id}/details`, { headers });
 	}
-
+  
+	// Método para eliminar un pedido
 	deletePedido(id: number): Observable<boolean> {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-	
-		return this.http.delete(`${this.apiUrl}/delete/${id}`, { headers, observe: 'response' }).pipe(
-			map((response) => {
-				return response.status === 201 || response.status === 204;
-			}),
-			catchError(() => of(false))
-		);
+	  const token = localStorage.getItem('token');
+	  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+	  return this.http.delete(`${this.apiUrl}/delete/${id}`, { headers, observe: 'response' }).pipe(
+		map((response) => {
+		  return response.status === 201 || response.status === 204;
+		}),
+		catchError(() => of(false))
+	  );
 	}
-	
-	
-}
+  }
+  

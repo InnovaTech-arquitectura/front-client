@@ -1,10 +1,25 @@
 <body>
     <img src="../../../assets/images/logo.PNG" alt="Logo" class="logoHeader" />
     <div class="header-right">
-        <button class="btnProfile"(click)="cart()">
+        <!-- Botón de Carrito -->
+        <button class="btnProfile" (click)="cart()">
             <i class='bx bx-cart'></i>
         </button>
+
+
+        <!-- Botón de Perfil -->
+        <button class="btnProfile">
+            <a [routerLink]="'/datos'">
+                <i class="bx bx-user"></i>
+            </a>
+        </button>
+
+
+        <!-- Botón de Marketplace -->
         <button class="btnMarket" (click)="market()">Marketplace</button>
+
+
+        <!-- Botón de Logout -->
         <button class="btnLogout" (click)="logout()">Cerrar sesión</button>
     </div>
 </body>
